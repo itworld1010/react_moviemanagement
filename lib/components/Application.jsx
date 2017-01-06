@@ -4,6 +4,7 @@ import { pick, split, map } from 'lodash';
 import AddMovie from './addMovie'
 import MovieCard from './MovieCard'
 import logo from '../images/reel.png'
+import HorizontalScroll from 'react-scroll-horizontal'
 
 
 export default class Application extends Component {
@@ -54,11 +55,9 @@ export default class Application extends Component {
           <h2>Welcome to MovieKeeper</h2>
           <AddMovie retrieveMovieSearch={this.retrieveMovieSearch.bind(this)}/>
         </div>
-      <div>
-        {this.state.movieResults.map((m, i) =>
-          <MovieCard movie={m}  key={m.id} user={this.state.user}/>
-        )}
-      </div>
+          {this.state.movieResults.map((m, i) =>
+            <MovieCard movie={m}  key={m.id} user={this.state.user}/>
+          )}
       </div>
     )
   }

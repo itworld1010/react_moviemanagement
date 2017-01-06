@@ -71,9 +71,10 @@ footer {
 
 .movie-card {
   width: 200px;
+  height: 400px;
   float: left;
   padding:0 10px;
-  display: inline-block;
+
   border-style: solid;
   border-width: 5px;
 }
@@ -84,7 +85,9 @@ footer {
 }
 
 .card-body{
-  font-size: 10px;;
+  height: 50px;
+  font-size: 10px;
+  overflow-y: auto;
 }
 
 .release-year{
