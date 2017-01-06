@@ -15,9 +15,6 @@ h1 {
 h2{
   color: $headerBackground;
   font-weight: bold;
-  &:hover {
-    cursor: pointer;
-  }
 }
 
 .button, .auth-button{
@@ -72,11 +69,17 @@ footer {
 .movie-card {
   width: 200px;
   height: 400px;
+  position: relative;
   float: left;
-  padding:0 10px;
-
+  padding:10px;
   border-style: solid;
   border-width: 5px;
+}
+
+.movie-card-button {
+  position: absolute;
+  bottom: 10px;
+
 }
 
 
@@ -88,6 +91,8 @@ footer {
   height: 50px;
   font-size: 10px;
   overflow-y: auto;
+  position: absolute;
+  /* top: 10; */
 }
 
 .release-year{

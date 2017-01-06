@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import firebase, { signIn, signOut } from '../firebase';
+import firebase, { usersFromDatabase, signIn, signOut } from '../firebase';
 import { pick, split, map } from 'lodash';
-import AddMovie from './addMovie'
+import SearchMovie from './SearchMovie'
 import MovieCard from './MovieCard'
+// import SelectedMovie from './SelectedMovie'
 import logo from '../images/reel.png'
-import HorizontalScroll from 'react-scroll-horizontal'
+
 
 
 export default class Application extends Component {
@@ -26,14 +27,6 @@ export default class Application extends Component {
     .then(data => this.setState( {movieResults: data.results} ))
   }
 
-  addNewMovie(movie) {
-    const { user } = this.state;
-    messagesFromDatabase.push({
-      user: pick(user, 'displayName', 'email', 'uid'),
-      content: movie
-    });
-  }
-
   render() {
     const { user } = this.state;
     let currentUser;
@@ -53,10 +46,10 @@ export default class Application extends Component {
         </div>
           <img src={logo} className="logo" alt="logo" />
           <h2>Welcome to MovieKeeper</h2>
-          <AddMovie retrieveMovieSearch={this.retrieveMovieSearch.bind(this)}/>
+          <SearchMovie retrieveMovieSearch={this.retrieveMovieSearch.bind(this)}/>
         </div>
           {this.state.movieResults.map((m, i) =>
-            <MovieCard movie={m}  key={m.id} user={this.state.user}/>
+            <MovieCard movie={m} key={m.id} user={this.state.user}/>
           )}
       </div>
     )
