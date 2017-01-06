@@ -5,6 +5,7 @@ import AddMovie from './addMovie'
 import MovieCard from './MovieCard'
 import logo from '../images/reel.png'
 
+
 export default class Application extends Component {
   constructor() {
     super();
@@ -55,7 +56,7 @@ export default class Application extends Component {
         </div>
       <div>
         {this.state.movieResults.map((m, i) =>
-          <MovieCard movie={m} key={m.id} user={this.state.user}/>
+          <MovieCard movie={m}  key={m.id} user={this.state.user}/>
         )}
       </div>
       </div>
