@@ -13,7 +13,8 @@ export default class Application extends Component {
     super();
     this.state = {
       user: null,
-      movieResults: []
+      movieResults: [],
+      userSearch: ''
     }
   }
   componentDidMount() {
@@ -25,6 +26,14 @@ export default class Application extends Component {
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=1500d38f789b9c7a70e564559a8c644d&query=${updatedTitle}`)
     .then((response) => response.json())
     .then(data => this.setState( {movieResults: data.results} ))
+  }
+
+  updateSearchQuery(query) {
+    this.setState({ userSearch: query })
+  }
+
+  clearQuery() {
+    this.setState({userSearch: ''})
   }
 
   render() {
@@ -46,7 +55,7 @@ export default class Application extends Component {
         </div>
           <img src={logo} className="logo" alt="logo" />
           <h2>Welcome to MovieKeeper</h2>
-          <SearchMovie retrieveMovieSearch={this.retrieveMovieSearch.bind(this)}/>
+          <SearchMovie clearQuery={this.clearQuery.bind(this)} updateSearchQuery={this.updateSearchQuery.bind(this)} userSearch={this.state.userSearch} retrieveMovieSearch={this.retrieveMovieSearch.bind(this)}/>
         </div>
           {this.state.movieResults.map((m, i) =>
             <MovieCard movie={m} key={m.id} user={this.state.user}/>
