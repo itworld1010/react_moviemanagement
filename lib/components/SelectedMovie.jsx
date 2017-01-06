@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 
 
-export default class MovieCard extends Component {
+export default class SelectedMovie extends Component {
 
   render() {
 
@@ -19,7 +19,10 @@ export default class MovieCard extends Component {
       <span className="release-year">({this.props.movie.release_date.substring(0, 4)})</span>
       </p>
       <p className="card-body">{this.props.movie.overview}</p>
-        <button className="movie-card-button">Movie Detail</button>
+        <button type="radio">Blu-ray</button>
+        <button>DVD</button>
+        <button>iTunes</button>
+        <button>Amazon Prime</button>
         </article>
     )
   }

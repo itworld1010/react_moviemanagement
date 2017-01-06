@@ -3,8 +3,9 @@ import firebase, { signIn, signOut } from '../firebase';
 import { pick, split, map } from 'lodash';
 import AddMovie from './addMovie'
 import MovieCard from './MovieCard'
+// import SelectedMovie from './SelectedMovie'
 import logo from '../images/reel.png'
-import HorizontalScroll from 'react-scroll-horizontal'
+
 
 
 export default class Application extends Component {
