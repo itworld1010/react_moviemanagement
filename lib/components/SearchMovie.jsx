@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export const AddMovie = ({ retrieveMovieSearch }) => {
+export const SearchMovie = ({ retrieveMovieSearch }) => {
 
   let input
 
@@ -23,4 +23,4 @@ export const AddMovie = ({ retrieveMovieSearch }) => {
   )
 }
 
-export default AddMovie;
+export default SearchMovie;

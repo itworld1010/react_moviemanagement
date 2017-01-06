@@ -15,9 +15,6 @@ h1 {
 h2{
   color: $headerBackground;
   font-weight: bold;
-  &:hover {
-    cursor: pointer;
-  }
 }
 
 .button, .auth-button{
