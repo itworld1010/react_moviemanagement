@@ -8,6 +8,7 @@ export default class MovieCard extends Component {
       <div>
         <p>{this.props.movie.title}</p>
         <p>{this.props.movie.overview}</p>
+        <button>Movie Detail</button>
       </div>
     )
   }
