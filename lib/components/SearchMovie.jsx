@@ -35,7 +35,6 @@ export default class SearchMovie extends Component {
   }
 
   render() {
-    console.log('searchMovie', this.state.user);
     let input
 
     return(
@@ -49,11 +48,12 @@ export default class SearchMovie extends Component {
         }}>
           <input
           value={this.state.userSearch}
+          placeholder="Movie Title"
           onChange={(e) => this.updateSearchQuery(input.value)}
           ref={ node => { input = node }}
           />
           <button
-          > Enter a Movie Title
+          > Search
           </button>
         </form>
         {this.state.movieResults.map((m, i) =>
