@@ -14,7 +14,8 @@ export default class MovieCard extends Component {
       DVD: false,
       Bluray: false,
       iTunes: false,
-      Prime: false
+      Prime: false,
+      submit: false
     }
   }
 
@@ -32,6 +33,7 @@ export default class MovieCard extends Component {
   }
 
   createAndSend(){
+    this.setState({ submit: !this.state.submit })
     const newMovie = {
       movie: this.state.movie,
       DVD: this.state.DVD,
@@ -40,6 +42,7 @@ export default class MovieCard extends Component {
       Prime: this.state.Prime
     };
     this.addNewMovie(newMovie);
+    this.setState({ addMovieClick: !this.state.addMovieClick })
   }
 
   render() {
@@ -74,7 +77,8 @@ export default class MovieCard extends Component {
             <button
             onClick={() => {this.setState({ addMovieClick: true })}}
             className="movie-card-button"
-            >Add Movie
+            >{!this.state.submit ? 'Add Movie' : 'Added to your movies'}
+            // need to find better alternative to alt text in button
             </button>
             :
             <button
