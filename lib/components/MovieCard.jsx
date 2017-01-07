@@ -49,10 +49,10 @@ export default class MovieCard extends Component {
             </div>
             :
             <form>
-              <input type="button" value="DVD" onClick={() => {this.setState({ DVD: true})}}/>
-              <input type="button" value="Blu-ray" onClick={() => {this.setState({ Bluray: true})}}/>
-              <input type="button" value="iTunes" onClick={() => {this.setState({ iTunes: true})}}/>
-              <input type="button" value="Prime" onClick={() => {this.setState({ Prime: true})}}/>
+              <input type="button" value="DVD" onClick={() => {this.setState({ DVD: !this.state.DVD })}}/>
+              <input type="button" value="Blu-ray" onClick={() => {this.setState({ Bluray: !this.state.Bluray })}}/>
+              <input type="button" value="iTunes" onClick={() => {this.setState({ iTunes: !this.state.iTunes })}}/>
+              <input type="button" value="Prime" onClick={() => {this.setState({ Prime: !this.state.Prime })}}/>
             </form>
           }
         </article>
