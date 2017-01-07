@@ -1,3 +1,5 @@
+// need to find better alternative to alt text in button
+
 import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 import firebase from '../firebase';
@@ -78,7 +80,6 @@ export default class MovieCard extends Component {
             onClick={() => {this.setState({ addMovieClick: true })}}
             className="movie-card-button"
             >{!this.state.submit ? 'Add Movie' : 'Added to your movies'}
-            // need to find better alternative to alt text in button
             </button>
             :
             <button
