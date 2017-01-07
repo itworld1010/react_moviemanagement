@@ -3,7 +3,7 @@ import firebase, { usersFromDatabase, signIn, signOut } from '../firebase';
 import { pick, split, map } from 'lodash';
 import SearchMovie from './SearchMovie'
 import MovieCard from './MovieCard'
-// import SelectedMovie from './SelectedMovie'
+import MyMovies from './MyMovies'
 import logo from '../images/reel.png'
 
 
