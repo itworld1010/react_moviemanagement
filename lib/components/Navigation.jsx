@@ -17,6 +17,7 @@ const Navigation = ({ user }) => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/mymovies">My Movies</Link></li>
         <li><Link to="/about">About</Link></li>
+        <li><Link to="/search">Search</Link></li>
       </ul>
       <div className='active-user'>{user ?
         <p>Logged in as <span className="bold">{firstName[0]}</span> ({user.email})  <button className='auth-button button' onClick={()=> signOut()}>Sign Out</button>
