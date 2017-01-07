@@ -9,6 +9,7 @@ export default class MovieCard extends Component {
     super();
     this.state = {
       user: null,
+      movie: null,
       addMovieClick: false,
       DVD: false,
       Bluray: false,
@@ -19,7 +20,8 @@ export default class MovieCard extends Component {
 
   componentWillMount() {
     let user = this.props.user
-    this.setState({ user })
+    let movie = this.props.movie
+    this.setState({ user, movie })
   }
 
   addNewMovie(movie) {
@@ -27,6 +29,17 @@ export default class MovieCard extends Component {
     firebase.database().ref('users/' + user.displayName).push({
       movie: movie
     });
+  }
+
+  createAndSend(){
+    const newMovie = {
+      movie: this.state.movie,
+      DVD: this.state.DVD,
+      Bluray: this.state.Bluray,
+      iTunes: this.state.iTunes,
+      Prime: this.state.Prime
+    };
+    this.addNewMovie(newMovie);
   }
 
   render() {
@@ -49,10 +62,10 @@ export default class MovieCard extends Component {
             </div>
             :
             <form>
-              <input type="button" value="DVD" onClick={() => {this.setState({ DVD: true})}}/>
-              <input type="button" value="Blu-ray" onClick={() => {this.setState({ Bluray: true})}}/>
-              <input type="button" value="iTunes" onClick={() => {this.setState({ iTunes: true})}}/>
-              <input type="button" value="Prime" onClick={() => {this.setState({ Prime: true})}}/>
+              <input type="button" value="DVD" onClick={() => {this.setState({ DVD: !this.state.DVD })}}/>
+              <input type="button" value="Blu-ray" onClick={() => {this.setState({ Bluray: !this.state.Bluray })}}/>
+              <input type="button" value="iTunes" onClick={() => {this.setState({ iTunes: !this.state.iTunes })}}/>
+              <input type="button" value="Prime" onClick={() => {this.setState({ Prime: !this.state.Prime })}}/>
             </form>
           }
         </article>
@@ -65,7 +78,7 @@ export default class MovieCard extends Component {
             </button>
             :
             <button
-            onClick={() => {this.setState({ addMovieClick: true })}}
+            onClick={() => this.createAndSend()}
             className="movie-card-button"
             >Submit
             </button>
