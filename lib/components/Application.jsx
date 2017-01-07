@@ -31,6 +31,7 @@ class Application extends Component{
         <Navigation user={this.state.user}/>
         <Match exactly pattern="/" render={() => <Homepage user={this.state.user}/>}/>
         <Match exactly pattern="/search" render={() => <SearchMovie user={this.state.user}/>} />
+        <Match exactly pattern="/mymovies" render={() => <MyMovies user={this.state.user}/>} />
         {/* <Match exactly pattern="/" component={MovieCard} user={this.state.user}/> */}
         {/* <Match exactly pattern="/" component={MyMovies} /> */}
         {/* <Match exactly pattern="/" component={App} />
