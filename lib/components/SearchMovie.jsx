@@ -1,30 +1,65 @@
 import React, { Component } from 'react';
+import firebase, { usersFromDatabase, signIn, signOut } from '../firebase';
+import { pick, split, map } from 'lodash';
+import MovieCard from './MovieCard'
 
-export const SearchMovie = ({ clearQuery, userSearch, updateSearchQuery, retrieveMovieSearch }) => {
 
-  let input
+export default class SearchMovie extends Component {
+  constructor(){
+    super()
+    this.state = {
+      user: null,
+      movieResults: [],
+      userSearch: ''
+    }
+  }
 
-    return (
+  componentDidMount() {
+   let user = this.props.user
+   this.setState({ user })
+ }
+
+  retrieveMovieSearch(input) {
+    const updatedTitle = input.replace('', '+')
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=1500d38f789b9c7a70e564559a8c644d&query=${updatedTitle}`)
+    .then((response) => response.json())
+    .then(data => this.setState( {movieResults: data.results} ))
+  }
+
+  updateSearchQuery(query) {
+    this.setState({ userSearch: query })
+  }
+
+  clearQuery() {
+    this.setState({ userSearch: ''})
+  }
+
+  render() {
+    console.log('searchMovie', this.state.user);
+    let input
+
+    return(
       <div className="settings-form">
-      <form
-      id='input-container'
-      onSubmit={ (e) => {
-        e.preventDefault()
-        retrieveMovieSearch(input.value)
-        clearQuery()
-      }}>
-      <input
-      value={userSearch}
-      onChange={(e) => updateSearchQuery(input.value)}
-      ref={ node => { input = node }}
-      />
-      <button
-      > Enter a Movie Title
-      </button>
-      </form>
+        <form
+        id='input-container'
+        onSubmit={ (e) => {
+          e.preventDefault()
+          this.retrieveMovieSearch(input.value)
+          this.clearQuery()
+        }}>
+          <input
+          value={this.state.userSearch}
+          onChange={(e) => this.updateSearchQuery(input.value)}
+          ref={ node => { input = node }}
+          />
+          <button
+          > Enter a Movie Title
+          </button>
+        </form>
+        {this.state.movieResults.map((m, i) =>
+          <MovieCard movie={m} key={m.id} user={this.state.user}/>
+        )}
       </div>
     )
-
+  }
 }
-
-export default SearchMovie;
