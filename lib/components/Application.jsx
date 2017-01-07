@@ -3,7 +3,8 @@ import firebase, { usersFromDatabase, signIn, signOut } from '../firebase';
 import { pick, split, map } from 'lodash';
 import SearchMovie from './SearchMovie'
 import MovieCard from './MovieCard'
-import MyMovies from './MyMovies'
+import Navigation from './Navigation'
+// import MyMovies from './MyMovies'
 import logo from '../images/reel.png'
 
 
@@ -37,22 +38,12 @@ export default class Application extends Component {
   }
 
   render() {
-    const { user } = this.state;
-    let currentUser;
-    let firstName;
-    if (this.state.user !== null) {
-      currentUser = this.state.user.displayName
-      firstName = split(this.state.user.displayName, ' ')
-    }
 
     return (
       <div className="Application">
         <div className="App-header">
-        <div className='active-user'>{user ?
-          <p>Logged in as <span className="bold">{firstName[0]}</span> ({user.email})  <button className='auth-button button' onClick={()=> signOut()}>Sign Out</button>
-          </p>
-          : <button className='auth-button' onClick={() => signIn()}>Sign In</button> }
-        </div>
+        <Navigation user={this.state.user}/>
+
           <img src={logo} className="logo" alt="logo" />
           <h2>Welcome to MovieKeeper</h2>
           <SearchMovie clearQuery={this.clearQuery.bind(this)} updateSearchQuery={this.updateSearchQuery.bind(this)} userSearch={this.state.userSearch} retrieveMovieSearch={this.retrieveMovieSearch.bind(this)}/>
