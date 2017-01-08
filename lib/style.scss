@@ -54,10 +54,58 @@ footer {
 
 .poster {
   width: 200px;
+  height: 300px;
 }
 
 .format-true{
   background-color: blue;
+}
+
+.nav-link{
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.shadow {
+  position: fixed;
+  background-color: rgb(1, 1, 1);
+  opacity: .7;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.video {
+  position: fixed;
+  z-index: -2;
+  width: 100%;
+}
+
+.log-in {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 10px
+}
+
+.sign-in-btn{
+  position: absolute;
+  top: 44%;
+  left: 44%;
+  background-image: src('./images/reel.png');
+  /* z-index: 5; */
 }
 
 .active-user{

@@ -19,6 +19,10 @@ module.exports = {
         },
       },
       {
+        test: /\.mp4$/,
+        loader: 'file'
+      },
+      {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
           'file?hash=sha512&digest=hex&name=[hash].[ext]',
