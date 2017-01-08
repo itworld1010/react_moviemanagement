@@ -78,8 +78,9 @@ export default class MovieCard extends Component {
         <article>
           {!this.state.addMovieClick ?
             <button
-            onClick={() => {this.setState({ addMovieClick: true })}}
+            onClick={() => {this.setState({ addMovieClick: !this.state.addMovieClick })}}
             className="movie-card-button"
+            disabled={!this.state.submit ? false : true }
             >{!this.state.submit ? 'Add Movie' : 'Added to your movies'}
             </button>
             :

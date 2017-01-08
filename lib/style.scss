@@ -52,10 +52,7 @@ footer {
   bottom: 0;
 }
 
-.poster {
-  width: 200px;
-  height: 300px;
-}
+
 
 .format-true{
   background-color: blue;
@@ -118,6 +115,7 @@ footer {
   width: 100%;
 }
 
+//search movie card
 .movie-card {
   width: 200px;
   height: 400px;
@@ -134,7 +132,6 @@ footer {
 
 }
 
-
 .card-title{
   font-size: 14px;;
 }
@@ -145,6 +142,27 @@ footer {
   overflow-y: auto;
   position: absolute;
   /* top: 10; */
+}
+
+.poster {
+  width: 200px;
+  height: 300px;
+}
+
+//personal movie card
+.personal-movie-card {
+  width: 200px;
+  height: 400px;
+  position: relative;
+  float: left;
+  padding:10px;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.personal-poster {
+  width: 50px;
+  height: 150px;
 }
 
 .release-year{

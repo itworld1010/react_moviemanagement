@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 import firebase from '../firebase';
-import { pick, map, extend } from 'lodash';
+import { pick, map, extend, filter } from 'lodash';
 import PersonalMovieCard from './PersonalMovieCard'
+import PersonalMovieSearch from './PersonalMovieSearch'
 
 
 export default class MyMovies extends Component {
@@ -10,7 +11,12 @@ export default class MyMovies extends Component {
     super();
     this.state = {
       user: null,
-      movies: []
+      movies: [],
+      filtered: [],
+      DVD: false,
+      iTunes: false,
+      Prime: false,
+      Bluray: false
     }
   }
 
@@ -28,13 +34,29 @@ export default class MyMovies extends Component {
     });
   }
 
+  filterByFormat(format) {
+    this.setState({ [format]: !this['state'][format] })
+    let filtered = filter(this.state.movies, (o) => o.movie[format])
+    this.setState({ filtered: filtered})
+  }
+
+  showAllMovies(){
+    this.setState({ filtered: [] })
+  }
+
   render() {
+
     let { user } = this.state
+    let { DVD, Bluray, Prime, iTunes } = this.state
+    let filteredMovieDisplay = this.state.filtered.map(m => <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>)
     let movieDisplay = this.state.movies.map(m => <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>)
+
+    console.log(this.state.movies);
 
     return (
       <div>
-        {movieDisplay}
+        <PersonalMovieSearch showAll={this.showAllMovies.bind(this)} filter={this.filterByFormat.bind(this)} />
+        {this.state.filtered.length === 0 ? movieDisplay : filteredMovieDisplay }
       </div>
     )
   }
