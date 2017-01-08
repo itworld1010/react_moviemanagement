@@ -61,6 +61,18 @@ footer {
   background-color: blue;
 }
 
+.nav-link{
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.log-in {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 10px
+}
+
 .active-user{
   color: white;
   padding-left: 10px;

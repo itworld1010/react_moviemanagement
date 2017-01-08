@@ -14,15 +14,17 @@ const Navigation = ({ user }) => {
 
   return(
     <div className="Navigation">
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/mymovies">My Movies</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/search">Search</Link></li>
-      </ul>
       <div className='active-user'>{user ?
-        <p>Logged in as <span className="bold">{firstName[0]}</span> ({user.email})  <button className='auth-button button' onClick={()=> signOut()}>Sign Out</button>
-        </p>
+        <div>
+        <ul>
+          <li className="nav-link"><Link to="/">Home</Link></li>
+          <li className="nav-link"><Link to="/mymovies">My Movies</Link></li>
+          <li className="nav-link"><Link to="/about">About</Link></li>
+          <li className="nav-link"><Link to="/search">Search</Link></li>
+        </ul>
+        <span className="log-in">Logged in as <span className="bold">{firstName[0]}</span><button className='auth-button button' onClick={()=> signOut()}>Sign Out</button>
+        </span>
+        </div>
         : <button className='auth-button' onClick={() => signIn()}>Sign In</button> }
       </div>
     </div>
