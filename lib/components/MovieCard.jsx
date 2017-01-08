@@ -28,11 +28,12 @@ export default class MovieCard extends Component {
   }
 
   addNewMovie(movie) {
-    const { user } = this.state;
-    firebase.database().ref('users/' + user.displayName).push({
-      movie: movie
-    });
-  }
+     const title = this.state.movie.title + this.state.movie.release_date
+     const { user } = this.state;
+     firebase.database().ref('users/' + user.displayName).child(title).set({
+       movie: movie
+     });
+   }
 
   createAndSend(){
     this.setState({ submit: !this.state.submit })
