@@ -22,7 +22,6 @@ export default class MyMovies extends Component {
   componentDidMount() {
     firebase.database().ref('users/' + this.state.user.displayName).on('value', (snapshot) => {
       const movies = snapshot.val()
-      // console.log(map(movies, (val, key) => extend(val, { key })));
       this.setState({
         movies: map(movies, (val, key) => extend(val, { key }))
       });
@@ -30,7 +29,8 @@ export default class MyMovies extends Component {
   }
 
   render() {
-    let movieDisplay = this.state.movies.map(m => <PersonalMovieCard {...m} key={m.key}/>)
+    console.log(this.state.movies);
+    let movieDisplay = this.state.movies.map(m => <PersonalMovieCard {...m} key={m.key} id={m.key}/>)
 
     return (
       <div>

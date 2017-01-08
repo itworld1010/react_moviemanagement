@@ -46,7 +46,6 @@ export default class PersonalMovieCard extends Component {
   }
 
   render() {
-    console.log(this.props.key);
 
     return (
       <article className="movie-card">
