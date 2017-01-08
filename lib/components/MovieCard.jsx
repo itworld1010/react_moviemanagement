@@ -28,11 +28,12 @@ export default class MovieCard extends Component {
   }
 
   addNewMovie(movie) {
-    const { user } = this.state;
-    firebase.database().ref('users/' + user.displayName).push({
-      movie: movie
-    });
-  }
+     const title = this.state.movie.title + this.state.movie.release_date
+     const { user } = this.state;
+     firebase.database().ref('users/' + user.displayName).child(title).set({
+       movie: movie
+     });
+   }
 
   createAndSend(){
     this.setState({ submit: !this.state.submit })
@@ -67,10 +68,10 @@ export default class MovieCard extends Component {
             </div>
             :
             <form>
-              <input type="button" value="DVD" onClick={() => {this.setState({ DVD: !this.state.DVD })}}/>
-              <input type="button" value="Blu-ray" onClick={() => {this.setState({ Bluray: !this.state.Bluray })}}/>
-              <input type="button" value="iTunes" onClick={() => {this.setState({ iTunes: !this.state.iTunes })}}/>
-              <input type="button" value="Prime" onClick={() => {this.setState({ Prime: !this.state.Prime })}}/>
+              <input className={this.state.DVD ? 'format-true' : 'format-false'} type="button" value="DVD" onClick={() => {this.setState({ DVD: !this.state.DVD })}}/>
+              <input className={this.state.Bluray ? 'format-true' : 'format-false'} type="button" value="Blu-ray" onClick={() => {this.setState({ Bluray: !this.state.Bluray })}}/>
+              <input className={this.state.iTunes ? 'format-true' : 'format-false'} type="button" value="iTunes" onClick={() => {this.setState({ iTunes: !this.state.iTunes })}}/>
+              <input className={this.state.Prime ? 'format-true' : 'format-false'} type="button" value="Prime" onClick={() => {this.setState({ Prime: !this.state.Prime })}}/>
             </form>
           }
         </article>
