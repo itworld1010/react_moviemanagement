@@ -50,7 +50,7 @@ export default class PersonalMovieCard extends Component {
   render() {
 
     return (
-      <article className="movie-card">
+      <article className="personal-movie-card">
         {this.state.movie.movie.poster_path ?
           <img
           className="poster"
@@ -88,6 +88,7 @@ export default class PersonalMovieCard extends Component {
             >View Overview
             </button>
           }
+          {/* <button>Test</button> */}
         </article>
       </article>
     )
