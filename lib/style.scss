@@ -52,10 +52,7 @@ footer {
   bottom: 0;
 }
 
-.poster {
-  width: 200px;
-  height: 300px;
-}
+
 
 .format-true{
   background-color: blue;
@@ -147,6 +144,11 @@ footer {
   /* top: 10; */
 }
 
+.poster {
+  width: 200px;
+  height: 300px;
+}
+
 //personal movie card
 .personal-movie-card {
   width: 200px;
@@ -158,6 +160,10 @@ footer {
   border-width: 5px;
 }
 
+.personal-poster {
+  width: 50px;
+  height: 150px;
+}
 
 .release-year{
   font-size: 8px;
