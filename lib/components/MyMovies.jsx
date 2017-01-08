@@ -29,8 +29,8 @@ export default class MyMovies extends Component {
   }
 
   render() {
-    console.log(this.state.movies);
-    let movieDisplay = this.state.movies.map(m => <PersonalMovieCard {...m} key={m.key} id={m.key}/>)
+    let { user } = this.state
+    let movieDisplay = this.state.movies.map(m => <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>)
 
     return (
       <div>
