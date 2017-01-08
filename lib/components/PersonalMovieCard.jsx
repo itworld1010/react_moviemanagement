@@ -13,7 +13,8 @@ export default class PersonalMovieCard extends Component {
       DVD: '',
       Bluray: '',
       iTunes: '',
-      Prime: ''
+      Prime: '',
+      viewDetailClick: false
     }
   }
 
@@ -57,7 +58,7 @@ export default class PersonalMovieCard extends Component {
           />
           : <img src={npa} className="poster"/>}
         <article>
-          {!this.state.addMovieClick?
+          {!this.state.viewDetailClick?
             <div>
               <p className="card-title" >{this.state.movie.movie.title}
                 <span className="release-year">({this.state.movie.movie.release_date.substring(0, 4)})</span>
@@ -74,11 +75,19 @@ export default class PersonalMovieCard extends Component {
           }
         </article>
         <article>
+          { !this.state.viewDetailClick ?
             <button
-            onClick={() => {this.setState({ addMovieClick: true })}}
+            onClick={() => {this.setState({ viewDetailClick: !this.state.viewDetailClick })}}
             className="movie-card-button"
-            >View Detail
+            >View Formats
             </button>
+            :
+            <button
+            onClick={() => {this.setState({ viewDetailClick: !this.state.viewDetailClick })}}
+            className="movie-card-button"
+            >View Overview
+            </button>
+          }
         </article>
       </article>
     )
