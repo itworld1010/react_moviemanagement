@@ -17,7 +17,7 @@ export default class SearchMovie extends Component {
   componentDidMount() {
    let user = this.props.user
    this.setState({ user })
- }
+  }
 
   retrieveMovieSearch(input) {
     const updatedTitle = input.replace('', '+')
@@ -47,10 +47,10 @@ export default class SearchMovie extends Component {
           this.clearQuery()
         }}>
           <input
-          value={this.state.userSearch}
-          placeholder="Movie Title"
-          onChange={(e) => this.updateSearchQuery(input.value)}
-          ref={ node => { input = node }}
+            value={this.state.userSearch}
+            placeholder="Movie Title"
+            onChange={(e) => this.updateSearchQuery(input.value)}
+            ref={ node => { input = node }}
           />
           <button
           > Search

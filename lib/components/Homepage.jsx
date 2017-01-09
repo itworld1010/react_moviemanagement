@@ -22,7 +22,6 @@ export default class Homepage extends Component {
   }
 
   render() {
-
     return (
       <div className="Homepage">
         <div className="homepage-header">

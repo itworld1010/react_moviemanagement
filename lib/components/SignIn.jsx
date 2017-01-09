@@ -1,8 +1,3 @@
-// see React Router https://react-router.now.sh/auth-workflow for how to set up login page.
-
-
-
-
 import React, { Component } from 'react'
 import firebase, { usersFromDatabase, signIn, signOut } from '../firebase';
 
@@ -14,7 +9,6 @@ export default class SignIn extends Component {
       user: null
     }
   }
-
 
   render(){
     return(

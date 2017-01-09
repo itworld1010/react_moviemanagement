@@ -19,8 +19,6 @@ const PersonalMovieSearch = ({ filter, showAll }) => {
         options={options}
         onChange={filter}
     />
-
-
   )
 }
 
