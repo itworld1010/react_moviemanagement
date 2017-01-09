@@ -3,6 +3,7 @@ import npa from '../images/no-poster.png'
 import firebase from '../firebase';
 import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
 
+
 export default class PersonalMovieCard extends Component {
   constructor() {
     super();
@@ -14,7 +15,9 @@ export default class PersonalMovieCard extends Component {
       iTunes: '',
       Prime: '',
       viewDetailClick: false,
-      showModal: false
+      showModal: false,
+      movieID: '',
+      cast: []
     }
   }
 
@@ -26,7 +29,8 @@ export default class PersonalMovieCard extends Component {
     let Prime = this.props.movie.Prime
     let iTunes = this.props.movie.iTunes
     let id = this.props.id
-    this.setState({ user, movie, DVD, Bluray, iTunes, Prime, id })
+    let movieID = this.props.movie.movie.id
+    this.setState({ user, movie, DVD, Bluray, iTunes, Prime, id, movieID })
   }
 
   addNewMovie(movie) {
@@ -34,6 +38,14 @@ export default class PersonalMovieCard extends Component {
     firebase.database().ref('users/' + user.displayName).push({
       movie: movie
     });
+  }
+
+  retrieveMovieDetails(unique) {
+    fetch(`https://api.themoviedb.org/3/movie/${unique}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
+    .then((response) => response.json())
+    .then((data) => data.cast.map((e) => e.name))
+    .then((cast) => this.setState({ cast: cast }))
+    .then(this.open())
   }
 
   updateFormat(format){
@@ -48,14 +60,17 @@ export default class PersonalMovieCard extends Component {
 
   close() {
    this.setState({ showModal: false });
- }
+  }
 
- open() {
-   this.setState({ showModal: true });
- }
+   open() {
+     this.setState({ showModal: true });
+   }
 
 
   render() {
+    let uniqueID = this.state.movieID
+    let cast = this.state.cast
+    let five = cast.slice(0,6)
     return (
       <article className="personal-movie-card">
         {this.state.movie.movie.poster_path ?
@@ -97,13 +112,14 @@ export default class PersonalMovieCard extends Component {
           }
           <Button bsStyle="primary"
           bsSize="large"
-          className="movie-card-button" onClick={() => this.open()}>The Sauce</Button>
+          className="movie-card-button" onClick={() => this.retrieveMovieDetails(uniqueID)}>The Sauce</Button>
           <Modal className="modal-container" show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
                       <Modal.Title>{this.state.movie.movie.title}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                       {this.state.movie.movie.overview}
+                      {five}
                     </Modal.Body>
                     <Modal.Footer>
                       <Button onClick={() => this.close()}>Close</Button>
