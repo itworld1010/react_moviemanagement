@@ -116,7 +116,7 @@ export default class PersonalMovieCard extends Component {
           <Button bsStyle="primary"
           bsSize="large"
           className="movie-card-button" onClick={() => this.retrieveMovieDetails(uniqueID)}>The Sauce</Button>
-          <Modal className="modal-container" show={this.state.showModal} onHide={this.close}>
+          <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
                     <Modal.Header closeButton>
                       <Modal.Title>{this.state.movie.movie.title}</Modal.Title>
                     </Modal.Header>
