@@ -131,11 +131,13 @@ export default class PersonalMovieCard extends Component {
                       <Modal.Title>{this.state.movie.movie.title}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="modal-body">
-                      <p>{director}</p>
+                      <p>Director: {director}</p>
                       {this.state.movie.movie.overview}
-                      {this.state.cast.map((m, i) =>
+                      <div className="actor-list">
+                        {this.state.cast.map((m, i) =>
                         <ActorCard cast={m} key={m.id}/>
-                      )}
+                        )}
+                      </div>
                     </Modal.Body>
                     <Modal.Footer>
                       <Button onClick={() => this.close()}>Close</Button>

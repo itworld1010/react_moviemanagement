@@ -149,6 +149,14 @@ footer {
   height: 300px;
 }
 
+//my movies
+
+.my-movie-card-container {
+  display: flex;
+  width: 70vw;
+  overflow-x: auto;
+}
+
 //personal movie card
 .p-movie-search {
   width: 50vw;
@@ -183,12 +191,26 @@ footer {
 //actor
 
 .actor-card {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
 }
 .actor-image{
-  width: 50px;
+  width: 80px;
+  height: 120px;
+  margin: 4px;
 }
 
+.actor-card-name {
+  font-size: 12px;
+  overflow: auto;
+}
+
+.actor-list {
+  width: 40vw;
+  height: 30vh;
+  display: flex;
+  overflow-y: auto;
+}
 
 .auth-button{
   background-color: $submitButtonColor;
