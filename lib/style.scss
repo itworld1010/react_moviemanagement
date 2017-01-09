@@ -149,6 +149,14 @@ footer {
   height: 300px;
 }
 
+//my movies
+
+.my-movie-card-container {
+  display: flex;
+  width: 70vw;
+  overflow-x: auto;
+}
+
 //personal movie card
 .p-movie-search {
   width: 50vw;
