@@ -30,7 +30,9 @@ export default class MyMovies extends Component {
       this.setState({
         movies: map(movies, (val, key) => extend(val, { key }))
       });
-    });
+    })
+
+    console.log(find(this.state.movies));
   }
 
   filterByFormat(format) {

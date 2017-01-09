@@ -179,6 +179,12 @@ footer {
   font-size: 8px;
 }
 
+
+//actor
+
+.actor-card {
+  display: inline-block;
+}
 .actor-image{
   width: 50px;
 }
@@ -187,7 +193,7 @@ footer {
 .auth-button{
   background-color: $submitButtonColor;
 }
-
+//modal
 .modal-container {
   display: block;
   position: fixed;
@@ -200,6 +206,18 @@ footer {
   bottom: 15%;
   overflow-y: auto;
   color: white;
+}
+
+.modal-header {
+  position: fixed;
+  display: flex;
+  background-color: white;
+  width: 70%;
+  color: black;
+}
+
+.modal-body {
+  padding-top: 25px;
 }
 
 //selector

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 import firebase from '../firebase';
 import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
-import { map, extend, keyBy, keys, mapValues, values } from 'lodash';
+import { map, extend, keyBy, keys, mapValues, values, find, get } from 'lodash';
 import ActorCard from './ActorCard'
 
 
@@ -20,7 +20,9 @@ export default class PersonalMovieCard extends Component {
       viewDetailClick: false,
       showModal: false,
       movieID: '',
-      cast: []
+      cast: [],
+      credits: '',
+      director: ''
     }
   }
 
@@ -36,20 +38,21 @@ export default class PersonalMovieCard extends Component {
     this.setState({ user, movie, DVD, Bluray, iTunes, Prime, id, movieID })
   }
 
+  componentDidMount() {
+    fetch(`https://api.themoviedb.org/3/movie/${this.state.movieID}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
+    .then((response) => response.json())
+    .then((response) => this.setState({ credits: response }))
+
+    fetch(`https://api.themoviedb.org/3/movie/${this.state.movieID}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
+    .then((response) => response.json())
+    .then((response) => this.setState({ credits: response }))
+  }
+
   addNewMovie(movie) {
     const { user } = this.state;
     firebase.database().ref('users/' + user.displayName).push({
       movie: movie
     });
-  }
-
-  retrieveMovieDetails(unique) {
-    fetch(`https://api.themoviedb.org/3/movie/${unique}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
-    .then((response) => response.json())
-    .then((response) => response.cast)
-    // .then((response) => keyBy(response, 'name'))
-    .then((response) => this.setState({ cast: response }))
-    .then(this.open())
   }
 
   updateFormat(format){
@@ -63,16 +66,23 @@ export default class PersonalMovieCard extends Component {
   }
 
   close() {
-   this.setState({ showModal: false });
+    this.setState({ showModal: false });
   }
 
-   open() {
+  setCast() {
+    let cast = this.state.credits.cast
+    this.setState({ cast: cast})
+    this.open()
+  }
+
+  open() {
      this.setState({ showModal: true });
    }
 
-
   render() {
     let uniqueID = this.state.movieID
+    let director = get((find(this.state.credits.crew, {'job': "Director"})), 'name')
+
 
     return (
       <article className="personal-movie-card">
@@ -115,12 +125,13 @@ export default class PersonalMovieCard extends Component {
           }
           <Button bsStyle="primary"
           bsSize="large"
-          className="movie-card-button" onClick={() => this.retrieveMovieDetails(uniqueID)}>The Sauce</Button>
+          className="movie-card-button" onClick={() => this.setCast()}>The Sauce</Button>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
-                    <Modal.Header closeButton>
+                    <Modal.Header className="modal-header" closeButton>
                       <Modal.Title>{this.state.movie.movie.title}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="modal-body">
+                      <p>{director}</p>
                       {this.state.movie.movie.overview}
                       {this.state.cast.map((m, i) =>
                         <ActorCard cast={m} key={m.id}/>
