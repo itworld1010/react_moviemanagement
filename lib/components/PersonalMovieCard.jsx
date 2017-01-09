@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 import firebase from '../firebase';
 import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
-import { map, extend, keyBy, keys, mapValues, values } from 'lodash';
+import { map, extend, keyBy, keys, mapValues, values, find } from 'lodash';
 import ActorCard from './ActorCard'
 
 
@@ -20,7 +20,8 @@ export default class PersonalMovieCard extends Component {
       viewDetailClick: false,
       showModal: false,
       movieID: '',
-      cast: []
+      cast: [],
+      credits: ''
     }
   }
 
@@ -46,10 +47,10 @@ export default class PersonalMovieCard extends Component {
   retrieveMovieDetails(unique) {
     fetch(`https://api.themoviedb.org/3/movie/${unique}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
     .then((response) => response.json())
-    .then((response) => response.cast)
+    .then((response) => this.setState({ credits: response }))
     // .then((response) => keyBy(response, 'name'))
-    .then((response) => this.setState({ cast: response }))
-    .then(this.open())
+    // .then((response) => this.setState({ cast: response }))
+    // .then(this.open())
   }
 
   updateFormat(format){
@@ -73,7 +74,8 @@ export default class PersonalMovieCard extends Component {
 
   render() {
     let uniqueID = this.state.movieID
-
+    let director = find(this.state.credits.crew, {'job': "Director"})
+    console.log(director);
     return (
       <article className="personal-movie-card">
         {this.state.movie.movie.poster_path ?
