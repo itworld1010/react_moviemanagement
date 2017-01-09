@@ -82,7 +82,6 @@ footer {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1;
 }
 
 .video {
@@ -542,4 +541,12 @@ footer {
   to {
     -webkit-transform: rotate(1turn);
   }
+}
+
+.modal-container {
+  display: block;
+  position: fixed;
+  background-color: black;
+  width: 70%;
+  left: 15%;
 }
