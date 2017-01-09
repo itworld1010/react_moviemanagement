@@ -53,7 +53,9 @@ export default class MyMovies extends Component {
 
     return (
       <div>
-        <PersonalMovieSearch filter={this.filterByFormat.bind(this)} />
+        <div className="p-movie-search">
+          <PersonalMovieSearch filter={this.filterByFormat.bind(this)} />
+        </div>
         {this.state.filtered.length === 0 ? movieDisplay : filteredMovieDisplay }
       </div>
     )
