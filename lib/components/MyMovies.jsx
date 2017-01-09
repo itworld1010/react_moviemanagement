@@ -5,7 +5,6 @@ import { pick, map, extend, filter } from 'lodash';
 import PersonalMovieCard from './PersonalMovieCard'
 import PersonalMovieSearch from './PersonalMovieSearch'
 
-
 export default class MyMovies extends Component {
   constructor() {
     super();
@@ -35,9 +34,14 @@ export default class MyMovies extends Component {
   }
 
   filterByFormat(format) {
-    this.setState({ [format]: !this['state'][format] })
-    let filtered = filter(this.state.movies, (o) => o.movie[format])
-    this.setState({ filtered: filtered})
+    let selectedFormat = format.value
+    if(selectedFormat.value !== 'Show-all')
+      {this.setState({ [selectedFormat]: !this['state'][selectedFormat] })
+      let filtered = filter(this.state.movies, (o) => o.movie[selectedFormat])
+      this.setState({ filtered: filtered})
+    } else {
+      this.setState({ filtered: [] })
+    }
   }
 
   showAllMovies(){
@@ -50,8 +54,6 @@ export default class MyMovies extends Component {
     let { DVD, Bluray, Prime, iTunes } = this.state
     let filteredMovieDisplay = this.state.filtered.map(m => <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>)
     let movieDisplay = this.state.movies.map(m => <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>)
-
-    console.log(this.state.movies);
 
     return (
       <div>

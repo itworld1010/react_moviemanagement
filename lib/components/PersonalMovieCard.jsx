@@ -39,7 +39,6 @@ export default class PersonalMovieCard extends Component {
   updateFormat(format){
     let { user } = this.state
     let title = this.state.id
-    console.log(title);
     this.setState({ [format]: !this['state'][format]})
     let state = !this.state[format]
     firebase.database().ref('users/' + user.displayName).child(title).child('movie').update({
@@ -48,8 +47,6 @@ export default class PersonalMovieCard extends Component {
   }
 
   render() {
-
-
     return (
       <article className="personal-movie-card">
         {this.state.movie.movie.poster_path ?
