@@ -25,6 +25,7 @@ export default class MyMovies extends Component {
    this.setState({ user })
   }
 
+
   componentDidMount() {
     firebase.database().ref('users/' + this.state.user.displayName).on('value', (snapshot) => {
       const movies = snapshot.val()
@@ -35,9 +36,14 @@ export default class MyMovies extends Component {
   }
 
   filterByFormat(format) {
-    this.setState({ [format]: !this['state'][format] })
-    let filtered = filter(this.state.movies, (o) => o.movie[format])
+    let selectedFormat = format.value
+    if(selectedFormat.value !== 'Show-all')
+    {this.setState({ [selectedFormat]: !this['state'][selectedFormat] })
+    let filtered = filter(this.state.movies, (o) => o.movie[selectedFormat])
     this.setState({ filtered: filtered})
+  } else {
+    this.setState({ filtered: [] })
+  }
   }
 
   showAllMovies(){

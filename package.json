@@ -58,6 +58,7 @@
     "locus": "^1.2.0",
     "moment": "^2.15.1",
     "react-html5video": "^1.4.0",
+    "react-select": "^1.0.0-rc.2",
     "sinon": "^1.17.6"
   }
 }
