@@ -75,7 +75,7 @@ export default class MovieCard extends Component {
             </form>
           }
         </article>
-        <article>
+        <article className="p-movie-card-buttons">
           {!this.state.addMovieClick ?
             <button
             onClick={() => {this.setState({ addMovieClick: !this.state.addMovieClick })}}
