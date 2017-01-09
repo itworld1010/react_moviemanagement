@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 import firebase from '../firebase';
 import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
+import { map, extend, keyBy } from 'lodash';
+
 
 
 export default class PersonalMovieCard extends Component {
@@ -43,9 +45,13 @@ export default class PersonalMovieCard extends Component {
   retrieveMovieDetails(unique) {
     fetch(`https://api.themoviedb.org/3/movie/${unique}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
     .then((response) => response.json())
-    .then((data) => data.cast.map((e) => e.name))
-    .then((cast) => this.setState({ cast: cast }))
-    .then(this.open())
+    .then((response) => response.cast)
+    .then((response) =>
+      this.setState({ cast: keyBy(response, 'name')}))
+    // .then((response) => console.log(response))
+    // .then((data) => data.cast.map((e) => e.name))
+    // .then((cast) => this.setState({ cast: cast }))
+    // .then(this.open())
   }
 
   updateFormat(format){
@@ -69,8 +75,8 @@ export default class PersonalMovieCard extends Component {
 
   render() {
     let uniqueID = this.state.movieID
-    let cast = this.state.cast
-    let five = cast.slice(0,6)
+    // let cast = this.state.cast
+    // let five = cast.slice(0,6)
     return (
       <article className="personal-movie-card">
         {this.state.movie.movie.poster_path ?
@@ -119,7 +125,7 @@ export default class PersonalMovieCard extends Component {
                     </Modal.Header>
                     <Modal.Body>
                       {this.state.movie.movie.overview}
-                      {five}
+                      {/* {five} */}
                     </Modal.Body>
                     <Modal.Footer>
                       <Button onClick={() => this.close()}>Close</Button>
