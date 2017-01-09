@@ -127,9 +127,8 @@ footer {
 }
 
 .movie-card-button {
-  position: absolute;
-  bottom: 10px;
-
+  position: relative;
+  display: inline-block;
 }
 
 .card-title{
@@ -158,6 +157,11 @@ footer {
   padding:10px;
   border-style: solid;
   border-width: 5px;
+}
+
+.p-movie-card-buttons{
+  position: absolute;
+  bottom: 0;
 }
 
 .personal-poster {
@@ -549,4 +553,5 @@ footer {
   background-color: black;
   width: 70%;
   left: 15%;
+  color: white;
 }

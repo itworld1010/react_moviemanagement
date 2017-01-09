@@ -44,10 +44,6 @@ export default class MyMovies extends Component {
     }
   }
 
-  showAllMovies(){
-    this.setState({ filtered: [] })
-  }
-
   render() {
 
     let { user } = this.state
@@ -57,7 +53,7 @@ export default class MyMovies extends Component {
 
     return (
       <div>
-        <PersonalMovieSearch showAll={this.showAllMovies.bind(this)} filter={this.filterByFormat.bind(this)} />
+        <PersonalMovieSearch filter={this.filterByFormat.bind(this)} />
         {this.state.filtered.length === 0 ? movieDisplay : filteredMovieDisplay }
       </div>
     )

@@ -3,7 +3,7 @@ import logo from '../images/reel.png'
 import Select from 'react-select';
 
 
-const PersonalMovieSearch = ({ filter, showAll }) => {
+const PersonalMovieSearch = ({ filter }) => {
   var options = [
       { value: 'Show-all', label: 'Show All' },
       { value: 'Bluray', label: 'Blu-ray' },
