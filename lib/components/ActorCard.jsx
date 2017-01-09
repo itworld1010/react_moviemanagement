@@ -23,14 +23,12 @@ export default class MovieCard extends Component {
 
     return (
       <article className="actor-card">
-        <p>{this.state.cast.name}</p>
-        <img className="actor-image" src={"https://image.tmdb.org/t/p/w500" + this.state.cast.profile_path}/>
-        {/* {this.state.cast.poster_path ?
-          <img
-          className="poster"
-          src={"https://image.tmdb.org/t/p/w500" + this.state.movie.poster_path}
-          />
-          : <img src={npa} className="poster"/>} */}
+          { this.state.cast.profile_path ?
+            <img className="actor-image" src={"https://image.tmdb.org/t/p/w500" + this.state.cast.profile_path}/>
+          :
+            <img src={npa} className="actor-image"/>
+          }
+          <p className="actor-card-name">{this.state.cast.name}</p>
       </article>
     )
   }
