@@ -179,6 +179,10 @@ footer {
   font-size: 8px;
 }
 
+.actor-image{
+  width: 50px;
+}
+
 
 .auth-button{
   background-color: $submitButtonColor;
@@ -189,7 +193,12 @@ footer {
   position: fixed;
   background-color: black;
   width: 70%;
+  height: 70%;
   left: 15%;
+  right: 15%;
+  top: 15%;
+  bottom: 15%;
+  overflow-y: auto;
   color: white;
 }
 
