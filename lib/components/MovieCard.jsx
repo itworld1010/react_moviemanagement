@@ -49,6 +49,7 @@ export default class MovieCard extends Component {
   }
 
   render() {
+
     return (
       <article className="movie-card">
         {this.state.movie.poster_path ?

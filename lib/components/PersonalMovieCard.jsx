@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 import firebase from '../firebase';
-
-
+import {Modal, Header, OverlayTrigger} from 'react-bootstrap'
+import {Button} from 'react-bootstrap'
 
 export default class PersonalMovieCard extends Component {
   constructor() {
@@ -14,7 +14,8 @@ export default class PersonalMovieCard extends Component {
       Bluray: '',
       iTunes: '',
       Prime: '',
-      viewDetailClick: false
+      viewDetailClick: false,
+      showModal: false
     }
   }
 
@@ -45,6 +46,15 @@ export default class PersonalMovieCard extends Component {
       [format]: state
     })
   }
+
+  close() {
+   this.setState({ showModal: false });
+ }
+
+ open() {
+   this.setState({ showModal: true });
+ }
+
 
   render() {
     return (
@@ -86,7 +96,29 @@ export default class PersonalMovieCard extends Component {
             >View Overview
             </button>
           }
-          {/* <button>Test</button> */}
+          <Button bsStyle="primary"
+          bsSize="large"
+          className="movie-card-button" onClick={() => this.open()}>Test</Button>
+          <Modal className="modal-container" show={this.state.showModal} onHide={this.close}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>Modal heading</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <h4>Text in a modal</h4>
+                      <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+
+                      <hr />
+
+                      <h4>Overflowing text to show scroll behavior</h4>
+                      <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                      <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+                    </Modal.Body>
+                    <Modal.Footer>
+                      <Button onClick={() => this.close()}>Close</Button>
+                    </Modal.Footer>
+                  </Modal>
         </article>
       </article>
     )
