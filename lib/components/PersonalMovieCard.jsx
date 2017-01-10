@@ -137,7 +137,7 @@ export default class PersonalMovieCard extends Component {
           className="personal-movie-card-button" onClick={() => this.setCast()}></Button>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
                     <Modal.Header className="modal-header">
-                      <Modal.Title>{this.state.movie.movie.title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
+                      <Modal.Title className="modal-title">{this.state.movie.movie.title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="modal-body">
                       <p className="modal-director">Director: {director}</p>
@@ -148,11 +148,11 @@ export default class PersonalMovieCard extends Component {
                         <ActorCard cast={m} key={m.id}/>
                         )}
                       </div>
+                      <div className="youtube-container">
                       { this.state.youtubeID ?
                         <YouTube
                           className="youtube"
                           controls="1"
-                          fs
                           videoId={this.state.youtubeID}
                           loop="1"
                         />
@@ -164,6 +164,7 @@ export default class PersonalMovieCard extends Component {
                           videoId='dQw4w9WgXcQ'
                         />
                       }
+                      </div>
                     </Modal.Body>
                   </Modal>
         </article>
