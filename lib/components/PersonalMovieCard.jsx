@@ -4,6 +4,7 @@ import firebase from '../firebase';
 import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
 import { map, extend, keyBy, keys, mapValues, values, find, get, forEach, join } from 'lodash';
 import ActorCard from './ActorCard'
+import YouTube from 'react-youtube'
 
 
 
@@ -24,7 +25,9 @@ export default class PersonalMovieCard extends Component {
       credits: '',
       director: '',
       genreNamesArray: [],
-      genres: []
+      genres: [],
+      trailers: '',
+      youtubeID: ''
     }
   }
 
@@ -45,6 +48,10 @@ export default class PersonalMovieCard extends Component {
     fetch(`https://api.themoviedb.org/3/movie/${this.state.movieID}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
     .then((response) => response.json())
     .then((response) => this.setState({ credits: response }))
+
+    fetch(`https://api.themoviedb.org/3/movie/${this.state.movieID}/videos?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US`)
+    .then((response) => response.json())
+    .then((response) => this.setState({ trailers: response }))
   }
 
   addNewMovie(movie) {
@@ -69,6 +76,8 @@ export default class PersonalMovieCard extends Component {
   }
 
   setCast() {
+    let trailerObj = map(this.state.trailers.results, 'key')
+    forEach(trailerObj, (e) => this.setState({ youtubeID: e}))
     let cast = this.state.credits.cast
     let genreArray = (this.state.genres.map((e) => this.genreSwitch(e)))
     this.setState({ cast: cast, genreNamesArray: genreArray })
@@ -106,6 +115,7 @@ export default class PersonalMovieCard extends Component {
     let uniqueID = this.state.movieID
     let director = get((find(this.state.credits.crew, {'job': "Director"})), 'name')
 
+    // console.log( find(this.state.trailers.results, 'key'))
     return (
       <article className="personal-movie-card">
         {this.state.movie.movie.poster_path ?
@@ -130,6 +140,19 @@ export default class PersonalMovieCard extends Component {
                         <ActorCard cast={m} key={m.id}/>
                         )}
                       </div>
+                      { this.state.youtubeID ?
+                        <YouTube
+                          controls="1"
+                          fs
+                          videoId={this.state.youtubeID}
+                        />
+                      :
+                        <YouTube
+                          controls="1"
+                          fs
+                          videoId='dQw4w9WgXcQ'
+                        />
+                      }
                     </Modal.Body>
                   </Modal>
         </article>
