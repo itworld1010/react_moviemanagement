@@ -154,8 +154,8 @@ export default class PersonalMovieCard extends Component {
           bsSize="large"
           className="movie-card-button" onClick={() => this.setCast()}>The Sauce</Button>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
-                    <Modal.Header className="modal-header" closeButton>
-                      <Modal.Title>{this.state.movie.movie.title}</Modal.Title>
+                    <Modal.Header className="modal-header">
+                      <Modal.Title>{this.state.movie.movie.title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="modal-body">
                       <p className="modal-director">Director: {director}</p>
@@ -167,9 +167,6 @@ export default class PersonalMovieCard extends Component {
                         )}
                       </div>
                     </Modal.Body>
-                    <Modal.Footer>
-                      <Button className="modal-bottom-exit btn" onClick={() => this.close()}>Close</Button>
-                    </Modal.Footer>
                   </Modal>
         </article>
       </article>
