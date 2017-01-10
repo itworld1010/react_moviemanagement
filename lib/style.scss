@@ -22,13 +22,13 @@ h2{
 .button, .format-button, .auth-button, .movie-card-button{
     -webkit-border-radius: 60;
     -moz-border-radius: 60;
-    border-radius: 60px;
+    border-radius: 5px;
     font-family: Arial;
     color: #0f0f0f;
     font-size: 12px;
     background: #ffffff;
     padding: 4px;
-    border: solid #93a3ad 2px;
+    border: solid #d8dadb .5px;
     text-decoration: none;
     &hover{
       background: #d5d7d9;
