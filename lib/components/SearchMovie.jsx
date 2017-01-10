@@ -49,7 +49,7 @@ export default class SearchMovie extends Component {
             <input
               className="search-input"
               // value={this.state.userSearch}
-              placeholder="Movie Title"
+              placeholder="Enter Movie Title"
               // onChange={(e) => this.updateSearchQuery(input.value)}
               ref={ node => { input = node }}
             />
