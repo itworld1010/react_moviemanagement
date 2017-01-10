@@ -64,7 +64,12 @@ footer {
 
 .nav-link{
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 25px;
+}
+
+.nav-container {
+  margin: 5px;
+
 }
 
 .video-background {
@@ -169,7 +174,6 @@ footer {
 //my movies
 
 .my-movie-card-container {
-  display: flex;
   width: 90vw;
   overflow-x: auto;
   margin: auto;
@@ -185,7 +189,7 @@ footer {
 
 .personal-movie-card {
   width: 200px;
-  height: 400px;
+  height: 300px;
   position: relative;
   float: left;
   margin:10px;
