@@ -131,6 +131,28 @@ footer {
   margin:10px;
 }
 
+.search-input-container {
+  width: 50vw;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.search-input{
+  background-color: #fff;
+  border-color: #d9d9d9 #ccc #b3b3b3;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  line-height: 19px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 80%;
+  overflow: hidden;
+  align-items: center;
+  border-radius: 5px;
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
 .movie-card-button {
   position: relative;
   display: inline-block;
