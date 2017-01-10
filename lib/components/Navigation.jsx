@@ -11,8 +11,7 @@ const Navigation = ({ user }) => {
     firstName = split(user.displayName, ' ')
   }
   return (
-    <div className="Navigation">
-      <div className='active-user'>
+    <div className="navigation">
         <div className="nav-container">
         <ul>
           <li className="nav-link"><Link to="/">Home</Link></li>
@@ -23,7 +22,6 @@ const Navigation = ({ user }) => {
         <span className="log-in">Logged in as <span className="bold">{firstName[0]}</span><button className='auth-button button' onClick={()=> signOut()}>Sign Out</button>
         </span>
         </div>
-      </div>
     </div>
   )
 }

@@ -56,7 +56,15 @@ footer {
   bottom: 0;
 }
 
-
+.navigation {
+  color: white;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  background-color: $navigation;
+  height: 50px;
+  width: 100%;
+}
 
 .format-true{
   background-color: blue;
@@ -110,18 +118,9 @@ footer {
   top: 44%;
   left: 44%;
   background-image: src('./images/reel.png');
-  /* z-index: 5; */
 }
 
-.active-user{
-  color: white;
-  padding-left: 10px;
-  display: flex;
-  align-items: center;
-  background-color: $navigation;
-  height: 50px;
-  width: 100%;
-}
+
 
 //search movie card
 .movie-card {
@@ -173,7 +172,7 @@ footer {
 
 //my movies
 
-.my-movie-card-container {
+.my-movie-card-container, .search-movie-card-container {
   width: 90vw;
   overflow-x: auto;
   margin: auto;

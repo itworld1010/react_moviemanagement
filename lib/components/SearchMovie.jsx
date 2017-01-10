@@ -56,9 +56,11 @@ export default class SearchMovie extends Component {
           > Search
           </button>
         </form>
+        <div className="search-movie-card-container">
         {this.state.movieResults.map((m, i) =>
           <MovieCard movie={m} key={m.id} user={this.state.user}/>
         )}
+        </div>
       </div>
     )
   }
