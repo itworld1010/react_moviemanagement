@@ -19,20 +19,22 @@ h2{
   font-weight: bold;
 }
 
-.button, .auth-button{
-  font-family: $main-font;
-  font-size: 16px;
-  font-weight: 300;
-  width: 75px;
-  margin-left: 10px;
-  border-radius: 3px;
-  height: 30px;
-  border-style: none;
-  color: #FFF;
-  &:hover {
-    cursor: pointer;
+.button, .format-button, .auth-button, .movie-card-button{
+    -webkit-border-radius: 60;
+    -moz-border-radius: 60;
+    border-radius: 5px;
+    font-family: Arial;
+    color: #0f0f0f;
+    font-size: 12px;
+    background: #ffffff;
+    padding: 4px;
+    border: solid #d8dadb .5px;
+    text-decoration: none;
+    &hover{
+      background: #d5d7d9;
+      text-decoration: none;
+    }
   }
-}
 
 .logo{
   height: 50px;
@@ -111,7 +113,7 @@ footer {
   padding-left: 10px;
   display: flex;
   align-items: center;
-  background-color: $activeUserColor;
+  background-color: $navigation;
   height: 50px;
   width: 100%;
 }
@@ -122,18 +124,20 @@ footer {
   height: 400px;
   position: relative;
   float: left;
-  padding:10px;
-  border-style: solid;
-  border-width: 5px;
+  margin:10px;
 }
 
 .movie-card-button {
   position: relative;
   display: inline-block;
+  margin: 4px;
+  // margin-right: 4px;
 }
 
 .card-title{
-  font-size: 14px;;
+  font-size: 14px;
+  margin: 2px;
+  margin-left: 0px;
 }
 
 .card-body{
@@ -141,7 +145,7 @@ footer {
   font-size: 10px;
   overflow-y: auto;
   position: absolute;
-  /* top: 10; */
+  margin-top: 2px;
 }
 
 .poster {
@@ -153,14 +157,17 @@ footer {
 
 .my-movie-card-container {
   display: flex;
-  width: 70vw;
+  width: 90vw;
   overflow-x: auto;
+  margin: auto;
+  margin-top: 10px;
 }
 
 //personal movie card
 .p-movie-search {
   width: 50vw;
   margin: auto;
+  margin-top: 10px;
 }
 
 .personal-movie-card {
@@ -168,14 +175,14 @@ footer {
   height: 400px;
   position: relative;
   float: left;
-  padding:10px;
-  border-style: solid;
-  border-width: 5px;
+  margin:10px;
 }
 
 .p-movie-card-buttons{
   position: absolute;
   bottom: 0;
+  width: 100%;
+  background-color: white;
 }
 
 .personal-poster {
@@ -207,7 +214,7 @@ footer {
 
 .actor-list {
   width: 40vw;
-  height: 30vh;
+  height: 40vh;
   display: flex;
   overflow-y: auto;
 }
@@ -240,6 +247,36 @@ footer {
 
 .modal-body {
   padding-top: 25px;
+}
+
+.modal-bottom-exit {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 4px;
+  margin-bottom: 4px
+}
+
+.modal-top-exit {
+  position: fixed;
+  right: 14%;
+  top: 12%
+}
+
+.modal-director{
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.modal-genre{
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.modal-overview {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 //selector

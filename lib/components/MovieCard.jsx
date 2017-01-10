@@ -39,6 +39,7 @@ export default class MovieCard extends Component {
     this.setState({ submit: !this.state.submit })
     const newMovie = {
       movie: this.state.movie,
+      genres: this.state.movie.genre_ids,
       DVD: this.state.DVD,
       Bluray: this.state.Bluray,
       iTunes: this.state.iTunes,

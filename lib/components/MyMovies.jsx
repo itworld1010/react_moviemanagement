@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 import firebase from '../firebase';
-import { pick, map, extend, filter } from 'lodash';
+import { pick, map, extend, filter, keyBy } from 'lodash';
 import PersonalMovieCard from './PersonalMovieCard'
 import PersonalMovieSearch from './PersonalMovieSearch'
 
@@ -12,10 +12,7 @@ export default class MyMovies extends Component {
       user: null,
       movies: [],
       filtered: [],
-      DVD: false,
-      iTunes: false,
-      Prime: false,
-      Bluray: false
+      genres:[]
     }
   }
 
@@ -32,7 +29,6 @@ export default class MyMovies extends Component {
       });
     })
 
-    console.log(find(this.state.movies));
   }
 
   filterByFormat(format) {
@@ -46,12 +42,37 @@ export default class MyMovies extends Component {
     }
   }
 
+  genreSwitch(genreID) {
+     if (genreID === 28){return "Action"}
+     else if (genreID === 12){return "Adventure"}
+     else if (genreID === 16){return "Animation"}
+     else if (genreID === 35){return "Comedy"}
+     else if (genreID === 80){return "Crime"}
+     else if (genreID === 99){return "Documentary"}
+     else if (genreID === 18){return "Drama"}
+     else if (genreID === 10751){return "Family"}
+     else if (genreID === 14){return "Fantasy"}
+     else if (genreID === 36){return "History"}
+     else if (genreID === 27){return "Horror"}
+     else if (genreID === 10402){return "Music"}
+     else if (genreID === 9648){return "Mystery"}
+     else if (genreID === 10749){return "Romance"}
+     else if (genreID === 878){return "Science Fiction"}
+     else if (genreID === 10770){return "TV Movie"}
+     else if (genreID === 53){return "Thriller"}
+     else if (genreID === 10752){return "War"}
+     else if (genreID === 5373){return "Western"}
+   }
+
   render() {
 
     let { user } = this.state
     let { DVD, Bluray, Prime, iTunes } = this.state
     let filteredMovieDisplay = this.state.filtered.map(m => <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>)
     let movieDisplay = this.state.movies.map(m => <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>)
+    // let genres = this.state.movie.genres
+    // console.log(genres);
+
 
     return (
       <div>
