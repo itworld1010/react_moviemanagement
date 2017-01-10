@@ -19,6 +19,10 @@ h2{
   font-weight: bold;
 }
 
+a:visited {
+  color: black;
+}
+
 .button, .format-button, .auth-button, .movie-card-button{
     -webkit-border-radius: 60;
     -moz-border-radius: 60;
@@ -30,11 +34,20 @@ h2{
     padding: 4px;
     border: solid #d8dadb .5px;
     text-decoration: none;
-    &hover{
+    &:hover{
       background: #d5d7d9;
       text-decoration: none;
+      cursor: pointer;
     }
   }
+
+.sign-out-button {
+  background-color: #ff8935
+}
+
+.sign-in-btn:hover {
+  cursor: pointer;
+}
 
 .logo{
   height: 50px;
@@ -170,11 +183,18 @@ footer {
 
 .personal-movie-card-button {
   width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    opacity: 0
+  height: 100%;
+  position: absolute;
+  left: 0;
+  opacity: .01;
+  &:hover{
+    cursor: pointer;
+    visibility: visible;
+    opacity: 0;
+  }
 }
+
+
 
 .card-title{
   font-size: 14px;
@@ -219,13 +239,6 @@ footer {
   margin:10px;
 }
 
-.p-movie-card-buttons{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: white;
-}
-
 .personal-poster {
   width: 50px;
   height: 150px;
@@ -254,41 +267,46 @@ footer {
 }
 
 .actor-list {
-  width: 70vw;
+  width: 99%;
   height: 40vh;
   display: flex;
   overflow-y: auto;
 }
 
-.auth-button{
-  background-color: $submitButtonColor;
-}
 //modal
 .modal-container {
   display: block;
   position: fixed;
   background-color: black;
   opacity: .9;
-  width: 70%;
-  height: 70%;
-  left: 15%;
-  right: 15%;
-  top: 15%;
-  bottom: 15%;
+  width: 84%;
+  height: 84%;
+  left: 8%;
+  right: 8%;
+  top: 8%;
+  bottom: 8%;
   overflow-y: auto;
   color: white;
 }
 
 .youtube {
-  opacity: .99;
+  width: 100%;
+  margin-bottom: 5%;
 }
 
 .modal-header {
   position: fixed;
   display: flex;
-  background-color: white;
-  width: 70%;
-  color: black;
+  background-color: black;
+  width: 84%;
+  color: white;
+  z-index: 10;
+  height: 30px;
+}
+
+.modal-title {
+  margin: auto;
+  font-size: 30px;
 }
 
 .modal-body {
@@ -305,8 +323,16 @@ footer {
 
 .modal-top-exit {
   position: fixed;
-  right: 14%;
-  top: 12%
+  right: 6.5%;
+  top: 3%;
+  padding: 13px;
+  background-color: red;
+  opacity: 0.8;
+  border-radius: 20px;
+  &:hover {
+    opacity: 1;
+    background-color:red;
+  }
 }
 
 .modal-director{

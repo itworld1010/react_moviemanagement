@@ -19,7 +19,7 @@ const Navigation = ({ user }) => {
           <li className="nav-link"><Link to="/about">About</Link></li>
           <li className="nav-link"><Link to="/search">Search</Link></li>
         </ul>
-        <span className="log-in">Logged in as <span className="bold">{firstName[0]}</span><button className='auth-button button' onClick={()=> signOut()}>Sign Out</button>
+        <span className="log-in"><button className='auth-button sign-out-button button' onClick={()=> signOut()}>Sign Out</button>
         </span>
         </div>
     </div>
