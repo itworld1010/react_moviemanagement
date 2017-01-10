@@ -129,10 +129,10 @@ export default class PersonalMovieCard extends Component {
             </div>
             :
             <form>
-              <input className={this.state.DVD ? 'format-true' : 'format-false'} type="button" value="DVD" onClick={() => this.updateFormat('DVD')}/>
-              <input className={this.state.Bluray ? 'format-true' : 'format-false'} type="button" value="Blu-ray" onClick={() => this.updateFormat('Bluray')}/>
-              <input className={this.state.iTunes ? 'format-true' : 'format-false'} type="button" value="iTunes" onClick={() => this.updateFormat('iTunes')}/>
-              <input className={this.state.Prime ? 'format-true' : 'format-false'} type="button" value="Prime" onClick={() => this.updateFormat('Prime')}/>
+              <input className={this.state.DVD ? 'format-true format-button' : 'format-false format-button'} type="button" value="DVD" onClick={() => this.updateFormat('DVD')}/>
+              <input className="format-button" className={this.state.Bluray ? 'format-true format-button' : 'format-false format-button'} type="button" value="Blu-ray" onClick={() => this.updateFormat('Bluray')}/>
+              <input className="format-button" className={this.state.iTunes ? 'format-true format-button' : 'format-false format-button'} type="button" value="iTunes" onClick={() => this.updateFormat('iTunes')}/>
+              <input className="format-button" className={this.state.Prime ? 'format-true format-button' : 'format-false format-button'} type="button" value="Prime" onClick={() => this.updateFormat('Prime')}/>
             </form>
           }
         </article>
@@ -158,9 +158,9 @@ export default class PersonalMovieCard extends Component {
                       <Modal.Title>{this.state.movie.movie.title}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="modal-body">
-                      <p>Director: {director}</p>
-                      <p>Genre: {this.state.genreArray.join(', ')} </p>
-                      {this.state.movie.movie.overview}
+                      <p className="modal-director">Director: {director}</p>
+                      <p className="modal-genre">Genre: {this.state.genreArray.join(', ')} </p>
+                      <p className="modal-overview">{this.state.movie.movie.overview}</p>
                       <div className="actor-list">
                         {this.state.cast.map((m, i) =>
                         <ActorCard cast={m} key={m.id}/>
@@ -168,7 +168,7 @@ export default class PersonalMovieCard extends Component {
                       </div>
                     </Modal.Body>
                     <Modal.Footer>
-                      <Button onClick={() => this.close()}>Close</Button>
+                      <Button className="modal-bottom-exit btn" onClick={() => this.close()}>Close</Button>
                     </Modal.Footer>
                   </Modal>
         </article>
