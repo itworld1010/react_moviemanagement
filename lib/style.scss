@@ -19,6 +19,10 @@ h2{
   font-weight: bold;
 }
 
+a:visited {
+  color: black;
+}
+
 .button, .format-button, .auth-button, .movie-card-button{
     -webkit-border-radius: 60;
     -moz-border-radius: 60;
@@ -30,9 +34,10 @@ h2{
     padding: 4px;
     border: solid #d8dadb .5px;
     text-decoration: none;
-    &hover{
+    &:hover{
       background: #d5d7d9;
       text-decoration: none;
+      cursor: pointer;
     }
   }
 
@@ -170,11 +175,19 @@ footer {
 
 .personal-movie-card-button {
   width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    opacity: 0
+  height: 100%;
+  position: absolute;
+  left: 0;
+  background-color: white;
+  opacity: .1;
+  &:hover{
+    cursor: pointer;
+    visibility: visible;
+    opacity: 0;
+  }
 }
+
+
 
 .card-title{
   font-size: 14px;
@@ -219,12 +232,16 @@ footer {
   margin:10px;
 }
 
-.p-movie-card-buttons{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: white;
-}
+// .p-movie-card-buttons{
+//   position: absolute;
+//   bottom: 0;
+//   width: 100%;
+//   background-color: white;
+//   opacity: .1;
+//   &:hover {
+//     opacity: 1;
+//   }
+// }
 
 .personal-poster {
   width: 50px;

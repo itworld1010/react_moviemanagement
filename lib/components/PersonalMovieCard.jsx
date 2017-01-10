@@ -127,11 +127,13 @@ export default class PersonalMovieCard extends Component {
         {this.state.movie.movie.poster_path ?
           <img
           className="poster"
+          alt={this.state.movie.movie.title}
           src={"https://image.tmdb.org/t/p/w500" + this.state.movie.movie.poster_path}
           />
-          : <img src={npa} className="poster"/>}
+          : <img alt={this.state.movie.movie.title} src={npa} className="poster"/>}
           <Button bsStyle="primary"
           bsSize="large"
+          alt={this.state.movie.movie.title}
           className="personal-movie-card-button" onClick={() => this.setCast()}></Button>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
                     <Modal.Header className="modal-header">
