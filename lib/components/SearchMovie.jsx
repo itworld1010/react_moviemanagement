@@ -38,24 +38,28 @@ export default class SearchMovie extends Component {
     let input
 
     return(
-      <div className="settings-form">
-        <form
-        id='input-container'
-        onSubmit={ (e) => {
-          e.preventDefault()
-          this.retrieveMovieSearch(input.value)
-          this.clearQuery()
-        }}>
-          <input
-            value={this.state.userSearch}
-            placeholder="Movie Title"
-            onChange={(e) => this.updateSearchQuery(input.value)}
-            ref={ node => { input = node }}
-          />
-          <button
-          > Search
-          </button>
-        </form>
+      <div>
+        <div className="search-input-container">
+          <form
+          id='search-input-container'
+          onSubmit={ (e) => {
+            e.preventDefault()
+            this.retrieveMovieSearch(input.value)
+            this.clearQuery()
+          }}>
+            <input
+              className="search-input"
+              value={this.state.userSearch}
+              placeholder="Movie Title"
+              onChange={(e) => this.updateSearchQuery(input.value)}
+              ref={ node => { input = node }}
+            />
+            <button
+              className="button"
+            > Search
+            </button>
+          </form>
+        </div>
         <div className="search-movie-card-container">
         {this.state.movieResults.map((m, i) =>
           <MovieCard movie={m} key={m.id} user={this.state.user}/>
