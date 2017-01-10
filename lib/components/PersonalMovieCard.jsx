@@ -23,7 +23,8 @@ export default class PersonalMovieCard extends Component {
       cast: [],
       credits: '',
       director: '',
-      genreArray: []
+      genreNamesArray: [],
+      genres: []
     }
   }
 
@@ -36,17 +37,14 @@ export default class PersonalMovieCard extends Component {
     let iTunes = this.props.movie.iTunes
     let id = this.props.id
     let movieID = this.props.movie.movie.id
-    this.setState({ user, movie, DVD, Bluray, iTunes, Prime, id, movieID })
+    let genres = this.props.movie.movie.genre_ids
+    this.setState({ user, movie, DVD, Bluray, iTunes, Prime, id, movieID, genres })
   }
 
   componentDidMount() {
     fetch(`https://api.themoviedb.org/3/movie/${this.state.movieID}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
     .then((response) => response.json())
     .then((response) => this.setState({ credits: response }))
-
-    // fetch(`https://api.themoviedb.org/3/movie/${this.state.movieID}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
-    // .then((response) => response.json())
-    // .then((response) => this.setState({ credits: response }))
   }
 
   addNewMovie(movie) {
@@ -72,8 +70,8 @@ export default class PersonalMovieCard extends Component {
 
   setCast() {
     let cast = this.state.credits.cast
-    let genreArray = (this.state.movie.movie.genre_ids.map((e) => this.genreSwitch(e)))
-    this.setState({ cast: cast, genreArray: genreArray })
+    let genreArray = (this.state.genres.map((e) => this.genreSwitch(e)))
+    this.setState({ cast: cast, genreNamesArray: genreArray })
     this.open()
   }
 
@@ -107,9 +105,6 @@ export default class PersonalMovieCard extends Component {
     let genre
     let uniqueID = this.state.movieID
     let director = get((find(this.state.credits.crew, {'job': "Director"})), 'name')
-    // let genrez = genreArray.forEach((e) => e)
-    // let printGenres = (genrez.map((e) => this.genreSwitch(e)))
-    // console.log(printGenres);
 
     return (
       <article className="personal-movie-card">
@@ -159,7 +154,7 @@ export default class PersonalMovieCard extends Component {
                     </Modal.Header>
                     <Modal.Body className="modal-body">
                       <p className="modal-director">Director: {director}</p>
-                      <p className="modal-genre">Genre: {this.state.genreArray.join(', ')} </p>
+                      <p className="modal-genre">Genre: {this.state.genreNamesArray.join(', ')} </p>
                       <p className="modal-overview">{this.state.movie.movie.overview}</p>
                       <div className="actor-list">
                         {this.state.cast.map((m, i) =>
