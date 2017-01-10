@@ -142,12 +142,14 @@ export default class PersonalMovieCard extends Component {
                       </div>
                       { this.state.youtubeID ?
                         <YouTube
+                          className="youtube"
                           controls="1"
                           fs
                           videoId={this.state.youtubeID}
                         />
                       :
                         <YouTube
+                          className="youtube"
                           controls="1"
                           fs
                           videoId='dQw4w9WgXcQ'

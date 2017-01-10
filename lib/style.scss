@@ -230,7 +230,7 @@ footer {
 }
 
 .actor-list {
-  width: 40vw;
+  width: 70vw;
   height: 40vh;
   display: flex;
   overflow-y: auto;
@@ -244,6 +244,7 @@ footer {
   display: block;
   position: fixed;
   background-color: black;
+  opacity: .9;
   width: 70%;
   height: 70%;
   left: 15%;
@@ -252,6 +253,10 @@ footer {
   bottom: 15%;
   overflow-y: auto;
   color: white;
+}
+
+.youtube {
+  opacity: .99;
 }
 
 .modal-header {
