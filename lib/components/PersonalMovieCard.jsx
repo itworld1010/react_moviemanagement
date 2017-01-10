@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 import firebase from '../firebase';
 import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
-import { map, extend, keyBy, keys, mapValues, values, find, get } from 'lodash';
+import { map, extend, keyBy, keys, mapValues, values, find, get, forEach, join } from 'lodash';
 import ActorCard from './ActorCard'
 
 
@@ -22,7 +22,8 @@ export default class PersonalMovieCard extends Component {
       movieID: '',
       cast: [],
       credits: '',
-      director: ''
+      director: '',
+      genreArray: []
     }
   }
 
@@ -43,9 +44,9 @@ export default class PersonalMovieCard extends Component {
     .then((response) => response.json())
     .then((response) => this.setState({ credits: response }))
 
-    fetch(`https://api.themoviedb.org/3/movie/${this.state.movieID}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
-    .then((response) => response.json())
-    .then((response) => this.setState({ credits: response }))
+    // fetch(`https://api.themoviedb.org/3/movie/${this.state.movieID}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
+    // .then((response) => response.json())
+    // .then((response) => this.setState({ credits: response }))
   }
 
   addNewMovie(movie) {
@@ -71,18 +72,46 @@ export default class PersonalMovieCard extends Component {
 
   setCast() {
     let cast = this.state.credits.cast
-    this.setState({ cast: cast})
+    let genreArray = (this.state.movie.movie.genre_ids.map((e) => this.genreSwitch(e)))
+    this.setState({ cast: cast, genreArray: genreArray })
     this.open()
   }
+
+  genreSwitch(genreID) {
+     if (genreID === 28){return "Action"}
+     else if (genreID === 12){return "Adventure"}
+     else if (genreID === 16){return "Animation"}
+     else if (genreID === 35){return "Comedy"}
+     else if (genreID === 80){return "Crime"}
+     else if (genreID === 99){return "Documentary"}
+     else if (genreID === 18){return "Drama"}
+     else if (genreID === 10751){return "Family"}
+     else if (genreID === 14){return "Fantasy"}
+     else if (genreID === 36){return "History"}
+     else if (genreID === 27){return "Horror"}
+     else if (genreID === 10402){return "Music"}
+     else if (genreID === 9648){return "Mystery"}
+     else if (genreID === 10749){return "Romance"}
+     else if (genreID === 878){return "Science Fiction"}
+     else if (genreID === 10770){return "TV Movie"}
+     else if (genreID === 53){return "Thriller"}
+     else if (genreID === 10752){return "War"}
+     else if (genreID === 5373){return "Western"}
+   }
 
   open() {
      this.setState({ showModal: true });
    }
 
+
+
   render() {
+    let genre
     let uniqueID = this.state.movieID
     let director = get((find(this.state.credits.crew, {'job': "Director"})), 'name')
-
+    // let genrez = this.state.movie.movie.genre_ids
+    // let printGenres = (genrez.map((e) => this.genreSwitch(e)))
+    // console.log(printGenres);
 
     return (
       <article className="personal-movie-card">

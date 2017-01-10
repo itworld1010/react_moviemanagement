@@ -153,14 +153,17 @@ footer {
 
 .my-movie-card-container {
   display: flex;
-  width: 70vw;
+  width: 90vw;
   overflow-x: auto;
+  margin: auto;
+  margin-top: 10px;
 }
 
 //personal movie card
 .p-movie-search {
   width: 50vw;
   margin: auto;
+  margin-top: 10px;
 }
 
 .personal-movie-card {
