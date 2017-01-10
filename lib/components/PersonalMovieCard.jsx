@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 import firebase from '../firebase';
 import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
-import { map, extend, keyBy, keys, mapValues, values, find, get, forEach, join } from 'lodash';
+import { map, extend, keyBy, keys, mapValues, values, find, get, forEach, join, dropRight } from 'lodash';
 import ActorCard from './ActorCard'
 import YouTube from 'react-youtube'
 
@@ -76,8 +76,14 @@ export default class PersonalMovieCard extends Component {
   }
 
   setCast() {
+    let holy
     let trailerObj = map(this.state.trailers.results, 'key')
-    forEach(trailerObj, (e) => this.setState({ youtubeID: e}))
+    if( trailerObj.length === 1 ) {
+      holy = trailerObj
+    } else {
+      holy = dropRight(trailerObj, (trailerObj.length - (trailerObj.length - 1)))
+    }
+    forEach(holy, (e) => this.setState({ youtubeID: e}))
     let cast = this.state.credits.cast
     let genreArray = (this.state.genres.map((e) => this.genreSwitch(e)))
     this.setState({ cast: cast, genreNamesArray: genreArray })
@@ -146,6 +152,7 @@ export default class PersonalMovieCard extends Component {
                           controls="1"
                           fs
                           videoId={this.state.youtubeID}
+                          loop="1"
                         />
                       :
                         <YouTube
