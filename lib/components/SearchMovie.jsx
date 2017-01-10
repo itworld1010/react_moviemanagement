@@ -42,16 +42,15 @@ export default class SearchMovie extends Component {
         <div className="search-input-container">
           <form
           id='search-input-container'
-          onSubmit={ (e) => {
+          onChange={ (e) => {
             e.preventDefault()
-            this.retrieveMovieSearch(input.value)
-            this.clearQuery()
+            setTimeout(this.retrieveMovieSearch(input.value), 300)
           }}>
             <input
               className="search-input"
-              value={this.state.userSearch}
+              // value={this.state.userSearch}
               placeholder="Movie Title"
-              onChange={(e) => this.updateSearchQuery(input.value)}
+              // onChange={(e) => this.updateSearchQuery(input.value)}
               ref={ node => { input = node }}
             />
             <button
