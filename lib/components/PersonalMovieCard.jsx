@@ -103,13 +103,11 @@ export default class PersonalMovieCard extends Component {
      this.setState({ showModal: true });
    }
 
-
-
   render() {
     let genre
     let uniqueID = this.state.movieID
     let director = get((find(this.state.credits.crew, {'job': "Director"})), 'name')
-    // let genrez = this.state.movie.movie.genre_ids
+    // let genrez = genreArray.forEach((e) => e)
     // let printGenres = (genrez.map((e) => this.genreSwitch(e)))
     // console.log(printGenres);
 
@@ -161,6 +159,7 @@ export default class PersonalMovieCard extends Component {
                     </Modal.Header>
                     <Modal.Body className="modal-body">
                       <p>Director: {director}</p>
+                      <p>Genre: {this.state.genreArray.join(', ')} </p>
                       {this.state.movie.movie.overview}
                       <div className="actor-list">
                         {this.state.cast.map((m, i) =>
