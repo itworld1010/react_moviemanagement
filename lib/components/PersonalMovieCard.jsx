@@ -114,40 +114,9 @@ export default class PersonalMovieCard extends Component {
           src={"https://image.tmdb.org/t/p/w500" + this.state.movie.movie.poster_path}
           />
           : <img src={npa} className="poster"/>}
-        <article>
-          {!this.state.viewDetailClick?
-            <div>
-              <p className="card-title" >{this.state.movie.movie.title}
-                <span className="release-year">({this.state.movie.movie.release_date.substring(0, 4)})</span>
-              </p>
-              <p className="card-body">{this.state.movie.movie.overview}</p>
-            </div>
-            :
-            <form>
-              <input className={this.state.DVD ? 'format-true format-button' : 'format-false format-button'} type="button" value="DVD" onClick={() => this.updateFormat('DVD')}/>
-              <input className="format-button" className={this.state.Bluray ? 'format-true format-button' : 'format-false format-button'} type="button" value="Blu-ray" onClick={() => this.updateFormat('Bluray')}/>
-              <input className="format-button" className={this.state.iTunes ? 'format-true format-button' : 'format-false format-button'} type="button" value="iTunes" onClick={() => this.updateFormat('iTunes')}/>
-              <input className="format-button" className={this.state.Prime ? 'format-true format-button' : 'format-false format-button'} type="button" value="Prime" onClick={() => this.updateFormat('Prime')}/>
-            </form>
-          }
-        </article>
-        <article className="p-movie-card-buttons">
-          { !this.state.viewDetailClick ?
-            <button
-            onClick={() => {this.setState({ viewDetailClick: !this.state.viewDetailClick })}}
-            className="movie-card-button"
-            >View Formats
-            </button>
-            :
-            <button
-            onClick={() => {this.setState({ viewDetailClick: !this.state.viewDetailClick })}}
-            className="movie-card-button"
-            >View Overview
-            </button>
-          }
           <Button bsStyle="primary"
           bsSize="large"
-          className="movie-card-button" onClick={() => this.setCast()}>The Sauce</Button>
+          className="personal-movie-card-button" onClick={() => this.setCast()}></Button>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
                     <Modal.Header className="modal-header">
                       <Modal.Title>{this.state.movie.movie.title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
@@ -164,7 +133,6 @@ export default class PersonalMovieCard extends Component {
                     </Modal.Body>
                   </Modal>
         </article>
-      </article>
     )
   }
 }
