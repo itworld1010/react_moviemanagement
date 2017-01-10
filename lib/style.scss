@@ -124,9 +124,7 @@ footer {
   height: 400px;
   position: relative;
   float: left;
-  padding:10px;
-  border-style: solid;
-  border-width: 5px;
+  margin:10px;
 }
 
 .movie-card-button {
@@ -137,7 +135,9 @@ footer {
 }
 
 .card-title{
-  font-size: 14px;;
+  font-size: 14px;
+  margin: 2px;
+  margin-left: 0px;
 }
 
 .card-body{
@@ -145,7 +145,7 @@ footer {
   font-size: 10px;
   overflow-y: auto;
   position: absolute;
-  /* top: 10; */
+  margin-top: 2px;
 }
 
 .poster {
@@ -175,14 +175,14 @@ footer {
   height: 400px;
   position: relative;
   float: left;
-  padding:10px;
-  border-style: solid;
-  border-width: 5px;
+  margin:10px;
 }
 
 .p-movie-card-buttons{
   position: absolute;
   bottom: 0;
+  width: 100%;
+  background-color: white;
 }
 
 .personal-poster {
