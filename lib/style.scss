@@ -27,6 +27,11 @@ a:hover {
   color:#ff8935;
 }
 
+a {
+  font-size: 18px;
+  color:#ff8935;
+}
+
 .button, .auth-button, .movie-card-button{
     -webkit-border-radius: 60;
     -moz-border-radius: 60;
@@ -65,7 +70,8 @@ a:hover {
   background-color: #ff8935;
   padding: 9px;
   &:hover {
-    background-color: red;
+    background-color: black;
+    color: #ff8935;
   }
 }
 

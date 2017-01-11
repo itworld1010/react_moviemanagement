@@ -41,7 +41,7 @@ export default class PopularMovieCard extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://api.themoviedb.org/3/movie/${this.state.movie.id}?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US`)
+    fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.id}?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US`)
     .then((response) => response.json())
     .then((data) => this.setState({ movieDetails: data }))
   }
@@ -104,28 +104,28 @@ export default class PopularMovieCard extends Component {
     return (
       <article className="upcoming-movie-card">
         <div className="upcoming-poster-container">
-        {this.state.movie.poster_path ?
+        {this.props.movie.poster_path ?
           <img
           className="poster"
-          alt={this.state.movie.original_title}
-          src={"https://image.tmdb.org/t/p/w500" + this.state.movie.poster_path}
+          alt={this.props.movie.original_title}
+          src={"https://image.tmdb.org/t/p/w500" + this.props.movie.poster_path}
           />
-          : <img alt={this.state.movie.title} src={npa} className="poster"/>}
+          : <img alt={this.props.movie.title} src={npa} className="poster"/>}
           </div>
           <Button bsStyle="primary"
           bsSize="large"
-          alt={this.state.movie.original_title}
+          alt={this.props.movie.original_title}
           className="upcoming-movie-card-button button" onClick={() => this.setCast()}></Button>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
                     <Modal.Header className="modal-header">
-                      <Modal.Title className="modal-title">{this.state.movie.original_title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
+                      <Modal.Title className="modal-title">{this.props.movie.original_title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="modal-body">
                       <p className="modal-crew modal-director">Director: {director}</p>
                       <p className="modal-crew modal-genre">Genre: {this.state.genreNamesArray.join(', ')} </p>
                       <p className="modal-crew" >{this.minutesConverter(this.state.runtime)}</p>
-                      <p className="modal-crew modal-overview">{this.state.movie.overview}</p>
-                      <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.state.movie.backdrop_path}  />
+                      <p className="modal-crew modal-overview">{this.props.movie.overview}</p>
+                      <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.backdrop_path}  />
                       <div className="actor-list">
                         {this.state.cast.map((m, i) =>
                         <ActorCard cast={m} key={m.id}/>
