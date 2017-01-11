@@ -155,9 +155,9 @@ export default class PersonalMovieCard extends Component {
                       <div className="modal-movie-deets" >
                       <p className="modal-crew modal-director">Director: {director}</p>
                       <p className="modal-crew modal-genre">Genre: {this.state.genreNamesArray.join(', ')} </p>
-                      <p>{this.minutesConverter(this.state.runtime)}</p>
+                      <p className="modal-runtime modal-crew" > {this.minutesConverter(this.state.runtime)}</p>
                       <p className="modal-crew modal-writers">Writer(s): {writers}</p>
-                      <p className="modal-overview">{this.state.movie.movie.overview}</p>
+                      <p className="modal-crew modal-overview">{this.state.movie.movie.overview}</p>
                       </div>
                       <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.state.movie.movie.backdrop_path}  />
                       <div className="actor-list">

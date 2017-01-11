@@ -6,7 +6,7 @@ import { map, extend, keyBy, keys, mapValues, values, find, get, forEach, join, 
 import YouTube from 'react-youtube'
 import ActorCard from './ActorCard'
 
-export default class MovieCard extends Component {
+export default class PopularMovieCard extends Component {
   constructor() {
     super();
     this.state = {

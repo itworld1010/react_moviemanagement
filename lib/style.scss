@@ -145,9 +145,9 @@ footer {
 
 .log-in {
   position: absolute;
-  right: 0;
-  top: 0;
-  margin: 10px
+  right: 5px;
+  top: -3px;
+  margin: 10px;
 }
 
 .sign-in-btn{
@@ -251,6 +251,14 @@ footer {
   margin-top: 10px;
 }
 
+// upcoming
+
+.upcoming-header {
+  text-align: center;
+  font-size: 34px;
+  margin-top: 10px;
+  margin-bottom: 3px
+}
 .upcoming-card-container {
   overflow: scroll;
   width: 99%;
@@ -306,13 +314,14 @@ footer {
 }
 
 .actor-card-name {
-  font-size: 12px;
+  font-size: 16px;
   overflow: auto;
+  text-align: center
 }
 
 .actor-list {
   width: 99%;
-  height: 40vh;
+  height: 55vh;
   display: flex;
   overflow-y: auto;
   padding-top: 20%;
@@ -391,22 +400,7 @@ footer {
   }
 }
 
-.modal-director{
-  margin-top: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-.modal-writers {
-  margin-top: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-.modal-genre{
-  margin-top: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-.modal-overview {
+.modal-crew {
   margin-top: 5px;
   margin-left: 5px;
   margin-right: 5px;
