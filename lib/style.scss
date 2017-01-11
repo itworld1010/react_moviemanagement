@@ -23,6 +23,10 @@ a:visited {
   color: black;
 }
 
+a:hover {
+  color:#ff8935;
+}
+
 .button, .auth-button, .movie-card-button{
     -webkit-border-radius: 60;
     -moz-border-radius: 60;
@@ -191,7 +195,7 @@ footer {
   display: inline-block;
   width: 100%;
   &:disabled{
-    color: red;
+    color: #ff8935;
     border: none;
     cursor: auto;
     &:hover{
