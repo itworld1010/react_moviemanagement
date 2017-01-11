@@ -129,6 +129,7 @@ export default class MovieCard extends Component {
                       <p className="modal-crew modal-genre">Genre: {this.state.genreNamesArray.join(', ')} </p>
                       <p className="modal-crew" >{this.minutesConverter(this.state.runtime)}</p>
                       <p className="modal-crew modal-overview">{this.state.movie.overview}</p>
+                      <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.state.movie.backdrop_path}  />
                       <div className="actor-list">
                         {this.state.cast.map((m, i) =>
                         <ActorCard cast={m} key={m.id}/>
