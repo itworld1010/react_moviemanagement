@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 import firebase from '../firebase';
 import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
-import { map, extend, keyBy, keys, mapValues, values, find, get, forEach, join, dropRight } from 'lodash';
+import { map, extend, keyBy, keys, mapValues, values, find, get, forEach, join, dropRight, filter } from 'lodash';
 import ActorCard from './ActorCard'
 import YouTube from 'react-youtube'
 
@@ -117,11 +117,11 @@ export default class PersonalMovieCard extends Component {
    }
 
   render() {
+    let writers = (filter(this.state.credits.crew, {'department': "Writing"})).map((e) => e.name).join(', ')
     let genre
     let uniqueID = this.state.movieID
     let director = get((find(this.state.credits.crew, {'job': "Director"})), 'name')
 
-    // console.log( find(this.state.trailers.results, 'key'))
     return (
       <article className="personal-movie-card">
         {this.state.movie.movie.poster_path ?
@@ -140,13 +140,16 @@ export default class PersonalMovieCard extends Component {
                       <Modal.Title className="modal-title">{this.state.movie.movie.title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="modal-body">
-                      <p className="modal-director">Director: {director}</p>
-                      <p className="modal-genre">Genre: {this.state.genreNamesArray.join(', ')} </p>
+                      <div className="modal-movie-deets" >
+                      <p className="modal-crew modal-director">Director: {director}</p>
+                      <p className="modal-crew modal-genre">Genre: {this.state.genreNamesArray.join(', ')} </p>
+                      <p className="modal-crew modal-writers">Writer(s): {writers}</p>
                       <p className="modal-overview">{this.state.movie.movie.overview}</p>
                       <div className="actor-list">
                         {this.state.cast.map((m, i) =>
                         <ActorCard cast={m} key={m.id}/>
                         )}
+                      </div>
                       </div>
                       <div className="youtube-container">
                       { this.state.youtubeID ?

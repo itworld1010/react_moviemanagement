@@ -296,8 +296,8 @@ footer {
   flex-direction: column;
 }
 .actor-image{
-  width: 80px;
-  height: 120px;
+  width: 120px;
+  height: 180px;
   margin: 4px;
 }
 
@@ -320,10 +320,10 @@ footer {
   position: fixed;
   background-color: black;
   opacity: .9;
-  width: 84%;
+  width: 78%;
   height: 84%;
-  left: 8%;
-  right: 8%;
+  left: 11%;
+  right: 11%;
   top: 8%;
   bottom: 8%;
   overflow-y: auto;
@@ -339,7 +339,7 @@ footer {
   position: fixed;
   display: flex;
   background-color: black;
-  width: 84%;
+  width: 78%;
   color: white;
   z-index: 10;
   height: 30px;
@@ -364,8 +364,8 @@ footer {
 
 .modal-top-exit {
   position: fixed;
-  right: 6.5%;
-  top: 3%;
+  right: 9.5%;
+  top: 5%;
   padding: 13px;
   background-color: red;
   opacity: 0.8;
@@ -377,6 +377,11 @@ footer {
 }
 
 .modal-director{
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.modal-writers {
   margin-top: 5px;
   margin-left: 5px;
   margin-right: 5px;
