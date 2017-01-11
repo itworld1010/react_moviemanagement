@@ -315,7 +315,9 @@ footer {
   height: 40vh;
   display: flex;
   overflow-y: auto;
-  margin-top: 3%;
+  padding-top: 20%;
+  position: relative;
+  margin-bottom: 5%;
 }
 
 //modal
@@ -323,7 +325,6 @@ footer {
   display: block;
   position: fixed;
   background-color: black;
-  opacity: .9;
   width: 78%;
   height: 84%;
   left: 11%;
@@ -339,6 +340,14 @@ footer {
   margin-bottom: 5%;
 }
 
+.youtube-container {
+  background-color: black;
+  position: relative;
+  padding-top: 8%;
+  padding-bottom: 5%;
+  margin-top: 8%;
+}
+
 .modal-header {
   position: fixed;
   display: flex;
@@ -352,6 +361,7 @@ footer {
 .modal-title {
   margin: auto;
   font-size: 30px;
+  position: relative;
 }
 
 .modal-body {
@@ -400,6 +410,13 @@ footer {
   margin-top: 5px;
   margin-left: 5px;
   margin-right: 5px;
+}
+
+.modal-backdrop {
+  position: absolute;
+  opacity: .5;
+  width: 100%;
+  top: 30px;
 }
 
 @media only screen
