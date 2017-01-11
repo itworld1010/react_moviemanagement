@@ -1,10 +1,6 @@
-// need to find better alternative to alt text in button
-
 import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 import firebase from '../firebase';
-
-
 
 export default class MovieCard extends Component {
   constructor() {
