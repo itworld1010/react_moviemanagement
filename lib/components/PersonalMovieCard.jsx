@@ -121,7 +121,7 @@ export default class PersonalMovieCard extends Component {
     let genre
     let uniqueID = this.state.movieID
     let director = get((find(this.state.credits.crew, {'job': "Director"})), 'name')
-
+    console.log(this.state.movie.movie);
     return (
       <article className="personal-movie-card">
         {this.state.movie.movie.poster_path ?
@@ -145,11 +145,12 @@ export default class PersonalMovieCard extends Component {
                       <p className="modal-crew modal-genre">Genre: {this.state.genreNamesArray.join(', ')} </p>
                       <p className="modal-crew modal-writers">Writer(s): {writers}</p>
                       <p className="modal-overview">{this.state.movie.movie.overview}</p>
+                      </div>
+                      <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.state.movie.movie.backdrop_path}  />
                       <div className="actor-list">
                         {this.state.cast.map((m, i) =>
                         <ActorCard cast={m} key={m.id}/>
                         )}
-                      </div>
                       </div>
                       <div className="youtube-container">
                       { this.state.youtubeID ?
