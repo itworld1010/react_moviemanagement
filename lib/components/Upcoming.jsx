@@ -27,7 +27,7 @@ export default class Upcoming extends Component {
 
     return (
       <div>
-      <h3>Recent & Upcoming</h3>
+      <h3 className="upcoming-header">Recent & Upcoming</h3>
       <article className="upcoming-card-container">
         <div className="upcoming-card-container-inner">
         {this.state.movieResults.map((m, i) =>

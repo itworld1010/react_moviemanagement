@@ -145,9 +145,9 @@ footer {
 
 .log-in {
   position: absolute;
-  right: 0;
-  top: 0;
-  margin: 10px
+  right: 5px;
+  top: -3px;
+  margin: 10px;
 }
 
 .sign-in-btn{
@@ -251,6 +251,14 @@ footer {
   margin-top: 10px;
 }
 
+// upcoming
+
+.upcoming-header {
+  text-align: center;
+  font-size: 34px;
+  margin-top: 10px;
+  margin-bottom: 3px
+}
 .upcoming-card-container {
   overflow: scroll;
   width: 99%;
