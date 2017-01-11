@@ -42,9 +42,10 @@ export default class SearchMovie extends Component {
         <div className="search-input-container">
           <form
           id='search-input-container'
-          onChange={ (e) => {
+          onClick={ (e) => {
             e.preventDefault()
-            setTimeout(this.retrieveMovieSearch(input.value), 300)
+            this.retrieveMovieSearch(input.value)
+            this.clearQuery()
           }}>
             <input
               className="search-input"

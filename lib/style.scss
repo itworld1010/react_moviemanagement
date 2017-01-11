@@ -23,7 +23,7 @@ a:visited {
   color: black;
 }
 
-.button, .format-button, .auth-button, .movie-card-button{
+.button, .auth-button, .movie-card-button{
     -webkit-border-radius: 60;
     -moz-border-radius: 60;
     border-radius: 5px;
@@ -40,6 +40,22 @@ a:visited {
       cursor: pointer;
     }
   }
+
+.format-true, .format-false {
+  width: 50%;
+  padding: 8px;
+  &:hover{
+    background: #d5d7d9;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.format-true:hover{
+  background: #ff8935;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 .sign-out-button {
   background-color: #ff8935
@@ -80,7 +96,7 @@ footer {
 }
 
 .format-true{
-  background-color: blue;
+  background-color: #ff8935;
 }
 
 .nav-link{
@@ -170,12 +186,17 @@ footer {
 }
 
 .movie-card-button {
-  position: relative;
+  position: absolute;
+  bottom: 0;
   display: inline-block;
-  margin: 4px;
+  width: 100%;
   &:disabled{
     color: red;
     border: none;
+    cursor: auto;
+    &:hover{
+      background: white;
+    }
   }
   // margin-right: 4px;
 }
