@@ -248,10 +248,20 @@ footer {
 }
 
 .upcoming-card-container {
-  width: 90vw;
-  overflow-x: auto;
-  margin: auto;
-  margin-top: 10px;
+  overflow: scroll;
+  width: 99%;
+}
+
+.upcoming-card-container-inner {
+  width: 5000px;
+}
+
+.upcoming-movie-card {
+  width: 200px;
+  height: 300px;
+  position: relative;
+  float: left;
+  margin:10px;
 }
 
 //personal movie card

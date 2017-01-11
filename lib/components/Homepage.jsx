@@ -25,10 +25,6 @@ export default class Homepage extends Component {
   render() {
     return (
       <div className="Homepage">
-        <div className="homepage-header">
-          <img src={logo} className="logo" alt="logo" />
-          <h2>Welcome to MovieKeeper</h2>
-        </div>
         <div>
           <Upcoming user={this.state.user}/>
         </div>

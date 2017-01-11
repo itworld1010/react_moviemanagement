@@ -26,11 +26,16 @@ export default class Upcoming extends Component {
   render() {
 
     return (
+      <div>
+      <h3>Recent & Upcoming</h3>
       <article className="upcoming-card-container">
+        <div className="upcoming-card-container-inner">
         {this.state.movieResults.map((m, i) =>
           <UpcomingCard movie={m} key={m.id} user={this.state.user}/>
         )}
+        </div>
       </article>
+      </div>
     )
   }
 }

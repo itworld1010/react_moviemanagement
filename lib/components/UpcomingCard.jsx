@@ -72,7 +72,7 @@ export default class MovieCard extends Component {
   render() {
     let director = get((find(this.state.credits.crew, {'job': "Director"})), 'name')
     return (
-      <article className="personal-movie-card">
+      <article className="upcoming-movie-card">
         {this.state.movie.poster_path ?
           <img
           className="poster"
