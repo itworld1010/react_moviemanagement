@@ -42,18 +42,20 @@ export default class PersonalMovieCard extends Component {
     let id = this.props.id
     let movieID = this.props.movie.movie.id
     let genres = this.props.movie.movie.genre_ids
-    this.setState({ user, movie, DVD, Bluray, iTunes, Prime, id, movieID, genres })
+    // this.setState({ user, movie, DVD, Bluray, iTunes, Prime, id, movieID, genres })
 
-      fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.movie.id}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
-      .then((response) => response.json())
-      .then((response) => this.setState({ credits: response }))
 
-      fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.movie.id}/videos?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US`)
-      .then((response) => response.json())
-      .then((response) => this.setState({ trailers: response }))
   }
 
   componentDidMount() {
+    fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.movie.id}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
+    .then((response) => response.json())
+    .then((response) => this.setState({ credits: response }))
+
+    fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.movie.id}/videos?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US`)
+    .then((response) => response.json())
+    .then((response) => this.setState({ trailers: response }))
+
     fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.movie.id}?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US`)
     .then((response) => response.json())
     .then((data) => this.setState({ movieDetails: data }))
@@ -67,8 +69,8 @@ export default class PersonalMovieCard extends Component {
   }
 
   updateFormat(format){
-    let { user } = this.state
-    let title = this.state.id
+    let { user } = this.props
+    let title = this.props.id
     this.setState({ [format]: !this['state'][format]})
     let state = !this.state[format]
     firebase.database().ref('users/' + user.displayName).child(title).child('movie').update({
@@ -136,20 +138,20 @@ export default class PersonalMovieCard extends Component {
 
     return (
       <article className="personal-movie-card poster-container">
-        {this.state.movie.movie.poster_path ?
+        {this.props.movie.movie.poster_path ?
           <img
           className="poster"
-          alt={this.state.movie.movie.title}
-          src={"https://image.tmdb.org/t/p/w500" + this.state.movie.movie.poster_path}
+          alt={this.props.movie.movie.title}
+          src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.poster_path}
           />
-          : <img alt={this.state.movie.movie.title} src={npa} className="poster"/>}
+          : <img alt={this.props.movie.movie.title} src={npa} className="poster"/>}
           <Button bsStyle="primary"
           bsSize="large"
-          alt={this.state.movie.movie.title}
+          alt={this.props.movie.movie.title}
           className="personal-movie-card-button" onClick={() => this.setCast()}></Button>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
                     <Modal.Header className="modal-header">
-                      <Modal.Title className="modal-title">{this.state.movie.movie.title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
+                      <Modal.Title className="modal-title">{this.props.movie.movie.title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="modal-body">
                       <div className="modal-movie-deets" >
@@ -157,9 +159,9 @@ export default class PersonalMovieCard extends Component {
                       <p className="modal-crew modal-genre">Genre: {this.state.genreNamesArray.join(', ')} </p>
                       <p className="modal-runtime modal-crew" > {this.minutesConverter(this.state.runtime)}</p>
                       <p className="modal-crew modal-writers">Writer(s): {writers}</p>
-                      <p className="modal-crew modal-overview">{this.state.movie.movie.overview}</p>
+                      <p className="modal-crew modal-overview">{this.props.movie.movie.overview}</p>
                       </div>
-                      <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.state.movie.movie.backdrop_path}  />
+                      <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.backdrop_path}  />
                       <div className="actor-list">
                         {this.state.cast.map((m, i) =>
                         <ActorCard cast={m} key={m.id}/>
