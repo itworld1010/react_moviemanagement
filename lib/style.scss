@@ -62,7 +62,11 @@ a:hover {
 }
 
 .sign-out-button {
-  background-color: #ff8935
+  background-color: #ff8935;
+  padding: 9px;
+  &:hover {
+    background-color: red;
+  }
 }
 
 .sign-in-btn:hover {
@@ -367,12 +371,13 @@ footer {
   right: 9.5%;
   top: 5%;
   padding: 13px;
-  background-color: red;
+  border: none;
+  background-color: #ff8935;
   opacity: 0.8;
   border-radius: 20px;
   &:hover {
     opacity: 1;
-    background-color:red;
+    background-color:#ff8935;
   }
 }
 
