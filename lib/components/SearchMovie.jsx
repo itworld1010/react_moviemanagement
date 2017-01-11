@@ -42,9 +42,10 @@ export default class SearchMovie extends Component {
         <div className="search-input-container">
           <form
           id='search-input-container'
-          onChange={ (e) => {
+          onClick={ (e) => {
             e.preventDefault()
-            setTimeout(this.retrieveMovieSearch(input.value), 300)
+            this.retrieveMovieSearch(input.value)
+            this.clearQuery()
           }}>
             <input
               className="search-input"
@@ -60,8 +61,8 @@ export default class SearchMovie extends Component {
           </form>
         </div>
         <div className="search-movie-card-container">
-        {this.state.movieResults.map((m, i) =>
-          <MovieCard movie={m} key={m.id} user={this.state.user}/>
+        {this.state.movieResults.map((movie, index) =>
+          <MovieCard movie={movie} key={movie.id} user={this.state.user}/>
         )}
         </div>
       </div>

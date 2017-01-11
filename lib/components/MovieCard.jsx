@@ -68,12 +68,14 @@ export default class MovieCard extends Component {
               <p className="card-body">{this.state.movie.overview}</p>
             </div>
             :
-            <form>
-              <input className={this.state.DVD ? 'format-true button' : 'format-false button'} type="button" value="DVD" onClick={() => {this.setState({ DVD: !this.state.DVD })}}/>
-              <input className={this.state.Bluray ? 'format-true button' : 'format-false button'} type="button" value="Blu-ray" onClick={() => {this.setState({ Bluray: !this.state.Bluray })}}/>
-              <input className={this.state.iTunes ? 'format-true button' : 'format-false button'} type="button" value="iTunes" onClick={() => {this.setState({ iTunes: !this.state.iTunes })}}/>
-              <input className={this.state.Prime ? 'format-true button' : 'format-false button'} type="button" value="Prime" onClick={() => {this.setState({ Prime: !this.state.Prime })}}/>
-            </form>
+            <div  className="button-box">
+              <form>
+                <input className={this.state.DVD ? 'format-true button' : 'format-false button'} type="button" value="DVD" onClick={() => {this.setState({ DVD: !this.state.DVD })}}/>
+                <input className={this.state.Bluray ? 'format-true button' : 'format-false button'} type="button" value="Blu-ray" onClick={() => {this.setState({ Bluray: !this.state.Bluray })}}/>
+                <input className={this.state.iTunes ? 'format-true button' : 'format-false button'} type="button" value="iTunes" onClick={() => {this.setState({ iTunes: !this.state.iTunes })}}/>
+                <input className={this.state.Prime ? 'format-true button' : 'format-false button'} type="button" value="Prime" onClick={() => {this.setState({ Prime: !this.state.Prime })}}/>
+              </form>
+            </div>
           }
         </article>
         <article className="p-movie-card-buttons">
