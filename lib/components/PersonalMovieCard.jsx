@@ -121,7 +121,7 @@ export default class PersonalMovieCard extends Component {
     let genre
     let uniqueID = this.state.movieID
     let director = get((find(this.state.credits.crew, {'job': "Director"})), 'name')
-    console.log(this.state.movie.movie);
+
     return (
       <article className="personal-movie-card">
         {this.state.movie.movie.poster_path ?
