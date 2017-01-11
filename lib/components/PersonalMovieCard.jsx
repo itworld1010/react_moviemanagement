@@ -135,7 +135,7 @@ export default class PersonalMovieCard extends Component {
     let runtime = setTimeout(() => {this.setState({ runtime: this.state.movieDetails.runtime})}, 300)
 
     return (
-      <article className="personal-movie-card">
+      <article className="personal-movie-card poster-container">
         {this.state.movie.movie.poster_path ?
           <img
           className="poster"

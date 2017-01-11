@@ -53,12 +53,14 @@ export default class MovieCard extends Component {
 
     return (
       <article className="movie-card">
+        <div className="poster-container">
         {this.state.movie.poster_path ?
           <img
           className="poster"
           src={"https://image.tmdb.org/t/p/w500" + this.state.movie.poster_path}
           />
           : <img src={npa} className="poster"/>}
+          </div>
         <article>
           {!this.state.addMovieClick?
             <div>

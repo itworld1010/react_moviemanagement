@@ -103,6 +103,7 @@ export default class MovieCard extends Component {
 
     return (
       <article className="upcoming-movie-card">
+        <div className="poster-container">
         {this.state.movie.poster_path ?
           <img
           className="poster"
@@ -110,6 +111,7 @@ export default class MovieCard extends Component {
           src={"https://image.tmdb.org/t/p/w500" + this.state.movie.poster_path}
           />
           : <img alt={this.state.movie.title} src={npa} className="poster"/>}
+          </div>
           <Button bsStyle="primary"
           bsSize="large"
           alt={this.state.movie.original_title}
