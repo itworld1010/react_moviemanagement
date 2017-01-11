@@ -27,7 +27,8 @@ export default class PersonalMovieCard extends Component {
       genreNamesArray: [],
       genres: [],
       trailers: '',
-      youtubeID: ''
+      youtubeID: '',
+      runtime: 0
     }
   }
 
@@ -42,16 +43,20 @@ export default class PersonalMovieCard extends Component {
     let movieID = this.props.movie.movie.id
     let genres = this.props.movie.movie.genre_ids
     this.setState({ user, movie, DVD, Bluray, iTunes, Prime, id, movieID, genres })
+
+      fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.movie.id}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
+      .then((response) => response.json())
+      .then((response) => this.setState({ credits: response }))
+
+      fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.movie.id}/videos?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US`)
+      .then((response) => response.json())
+      .then((response) => this.setState({ trailers: response }))
   }
 
   componentDidMount() {
-    fetch(`https://api.themoviedb.org/3/movie/${this.state.movieID}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
+    fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.movie.id}?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US`)
     .then((response) => response.json())
-    .then((response) => this.setState({ credits: response }))
-
-    fetch(`https://api.themoviedb.org/3/movie/${this.state.movieID}/videos?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US`)
-    .then((response) => response.json())
-    .then((response) => this.setState({ trailers: response }))
+    .then((data) => this.setState({ movieDetails: data }))
   }
 
   addNewMovie(movie) {
@@ -90,6 +95,12 @@ export default class PersonalMovieCard extends Component {
     this.open()
   }
 
+  minutesConverter(minutes){
+    let hours = Math.floor(minutes / 60)
+    let newMinutes = minutes % 60
+    return `${hours} hours, ${newMinutes} minutes`
+  }
+
   genreSwitch(genreID) {
      if (genreID === 28){return "Action"}
      else if (genreID === 12){return "Adventure"}
@@ -121,6 +132,7 @@ export default class PersonalMovieCard extends Component {
     let genre
     let uniqueID = this.state.movieID
     let director = get((find(this.state.credits.crew, {'job': "Director"})), 'name')
+    let runtime = setTimeout(() => {this.setState({ runtime: this.state.movieDetails.runtime})}, 300)
 
     return (
       <article className="personal-movie-card">
@@ -143,6 +155,7 @@ export default class PersonalMovieCard extends Component {
                       <div className="modal-movie-deets" >
                       <p className="modal-crew modal-director">Director: {director}</p>
                       <p className="modal-crew modal-genre">Genre: {this.state.genreNamesArray.join(', ')} </p>
+                      <p>{this.minutesConverter(this.state.runtime)}</p>
                       <p className="modal-crew modal-writers">Writer(s): {writers}</p>
                       <p className="modal-overview">{this.state.movie.movie.overview}</p>
                       </div>
