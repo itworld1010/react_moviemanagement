@@ -306,13 +306,14 @@ footer {
 }
 
 .actor-card-name {
-  font-size: 12px;
+  font-size: 16px;
   overflow: auto;
+  text-align: center
 }
 
 .actor-list {
   width: 99%;
-  height: 40vh;
+  height: 55vh;
   display: flex;
   overflow-y: auto;
   padding-top: 20%;
