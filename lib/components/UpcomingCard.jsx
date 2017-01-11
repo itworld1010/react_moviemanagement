@@ -1,5 +1,3 @@
-// need to find better alternative to alt text in button
-
 import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 import firebase from '../firebase';
@@ -7,10 +5,6 @@ import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
 import { map, extend, keyBy, keys, mapValues, values, find, get, forEach, join, dropRight } from 'lodash';
 import YouTube from 'react-youtube'
 import ActorCard from './ActorCard'
-
-
-
-
 
 export default class MovieCard extends Component {
   constructor() {
