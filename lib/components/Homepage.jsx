@@ -3,7 +3,7 @@ import firebase, { usersFromDatabase, signIn, signOut } from '../firebase';
 import { pick, split, map } from 'lodash';
 import SearchMovie from './SearchMovie'
 import Navigation from './Navigation'
-import Upcoming from './Upcoming'
+import MyMovies from './MyMovies'
 import logo from '../images/reel.png'
 
 
@@ -26,7 +26,7 @@ export default class Homepage extends Component {
     return (
       <div className="Homepage">
         <div>
-          <Upcoming user={this.state.user}/>
+          <MyMovies user={this.state.user}/>
         </div>
       </div>
     )

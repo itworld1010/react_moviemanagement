@@ -103,6 +103,7 @@ export default class PopularMovieCard extends Component {
 
     return (
       <article className="upcoming-movie-card">
+        <div className="upcoming-poster-container">
         {this.state.movie.poster_path ?
           <img
           className="poster"
@@ -110,10 +111,11 @@ export default class PopularMovieCard extends Component {
           src={"https://image.tmdb.org/t/p/w500" + this.state.movie.poster_path}
           />
           : <img alt={this.state.movie.title} src={npa} className="poster"/>}
+          </div>
           <Button bsStyle="primary"
           bsSize="large"
           alt={this.state.movie.original_title}
-          className="personal-movie-card-button" onClick={() => this.setCast()}></Button>
+          className="upcoming-movie-card-button button" onClick={() => this.setCast()}></Button>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
                     <Modal.Header className="modal-header">
                       <Modal.Title className="modal-title">{this.state.movie.original_title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
