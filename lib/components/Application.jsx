@@ -6,6 +6,7 @@ import { split } from 'lodash';
 
 import Homepage from './Homepage';
 import SearchMovie from './SearchMovie';
+import Upcoming from './Upcoming';
 import MovieCard from './MovieCard';
 import MyMovies from './MyMovies';
 import SignIn from './SignIn';
@@ -43,8 +44,8 @@ class Application extends Component{
             <div>
               <Navigation user={this.state.user}/>
               <Match exactly pattern="/" render={() => <Homepage user={this.state.user}/>}/>
+              <Match exactly pattern="/explore" render={() => <Upcoming user={this.state.user}/>} />
               <Match exactly pattern="/search" render={() => <SearchMovie user={this.state.user}/>} />
-              <Match exactly pattern="/mymovies" render={() => <MyMovies user={this.state.user}/>} />
               <Miss component={NotFound} />
             </div>
           :

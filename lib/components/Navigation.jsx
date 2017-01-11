@@ -14,10 +14,10 @@ const Navigation = ({ user }) => {
     <div className="navigation">
         <div className="nav-container">
         <ul>
-          <li className="nav-link"><Link to="/">Home</Link></li>
-          <li className="nav-link"><Link to="/mymovies">My Movies</Link></li>
-          <li className="nav-link"><Link to="/about">About</Link></li>
+        <li className="nav-link"><Link to="/">My Movies</Link></li>
+          <li className="nav-link"><Link to="/explore">Explore</Link></li>
           <li className="nav-link"><Link to="/search">Search</Link></li>
+          <li className="nav-link"><Link to="/about">About</Link></li>
         </ul>
         <span className="log-in"><button className='auth-button sign-out-button button' onClick={()=> signOut()}>Sign Out</button>
         </span>
