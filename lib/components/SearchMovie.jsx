@@ -60,8 +60,8 @@ export default class SearchMovie extends Component {
           </form>
         </div>
         <div className="search-movie-card-container">
-        {this.state.movieResults.map((m, i) =>
-          <MovieCard movie={m} key={m.id} user={this.state.user}/>
+        {this.state.movieResults.map((movie, index) =>
+          <MovieCard movie={movie} key={movie.id} user={this.state.user}/>
         )}
         </div>
       </div>
