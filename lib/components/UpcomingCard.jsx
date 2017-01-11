@@ -125,10 +125,10 @@ export default class MovieCard extends Component {
                       <Modal.Title className="modal-title">{this.state.movie.original_title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="modal-body">
-                      <p className="modal-director">Director: {director}</p>
-                      <p className="modal-genre">Genre: {this.state.genreNamesArray.join(', ')} </p>
-                      <p>{this.minutesConverter(this.state.runtime)}</p>
-                      <p className="modal-overview">{this.state.movie.overview}</p>
+                      <p className="modal-crew modal-director">Director: {director}</p>
+                      <p className="modal-crew modal-genre">Genre: {this.state.genreNamesArray.join(', ')} </p>
+                      <p className="modal-crew" >{this.minutesConverter(this.state.runtime)}</p>
+                      <p className="modal-crew modal-overview">{this.state.movie.overview}</p>
                       <div className="actor-list">
                         {this.state.cast.map((m, i) =>
                         <ActorCard cast={m} key={m.id}/>
