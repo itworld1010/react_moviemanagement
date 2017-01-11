@@ -194,8 +194,6 @@ footer {
   }
 }
 
-
-
 .card-title{
   font-size: 14px;
   margin: 2px;
@@ -271,6 +269,7 @@ footer {
   height: 40vh;
   display: flex;
   overflow-y: auto;
+  margin-top: 3%;
 }
 
 //modal
@@ -351,4 +350,31 @@ footer {
   margin-right: 5px;
 }
 
-//selector
+@media only screen
+  and (max-width: 600px) {
+
+    .personal-movie-card {
+      width: 75px;
+      height: 125px;
+      position: relative;
+      float: left;
+      display: flex;
+    }
+
+    .personal-movie-card-button {
+      width: 100%;
+      height: 100%;
+      opacity: .01;
+      &:hover{
+        cursor: pointer;
+        visibility: visible;
+        opacity: 0;
+      }
+    }
+
+    .poster{
+      width: 82.5px;
+      height: 125px;
+    }
+
+}
