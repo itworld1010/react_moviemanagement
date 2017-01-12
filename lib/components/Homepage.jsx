@@ -21,7 +21,6 @@ export default class Homepage extends Component {
     this.setState({ user })
   }
 
-
   render() {
     return (
       <div className="Homepage">
