@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import npa from '../images/no-poster.png'
+import npa from '../images/no-image.png'
 import firebase from '../firebase';
 
 export default class MovieCard extends Component {
