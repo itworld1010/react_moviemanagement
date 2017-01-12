@@ -47,7 +47,6 @@ export default class PopularMovieCard extends Component {
   }
 
   setCast() {
-
     let holy
     let trailerObj = map(this.state.trailers.results, 'key')
     if( trailerObj.length === 1 ) {
@@ -61,9 +60,11 @@ export default class PopularMovieCard extends Component {
     this.setState({ cast: cast, genreNamesArray: genreArray })
     this.open()
   }
+
   open() {
-     this.setState({ showModal: true });
-   }
+    this.setState({ runtime: this.state.movieDetails.runtime})
+    this.setState({ showModal: true });
+  }
 
   minutesConverter(minutes){
     let hours = Math.floor(minutes / 60)
@@ -71,35 +72,34 @@ export default class PopularMovieCard extends Component {
     return `${hours} hours, ${newMinutes} minutes`
   }
 
-   genreSwitch(genreID) {
-      if (genreID === 28){return "Action"}
-      else if (genreID === 12){return "Adventure"}
-      else if (genreID === 16){return "Animation"}
-      else if (genreID === 35){return "Comedy"}
-      else if (genreID === 80){return "Crime"}
-      else if (genreID === 99){return "Documentary"}
-      else if (genreID === 18){return "Drama"}
-      else if (genreID === 10751){return "Family"}
-      else if (genreID === 14){return "Fantasy"}
-      else if (genreID === 36){return "History"}
-      else if (genreID === 27){return "Horror"}
-      else if (genreID === 10402){return "Music"}
-      else if (genreID === 9648){return "Mystery"}
-      else if (genreID === 10749){return "Romance"}
-      else if (genreID === 878){return "Science Fiction"}
-      else if (genreID === 10770){return "TV Movie"}
-      else if (genreID === 53){return "Thriller"}
-      else if (genreID === 10752){return "War"}
-      else if (genreID === 5373){return "Western"}
-    }
+  genreSwitch(genreID) {
+    if (genreID === 28){return "Action"}
+    else if (genreID === 12){return "Adventure"}
+    else if (genreID === 16){return "Animation"}
+    else if (genreID === 35){return "Comedy"}
+    else if (genreID === 80){return "Crime"}
+    else if (genreID === 99){return "Documentary"}
+    else if (genreID === 18){return "Drama"}
+    else if (genreID === 10751){return "Family"}
+    else if (genreID === 14){return "Fantasy"}
+    else if (genreID === 36){return "History"}
+    else if (genreID === 27){return "Horror"}
+    else if (genreID === 10402){return "Music"}
+    else if (genreID === 9648){return "Mystery"}
+    else if (genreID === 10749){return "Romance"}
+    else if (genreID === 878){return "Science Fiction"}
+    else if (genreID === 10770){return "TV Movie"}
+    else if (genreID === 53){return "Thriller"}
+    else if (genreID === 10752){return "War"}
+    else if (genreID === 5373){return "Western"}
+  }
 
-   close() {
-     this.setState({ showModal: false });
-   }
+  close() {
+    this.setState({ showModal: false });
+  }
 
   render() {
     let director = get((find(this.state.credits.crew, {'job': "Director"})), 'name')
-    let runtime = setTimeout(() => {this.setState({ runtime: this.state.movieDetails.runtime})}, 300)
 
     return (
       <article className="upcoming-movie-card">

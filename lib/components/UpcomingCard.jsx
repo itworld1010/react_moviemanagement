@@ -62,7 +62,8 @@ export default class MovieCard extends Component {
     this.open()
   }
   open() {
-     this.setState({ showModal: true });
+    this.setState({ runtime: this.state.movieDetails.runtime})
+    this.setState({ showModal: true });
    }
 
   minutesConverter(minutes){
@@ -99,7 +100,7 @@ export default class MovieCard extends Component {
 
   render() {
     let director = get((find(this.state.credits.crew, {'job': "Director"})), 'name')
-    let runtime = setTimeout(() => {this.setState({ runtime: this.state.movieDetails.runtime})}, 300)
+    // let runtime = setTimeout(() => {this.setState({ runtime: this.state.movieDetails.runtime})}, 300)
 
     return (
       <article className="upcoming-movie-card">
