@@ -141,13 +141,13 @@ export default class PersonalMovieCard extends Component {
                     </Modal.Header>
                     <Modal.Body className="modal-body">
                       <div className="modal-movie-deets" >
+                      <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.backdrop_path}  />
                       <p className="modal-crew modal-director">Director: {director}</p>
                       <p className="modal-crew modal-genre">Genre: {this.state.genreNamesArray.join(', ')} </p>
                       <p className="modal-runtime modal-crew" > {this.minutesConverter(this.state.runtime)}</p>
                       <p className="modal-crew modal-writers">Writer(s): {writers}</p>
                       <p className="modal-crew modal-overview">{this.props.movie.movie.overview}</p>
                       </div>
-                      <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.backdrop_path}  />
                       <div className="actor-list">
                         {this.state.cast.map((m, i) =>
                         <ActorCard cast={m} key={m.id}/>

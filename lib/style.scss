@@ -366,7 +366,7 @@ footer {
   height: 55vh;
   display: flex;
   overflow-y: auto;
-  padding-top: 20%;
+  padding-top: 15%;
   position: relative;
   margin-bottom: 5%;
 }
@@ -406,7 +406,7 @@ footer {
   width: 78%;
   color: white;
   z-index: 10;
-  height: 30px;
+  height: 42px;
 }
 
 .modal-title {
@@ -416,7 +416,7 @@ footer {
 }
 
 .modal-body {
-  padding-top: 25px;
+  padding-top: 50px;
 }
 
 .modal-bottom-exit {
@@ -450,7 +450,7 @@ footer {
 
 .modal-backdrop {
   position: absolute;
-  opacity: .5;
+  opacity: .3;
   width: 100%;
   top: 30px;
 }
