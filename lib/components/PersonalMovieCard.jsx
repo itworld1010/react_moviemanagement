@@ -34,6 +34,10 @@ export default class PersonalMovieCard extends Component {
   }
 
   componentWillMount() {
+    let user = this.props.user
+    let movie = this.props.movie
+    this.setState({ user, movie })
+
     fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.movie.id}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
     .then((response) => response.json())
     .then((response) => this.setState({ credits: response }))
@@ -78,7 +82,7 @@ export default class PersonalMovieCard extends Component {
     }
     forEach(holy, (e) => this.setState({ youtubeID: e}))
     let cast = this.state.credits.cast
-    let genreArray = (this.state.genres.map((e) => this.genreSwitch(e)))
+    let genreArray = (this.state.movie.genres.map((e) => this.genreSwitch(e)))
     this.setState({ cast: cast, genreNamesArray: genreArray })
     this.open()
   }
