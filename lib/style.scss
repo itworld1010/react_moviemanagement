@@ -50,6 +50,19 @@ a {
     }
   }
 
+  .reel {
+    position: absolute;
+    width: 100px;
+    animation: reel-spin infinite 5s linear;
+    bottom: 25%;
+    left: 45%;
+  }
+
+  @keyframes reel-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .format-true, .format-false {
   width: 50%;
   padding: 8px;
@@ -135,7 +148,7 @@ footer {
 .shadow {
   position: fixed;
   background-color: rgb(1, 1, 1);
-  opacity: .7;
+  opacity: .3;
   z-index: 2;
   top: 0;
   right: 0;
@@ -171,11 +184,16 @@ footer {
 
 .sign-in-btn{
   position: absolute;
-  top: 44%;
-  left: 44%;
-  background-image: src('./images/reel.png');
+  top: 2%;
+  left: 37%;
+  background: none;
+  color: #ff8935;
+  opacity: .5;
 }
 
+.title-button {
+  font-size: 50px;
+}
 
 
 //search movie card
