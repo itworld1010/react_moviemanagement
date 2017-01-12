@@ -61,25 +61,22 @@ export default class MovieCard extends Component {
           />
           : <img src={npa} className="poster"/>}
           </div>
-        <article>
           {!this.state.addMovieClick?
-            <div>
-              <p className="card-title" >{this.state.movie.title}
-                <span className="release-year">({this.state.movie.release_date.substring(0, 4)})</span>
-              </p>
-              <p className="card-body">{this.state.movie.overview}</p>
+            <div className="center">
+              <p className="card-title" >{this.state.movie.title}</p>
+              <p className="card-release-year">({this.state.movie.release_date.substring(0, 4)})</p>
+
             </div>
             :
             <div  className="button-box">
               <form>
-                <input className={this.state.DVD ? 'format-true button' : 'format-false button'} type="button" value="DVD" onClick={() => {this.setState({ DVD: !this.state.DVD })}}/>
-                <input className={this.state.Bluray ? 'format-true button' : 'format-false button'} type="button" value="Blu-ray" onClick={() => {this.setState({ Bluray: !this.state.Bluray })}}/>
-                <input className={this.state.iTunes ? 'format-true button' : 'format-false button'} type="button" value="iTunes" onClick={() => {this.setState({ iTunes: !this.state.iTunes })}}/>
-                <input className={this.state.Prime ? 'format-true button' : 'format-false button'} type="button" value="Prime" onClick={() => {this.setState({ Prime: !this.state.Prime })}}/>
+                <input className={this.state.DVD ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="DVD" onClick={() => {this.setState({ DVD: !this.state.DVD })}}/>
+                <input className={this.state.Bluray ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="Blu-ray" onClick={() => {this.setState({ Bluray: !this.state.Bluray })}}/>
+                <input className={this.state.iTunes ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="iTunes" onClick={() => {this.setState({ iTunes: !this.state.iTunes })}}/>
+                <input className={this.state.Prime ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="Prime" onClick={() => {this.setState({ Prime: !this.state.Prime })}}/>
               </form>
             </div>
           }
-        </article>
         <article className="p-movie-card-buttons">
           {!this.state.addMovieClick ?
             <button

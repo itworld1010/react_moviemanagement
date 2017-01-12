@@ -36,7 +36,11 @@ export default class PersonalMovieCard extends Component {
   componentWillMount() {
     let user = this.props.user
     let movie = this.props.movie
-    this.setState({ user, movie })
+    let DVD = this.props.movie.DVD
+    let Bluray = this.props.movie.Bluray
+    let iTunes = this.props.movie.iTunes
+    let Prime = this.props.movie.Prime
+    this.setState({ user, movie, DVD, Bluray, iTunes, Prime })
 
     fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.movie.id}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
     .then((response) => response.json())
@@ -153,6 +157,14 @@ export default class PersonalMovieCard extends Component {
                       <a href="#trailer">Trailer</a>
                       <p className="modal-crew modal-writers">Writer(s): {writers}</p>
                       <p className="modal-crew modal-overview">{this.props.movie.movie.overview}</p>
+                      <div  className="button-box">
+                        <form>
+                          <input className={this.props.movie.DVD ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="DVD" onClick={() => {this.setState({ DVD: !this.props.movie.DVD })}}/>
+                          <input className={this.props.movie.Bluray ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="Blu-ray" onClick={() => {this.setState({ Bluray: !this.props.movie.Bluray })}}/>
+                          <input className={this.props.movie.iTunes ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="iTunes" onClick={() => {this.setState({ iTunes: !this.props.movie.iTunes })}}/>
+                          <input className={this.props.movie.Prime ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="Prime" onClick={() => {this.setState({ Prime: !this.props.movie.Prime })}}/>
+                        </form>
+                      </div>
                       </div>
                       <div className="actor-list">
                         {this.state.cast.map((m, i) =>
