@@ -8,19 +8,19 @@ body {
   background: #fff;
 }
 
-h1 {
-  display: inline-block;
-  margin-left: 15px;
-  color: #fff;
-}
-
-h2{
-  color: $headerBackground;
-  font-weight: bold;
-}
+// h1 {
+//   display: inline-block;
+//   margin-left: 15px;
+//   color: #fff;
+// }
+//
+// h2{
+//   color: $headerBackground;
+//   font-weight: bold;
+// }
 
 a:visited {
-  color: black;
+  color: #ff8935;
 }
 
 a:hover {
@@ -49,6 +49,19 @@ a {
       cursor: pointer;
     }
   }
+
+  .reel {
+    position: absolute;
+    width: 100px;
+    animation: reel-spin infinite 5s linear;
+    bottom: 25%;
+    left: 45%;
+  }
+
+  @keyframes reel-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
 .format-true, .format-false {
   width: 50%;
@@ -84,7 +97,6 @@ a {
 }
 
 header, footer{
-  background-color: $headerBackground;
   height: 50px;
   position: fixed;
   width: 100%;
@@ -135,7 +147,7 @@ footer {
 .shadow {
   position: fixed;
   background-color: rgb(1, 1, 1);
-  opacity: .7;
+  opacity: .3;
   z-index: 2;
   top: 0;
   right: 0;
@@ -171,11 +183,16 @@ footer {
 
 .sign-in-btn{
   position: absolute;
-  top: 44%;
-  left: 44%;
-  background-image: src('./images/reel.png');
+  top: 2%;
+  left: 37%;
+  background: none;
+  color: #ff8935;
+  opacity: .5;
 }
 
+.title-button {
+  font-size: 50px;
+}
 
 
 //search movie card
@@ -229,8 +246,8 @@ footer {
 }
 
 .upcoming-movie-card-button {
-  width: 88%;
-  height: 88%;
+  width: 100%;
+  height: 100%;
   position: absolute;
   left: 2%;
   opacity: .01;
@@ -271,9 +288,10 @@ footer {
 
 .upcoming-header {
   text-align: center;
-  font-size: 19px;
+  font-size: 26px;
   margin-top: 6px;
   margin-bottom: 4px;
+  color: #ff8935;
 }
 .upcoming-card-container {
   overflow: scroll;
@@ -285,11 +303,19 @@ footer {
 }
 
 .upcoming-movie-card {
-  width: 200px;
-  height: 300px;
+  width: 175px;
+  height: 262.5px;
   position: relative;
   float: left;
-  margin: -2px;
+  margin: 8px;
+}
+
+.upcoming-poster-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  float: left;
+  margin:5px;
 }
 
 //personal movie card
@@ -297,14 +323,6 @@ footer {
   width: 50vw;
   margin: auto;
   margin-top: 10px;
-}
-
-.upcoming-poster-container {
-  width: 175px;
-  height: 262.5px;
-  position: relative;
-  float: left;
-  margin:5px;
 }
 
 .poster-container {

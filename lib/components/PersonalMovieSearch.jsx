@@ -16,6 +16,8 @@ const PersonalMovieSearch = ({ filter }) => {
     <Select
         name="form-field-name"
         value="one"
+        autofocus
+        searchable={false}
         placeholder="Select Movie Format..."
         options={options}
         onChange={filter}

@@ -28,7 +28,6 @@ export default class MyMovies extends Component {
         movies: map(movies, (val, key) => extend(val, { key }))
       });
     })
-
   }
 
   filterByFormat(format) {
@@ -70,9 +69,6 @@ export default class MyMovies extends Component {
     let { DVD, Bluray, Prime, iTunes } = this.state
     let filteredMovieDisplay = this.state.filtered.map(m => <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>)
     let movieDisplay = this.state.movies.map(m => <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>)
-    // let genres = this.state.movie.genres
-    // console.log(genres);
-
 
     return (
       <div>
