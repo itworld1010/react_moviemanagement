@@ -9,7 +9,6 @@ import SearchMovie from './SearchMovie';
 import Upcoming from './Upcoming';
 import MovieCard from './MovieCard';
 import MyMovies from './MyMovies';
-import SignIn from './SignIn';
 import NotFound from './NotFound';
 import Navigation from './Navigation';
 import firebase from '../firebase';
