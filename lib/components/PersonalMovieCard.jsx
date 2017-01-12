@@ -28,15 +28,12 @@ export default class PersonalMovieCard extends Component {
       genres: [],
       trailers: '',
       youtubeID: '',
-      runtime: 0
+      runtime: 0,
+      movieDetails: []
     }
   }
 
   componentWillMount() {
-
-  }
-
-  componentDidMount() {
     fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.movie.id}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
     .then((response) => response.json())
     .then((response) => this.setState({ credits: response }))
@@ -57,15 +54,15 @@ export default class PersonalMovieCard extends Component {
     });
   }
 
-  updateFormat(format){
-    let { user } = this.props
-    let title = this.props.id
-    this.setState({ [format]: !this['state'][format]})
-    let state = !this.state[format]
-    firebase.database().ref('users/' + user.displayName).child(title).child('movie').update({
-      [format]: state
-    })
-  }
+  // updateFormat(format){
+  //   let { user } = this.props
+  //   let title = this.props.id
+  //   this.setState({ [format]: !this['state'][format]})
+  //   let state = !this.state[format]
+  //   firebase.database().ref('users/' + user.displayName).child(title).child('movie').update({
+  //     [format]: state
+  //   })
+  // }
 
   close() {
     this.setState({ showModal: false });
@@ -115,7 +112,8 @@ export default class PersonalMovieCard extends Component {
    }
 
   open() {
-     this.setState({ showModal: true });
+    this.setState({ runtime: this.state.movieDetails.runtime})
+    this.setState({ showModal: true });
    }
 
   render() {
@@ -123,7 +121,6 @@ export default class PersonalMovieCard extends Component {
     let genre
     let uniqueID = this.state.movieID
     let director = get((find(this.state.credits.crew, {'job': "Director"})), 'name')
-    let runtime = setTimeout(() => {this.setState({ runtime: this.state.movieDetails.runtime})}, 300)
 
     return (
       <article className="personal-movie-card poster-container">
