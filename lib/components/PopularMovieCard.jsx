@@ -120,10 +120,12 @@ export default class PopularMovieCard extends Component {
                     <Modal.Header className="modal-header">
                       <Modal.Title className="modal-title">{this.props.movie.original_title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
                     </Modal.Header>
+                      <a name="details" />
                     <Modal.Body className="modal-body">
                       <p className="modal-crew modal-director">Director: {director}</p>
                       <p className="modal-crew modal-genre">Genre: {this.state.genreNamesArray.join(', ')} </p>
                       <p className="modal-crew" >{this.minutesConverter(this.state.runtime)}</p>
+                      <a href="#trailer">Trailer</a>
                       <p className="modal-crew modal-overview">{this.props.movie.overview}</p>
                       <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.backdrop_path}  />
                       <div className="actor-list">
@@ -132,6 +134,7 @@ export default class PopularMovieCard extends Component {
                         )}
                       </div>
                       <div className="youtube-container">
+                      <a name="trailer" href="#details">Back to Details</a>
                       { this.state.youtubeID ?
                         <YouTube
                           className="youtube"

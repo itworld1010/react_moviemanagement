@@ -8,16 +8,11 @@ body {
   background: #fff;
 }
 
-// h1 {
-//   display: inline-block;
-//   margin-left: 15px;
-//   color: #fff;
-// }
-//
-// h2{
-//   color: $headerBackground;
-//   font-weight: bold;
-// }
+h1 {
+  font-size: 30px;
+  position: absolute;
+  color: #ff8935;
+}
 
 a:visited {
   color: #ff8935;
@@ -43,6 +38,9 @@ a {
     padding: 4px;
     border: solid #d8dadb .5px;
     text-decoration: none;
+    border: #ff8935;
+    border-style: solid;
+    border-width: thin;
     &:hover{
       background: #d5d7d9;
       text-decoration: none;
@@ -63,14 +61,22 @@ a {
   to { transform: rotate(360deg); }
 }
 
-.format-true, .format-false {
+
+.format-button {
   width: 50%;
-  padding: 8px;
-  &:hover{
-    background: #d5d7d9;
-    text-decoration: none;
-    cursor: pointer;
-  }
+  padding: 3%;
+}
+
+// .format-true, .format-false {
+//   &:hover{
+//     background: #d5d7d9;
+//     text-decoration: none;
+//     cursor: pointer;
+//   }
+// }
+.button-box {
+  width: inherit;
+  margin: inherit;
 }
 
 .format-true:hover{
@@ -131,7 +137,7 @@ footer {
 }
 
 .nav-container {
-  margin: 5px;
+  margin: auto;
 
 }
 
@@ -214,7 +220,7 @@ footer {
   background-color: #fff;
   border-color: #d9d9d9 #ccc #b3b3b3;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid #ff8935;
   line-height: 19px;
   padding-left: 10px;
   padding-right: 10px;
@@ -226,14 +232,22 @@ footer {
   border-collapse: separate;
   font-family: inherit;
   font-size: inherit;
-  height: 36px;
+  height: 35px;
+}
+
+.search-movies-button {
+  padding: 12px;
 }
 
 .movie-card-button {
   position: absolute;
   bottom: 0;
   display: inline-block;
+  margin-left: 10px;
   width: 100%;
+  border: #ff8935;
+  border-style: solid;
+  border-width: thin;
   &:disabled{
     color: #ff8935;
     border: none;
@@ -254,12 +268,14 @@ footer {
   top: 1%
 }
 
-
-
 .card-title{
-  font-size: 14px;
-  margin: 2px;
-  margin-left: 0px;
+  font-size: 18px;
+  margin-left: 11px;
+  text-align: center;
+}
+
+.card-release-year {
+  text-align: center;
 }
 
 .card-body{
@@ -446,13 +462,15 @@ footer {
   margin-top: 5px;
   margin-left: 5px;
   margin-right: 5px;
+  font-size: 18px;
 }
 
 .modal-backdrop {
   position: absolute;
-  opacity: .3;
+  z-index: -1;
   width: 100%;
   top: 30px;
+  opacity: .2;
 }
 
 @media only screen

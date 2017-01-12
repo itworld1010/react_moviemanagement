@@ -34,6 +34,14 @@ export default class PersonalMovieCard extends Component {
   }
 
   componentWillMount() {
+    let user = this.props.user
+    let movie = this.props.movie
+    let DVD = this.props.movie.DVD
+    let Bluray = this.props.movie.Bluray
+    let iTunes = this.props.movie.iTunes
+    let Prime = this.props.movie.Prime
+    this.setState({ user, movie, DVD, Bluray, iTunes, Prime })
+
     fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.movie.id}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
     .then((response) => response.json())
     .then((response) => this.setState({ credits: response }))
@@ -78,7 +86,7 @@ export default class PersonalMovieCard extends Component {
     }
     forEach(holy, (e) => this.setState({ youtubeID: e}))
     let cast = this.state.credits.cast
-    let genreArray = (this.state.genres.map((e) => this.genreSwitch(e)))
+    let genreArray = (this.state.movie.genres.map((e) => this.genreSwitch(e)))
     this.setState({ cast: cast, genreNamesArray: genreArray })
     this.open()
   }
@@ -87,6 +95,15 @@ export default class PersonalMovieCard extends Component {
     let hours = Math.floor(minutes / 60)
     let newMinutes = minutes % 60
     return `${hours} hours, ${newMinutes} minutes`
+  }
+
+  updateFormat(format){
+    const title = this.props.id
+    const { user } = this.state;
+    this.setState({ [format]: !this['state'][format] })
+    firebase.database().ref('users/' + user.displayName).child(title).child('movie').update({
+      [format]: this.state[format]
+    });
   }
 
   genreSwitch(genreID) {
@@ -139,14 +156,24 @@ export default class PersonalMovieCard extends Component {
                     <Modal.Header className="modal-header">
                       <Modal.Title className="modal-title">{this.props.movie.movie.title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
                     </Modal.Header>
+                        <a name="details" />
                     <Modal.Body className="modal-body">
+                    <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.backdrop_path}  />
                       <div className="modal-movie-deets" >
-                      <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.backdrop_path}  />
                       <p className="modal-crew modal-director">Director: {director}</p>
                       <p className="modal-crew modal-genre">Genre: {this.state.genreNamesArray.join(', ')} </p>
-                      <p className="modal-runtime modal-crew" > {this.minutesConverter(this.state.runtime)}</p>
+                      <p className="modal-runtime modal-crew" >Runtime:  {this.minutesConverter(this.state.runtime)}</p>
+                      <a href="#trailer">Trailer</a>
                       <p className="modal-crew modal-writers">Writer(s): {writers}</p>
                       <p className="modal-crew modal-overview">{this.props.movie.movie.overview}</p>
+                      <div  className="button-box">
+                        <form>
+                          <input className={this.state.DVD ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="DVD" onClick={() => this.updateFormat('DVD')}/>
+                          <input className={this.state.Bluray ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="Blu-ray" onClick={() => this.updateFormat('Bluray')}/>
+                          <input className={this.state.iTunes ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="iTunes" onClick={() => this.updateFormat('iTunes')}/>
+                          <input className={this.state.Prime ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="Prime" onClick={() => this.updateFormat('Prime')}/>
+                        </form>
+                      </div>
                       </div>
                       <div className="actor-list">
                         {this.state.cast.map((m, i) =>
@@ -154,6 +181,7 @@ export default class PersonalMovieCard extends Component {
                         )}
                       </div>
                       <div className="youtube-container">
+                      <a name="trailer" href="#details">Back to Details</a>
                       { this.state.youtubeID ?
                         <YouTube
                           className="youtube"

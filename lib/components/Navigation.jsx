@@ -12,6 +12,7 @@ const Navigation = ({ user }) => {
   }
   return (
     <div className="navigation">
+      <h1>Movie Keeper</h1>
         <div className="nav-container">
         <ul>
         <li className="nav-link"><Link to="/">My Movies</Link></li>
