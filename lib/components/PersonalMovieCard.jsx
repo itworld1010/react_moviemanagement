@@ -163,7 +163,7 @@ export default class PersonalMovieCard extends Component {
                       </div>
                       <div className="modal-movie-deets" >
                         <p className="modal-crew">
-                          {directorsArray.length > 1 ? 'Directors: ' : 'Director: '}  {director} {director} <br/><br/>
+                          {directorsArray.length > 1 ? 'Directors: ' : 'Director: '}  {director} <br/><br/>
                           Genre: {this.state.genreNamesArray.join(', ')} <br/><br/>
                           Runtime:  {this.minutesConverter(this.state.runtime)} <br/><br/>
                           {writersArray.length > 1 ? 'Writers: ' : 'Writer: '} {writers} <br/><br/>

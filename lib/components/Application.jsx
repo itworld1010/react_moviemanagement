@@ -52,7 +52,7 @@ class Application extends Component{
             <div>
               <div className="video-background" >
                 <video id="my-video" className="video" autoPlay="autoplay" loop="loop" muted >
-                  <source src={gravity} type="video/mp4" />
+                  <source src={'https://11-lvl3-pdl.vimeocdn.com/01/178/4/100893658/271010377.mp4?expires=1484243967&token=0ee3ac066d415fd8b5f97'} type="video/mp4" />
                   Your browser doesn't support HTML5 video. Here's a <a href="#">link</a> to the video
                 </video>
                 <div className="shadow"></div>
