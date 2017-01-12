@@ -53,9 +53,11 @@ a {
     font-size: 12px;
     position: relative;
     top: 10px;
-    color: $universalColor;
+    color: #d33e15;
     background: none;
     display: inline-block;
+    left: 10px;
+    z-index: 10;
     &:hover{
       cursor: pointer;
     }
@@ -322,12 +324,12 @@ footer {
 }
 
 .upcoming-card-container-inner {
-  width: 5000px;
+  width: 10000px;
 }
 
 .upcoming-movie-card {
-  width: 175px;
-  height: 262.5px;
+  width: 250px;
+  height: 375px;
   position: relative;
   float: left;
   margin: 8px;
@@ -385,17 +387,33 @@ footer {
 }
 
 .actor-list {
-  width: 99%;
+  width: 98%;
   height: 55vh;
   display: flex;
   overflow-y: auto;
-  padding-top: 3%;
   position: relative;
-  margin-bottom: 5%;
-  margin-left: 1%;
+  margin-left: 10px;
+  top: 150px;
 }
 
 //modal
+
+th {
+  padding-right: 20px;
+  text-align: left;
+  padding-bottom: 20px;
+  color: $universalColor;
+  font-size: 20px;
+}
+
+td {
+  line-height: 24px;
+  font-weight: 300;
+}
+
+table {
+  margin-left: 60px;
+}
 .modal-container {
   display: block;
   position: fixed;
@@ -412,7 +430,12 @@ footer {
 
 .youtube {
   width: 100%;
-  margin-bottom: 5%;
+  margin-bottom: 143px;
+}
+
+.details-ref {
+  position: absolute;
+  top: .50px;
 }
 
 .youtube-container {
@@ -439,16 +462,16 @@ footer {
 }
 
 .modal-movie-deets {
-  width: 64%;
+  width: 55%;
   height: 280px;
   overflow: auto;
+  margin-top: 20px;
 }
 
 .modal-header {
-  position: absolute;
-  left: 50%;
+  position: fixed;
   background-color: black;
-  width: 100%;
+  width: 78%;
   color: white;
   z-index: 10;
   height: 42px;
@@ -456,9 +479,6 @@ footer {
 
 .modal-title {
   font-size: 30px;
-  position: relative;
-  display: inline-block;
-  left: -15%;
 }
 
 .modal-body {
@@ -509,16 +529,28 @@ footer {
 }
 
 .back-to-deets-abs-center {
-  top: 0;
+  bottom: 765px;
+}
+
+.upcoming-back-to-deets-abs-center {
+  bottom: 765px;
+  left: 563px;
 }
 
 .to-deets-abs-center {
-  top: 44px;
+  top: 40px;
 }
 
 .relative-center {
   position: relative;
   left: -50%;
+  top: 5px;
+}
+
+.upcoming-relative-center {
+  position: relative;
+  left: -50%;
+  top: 25px;
 }
 
 @media only screen

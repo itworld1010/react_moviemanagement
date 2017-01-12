@@ -129,13 +129,28 @@ export default class MovieCard extends Component {
                         <a className="trailer-link relative-center" href="#trailer">Trailer</a>
                       </div>
                       <div className="modal-movie-deets">
-                        <p className="modal-crew">
-                          {directorsArray.length > 1 ? 'Directors: ' : 'Director: '} {director} <br/><br/>
-                          { writersArray.length >1 ? 'Writers: ' : 'Writer: '} {writers} <br/><br/>
-                          Genre: {this.state.genreNamesArray.join(', ')} <br/><br/>
-                          Runtime: {this.minutesConverter(this.state.runtime)} <br/><br/>
-                          Plot: {this.props.movie.overview} <br/><br/>
-                        </p>
+                      <table>
+                        <tr>
+                          <th>{directorsArray.length > 1 ? 'Directors:' : 'Director:'}</th>
+                          <td>{director}</td>
+                        </tr>
+                        <tr>
+                          <th>Genre:</th>
+                          <td>{this.state.genreNamesArray.join(', ')}</td>
+                        </tr>
+                        <tr>
+                          <th>Runtime:</th>
+                          <td>{this.minutesConverter(this.state.runtime)}</td>
+                        </tr>
+                        <tr>
+                          <th>{writersArray.length > 1 ? 'Writers:' : 'Writer:'}</th>
+                          <td>{writers}</td>
+                        </tr>
+                        <tr>
+                          <th>Plot:</th>
+                          <td>{this.props.movie.overview}</td>
+                        </tr>
+                      </table>
                       </div>
                       <div className="actor-list">
                         {this.state.cast.map((m, i) =>
@@ -143,7 +158,7 @@ export default class MovieCard extends Component {
                         )}
                       </div>
                       <div className="youtube-container">
-                      <div className="absolute-center back-to-deets-abs-center">
+                      <div className="absolute-center upcoming-back-to-deets-abs-center">
                         <a name="trailer" href="#details">Back to Details</a>
                       </div>
                       { this.state.youtubeID ?

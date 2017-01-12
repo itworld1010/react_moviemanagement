@@ -122,7 +122,7 @@ export default class PopularMovieCard extends Component {
                   onClick={() => this.setCast()}>
           </Button>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
-                      <Modal.Title className="modal-title absolute-center"><span className="relative-center">{this.props.movie.original_title}</span><button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
+                      <Modal.Title className="modal-title absolute-center"><span className="upcoming-relative-center">{this.props.movie.original_title}</span><button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
                       <a name="details" />
                     <Modal.Body className="modal-body">
                       <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.backdrop_path}  />
@@ -130,13 +130,28 @@ export default class PopularMovieCard extends Component {
                         <a className="trailer-link relative-center" href="#trailer">Trailer</a>
                       </div>
                       <div className="modal-movie-deets">
-                        <p className="modal-crew">
-                          {directorsArray.length > 1 ? 'Directors: ' : 'Director: '}  {director} <br/><br/>
-                          { writersArray.length >1 ? 'Writers: ' : 'Writer: '} {writers} <br/><br/>
-                          Genre: {this.state.genreNamesArray.join(', ')} <br/><br/>
-                          Runtime: {this.minutesConverter(this.state.runtime)} <br/><br/>
-                          Plot: {this.props.movie.overview}
-                        </p>
+                      <table>
+                        <tr>
+                          <th>{directorsArray.length > 1 ? 'Directors:' : 'Director:'}</th>
+                          <td>{director}</td>
+                        </tr>
+                        <tr>
+                          <th>Genre:</th>
+                          <td>{this.state.genreNamesArray.join(', ')}</td>
+                        </tr>
+                        <tr>
+                          <th>Runtime:</th>
+                          <td>{this.minutesConverter(this.state.runtime)}</td>
+                        </tr>
+                        <tr>
+                          <th>{writersArray.length > 1 ? 'Writers:' : 'Writer:'}</th>
+                          <td>{writers}</td>
+                        </tr>
+                        <tr>
+                          <th>Plot:</th>
+                          <td>{this.props.movie.overview}</td>
+                        </tr>
+                      </table>
                       </div>
                       <div className="actor-list">
                         {this.state.cast.map((m, i) =>
@@ -144,7 +159,7 @@ export default class PopularMovieCard extends Component {
                         )}
                       </div>
                       <div className="youtube-container">
-                      <div className="absolute-center back-to-deets-abs-center">
+                      <div className="absolute-center upcoming-back-to-deets-abs-center">
                         <a name="trailer" href="#details">Back to Details</a>
                       </div>
                       { this.state.youtubeID ?
