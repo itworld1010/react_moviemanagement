@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 import firebase from '../firebase';
 import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
-import { filter, map, extend, keyBy, keys, mapValues, values, find, get, forEach, join, dropRight } from 'lodash';
+import { filter, map, extend, keys, get, forEach, join, dropRight } from 'lodash';
 import YouTube from 'react-youtube'
 import ActorCard from './ActorCard'
 
@@ -109,16 +109,18 @@ export default class PopularMovieCard extends Component {
         <div className="upcoming-poster-container">
         {this.props.movie.poster_path ?
           <img
-          className="poster"
-          alt={this.props.movie.original_title}
-          src={"https://image.tmdb.org/t/p/w500" + this.props.movie.poster_path}
+            className="poster"
+            alt={this.props.movie.original_title}
+            src={"https://image.tmdb.org/t/p/w500" + this.props.movie.poster_path}
           />
           : <img alt={this.props.movie.title} src={npa} className="poster"/>}
           </div>
           <Button bsStyle="primary"
-          bsSize="large"
-          alt={this.props.movie.original_title}
-          className="upcoming-movie-card-button button" onClick={() => this.setCast()}></Button>
+                  bsSize="large"
+                  alt={this.props.movie.original_title}
+                  className="upcoming-movie-card-button button"
+                  onClick={() => this.setCast()}>
+          </Button>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
                     <Modal.Header className="modal-header">
                       <Modal.Title className="modal-title">{this.props.movie.original_title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
@@ -131,7 +133,7 @@ export default class PopularMovieCard extends Component {
                       </div>
                       <div className="modal-movie-deets">
                         <p className="modal-crew">
-                          {directorsArray.length > 1 ? 'Directors: ' : 'Director: '}  {director} <br/><br/> 
+                          {directorsArray.length > 1 ? 'Directors: ' : 'Director: '}  {director} <br/><br/>
                           { writersArray.length >1 ? 'Writers: ' : 'Writer: '} {writers} <br/><br/>
                           Genre: {this.state.genreNamesArray.join(', ')} <br/><br/>
                           Runtime: {this.minutesConverter(this.state.runtime)} <br/><br/>

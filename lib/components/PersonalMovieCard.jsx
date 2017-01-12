@@ -6,8 +6,6 @@ import { map, extend, keyBy, keys, mapValues, values, find, get, forEach, join, 
 import ActorCard from './ActorCard'
 import YouTube from 'react-youtube'
 
-
-
 export default class PersonalMovieCard extends Component {
   constructor() {
     super();
@@ -61,16 +59,6 @@ export default class PersonalMovieCard extends Component {
       movie: movie
     });
   }
-
-  // updateFormat(format){
-  //   let { user } = this.props
-  //   let title = this.props.id
-  //   this.setState({ [format]: !this['state'][format]})
-  //   let state = !this.state[format]
-  //   firebase.database().ref('users/' + user.displayName).child(title).child('movie').update({
-  //     [format]: state
-  //   })
-  // }
 
   close() {
     this.setState({ showModal: false });
@@ -151,15 +139,17 @@ export default class PersonalMovieCard extends Component {
       <article className="personal-movie-card poster-container">
         {this.props.movie.movie.poster_path ?
           <img
-          className="poster"
-          alt={this.props.movie.movie.title}
-          src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.poster_path}
+            className="poster"
+            alt={this.props.movie.movie.title}
+            src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.poster_path}
           />
           : <img alt={this.props.movie.movie.title} src={npa} className="poster"/>}
           <Button bsStyle="primary"
-          bsSize="large"
-          alt={this.props.movie.movie.title}
-          className="personal-movie-card-button" onClick={() => this.setCast()}></Button>
+            bsSize="large"
+            alt={this.props.movie.movie.title}
+            className="personal-movie-card-button"
+            onClick={() => this.setCast()}>
+          </Button>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
                     <Modal.Header className="modal-header">
                       <button onClick={() =>  this.delete()}className="delete">Delete movie</button>
@@ -182,10 +172,30 @@ export default class PersonalMovieCard extends Component {
                       </div>
                       <div  className="modal-button-box">
                         <form>
-                          <input className={this.state.DVD ? 'modal-format-button format-true button' : 'modal-format-button format-false button'} type="button" value="DVD" onClick={() => this.updateFormat('DVD')}/>
-                          <input className={this.state.Bluray ? 'modal-format-button format-true button' : 'modal-format-button format-false button'} type="button" value="Blu-ray" onClick={() => this.updateFormat('Bluray')}/>
-                          <input className={this.state.iTunes ? 'modal-format-button format-true button' : 'modal-format-button format-false button'} type="button" value="iTunes" onClick={() => this.updateFormat('iTunes')}/>
-                          <input className={this.state.Prime ? 'modal-format-button format-true button' : 'modal-format-button format-false button'} type="button" value="Prime" onClick={() => this.updateFormat('Prime')}/>
+                          <input
+                            className={this.state.DVD ? 'modal-format-button format-true button' : 'modal-format-button format-false button'}
+                            type="button"
+                            value="DVD"
+                            onClick={() => this.updateFormat('DVD')}
+                          />
+                          <input
+                            className={this.state.Bluray ? 'modal-format-button format-true button' : 'modal-format-button format-false button'}
+                            type="button"
+                            value="Blu-ray"
+                            onClick={() => this.updateFormat('Bluray')}
+                          />
+                          <input
+                            className={this.state.iTunes ? 'modal-format-button format-true button' : 'modal-format-button format-false button'}
+                            type="button"
+                            value="iTunes"
+                            onClick={() => this.updateFormat('iTunes')}
+                          />
+                          <input
+                            className={this.state.Prime ? 'modal-format-button format-true button' : 'modal-format-button format-false button'}
+                            type="button"
+                            value="Prime"
+                            onClick={() => this.updateFormat('Prime')}
+                          />
                         </form>
                       </div>
                       <div className="actor-list">

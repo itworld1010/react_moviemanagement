@@ -1,10 +1,6 @@
-// need to find better alternative to alt text in button
-
 import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 import firebase from '../firebase';
-
-
 
 export default class MovieCard extends Component {
   constructor() {
@@ -70,25 +66,45 @@ export default class MovieCard extends Component {
             :
             <div  className="button-box">
               <form>
-                <input className={this.state.DVD ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="DVD" onClick={() => {this.setState({ DVD: !this.state.DVD })}}/>
-                <input className={this.state.Bluray ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="Blu-ray" onClick={() => {this.setState({ Bluray: !this.state.Bluray })}}/>
-                <input className={this.state.iTunes ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="iTunes" onClick={() => {this.setState({ iTunes: !this.state.iTunes })}}/>
-                <input className={this.state.Prime ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="Prime" onClick={() => {this.setState({ Prime: !this.state.Prime })}}/>
+                <input
+                  className={this.state.DVD ? 'format-button format-true button' : 'format-button format-false button'}
+                  type="button"
+                  value="DVD"
+                  onClick={() => {this.setState({ DVD: !this.state.DVD })}}
+                />
+                <input
+                  className={this.state.Bluray ? 'format-button format-true button' : 'format-button format-false button'}
+                  type="button"
+                  value="Blu-ray"
+                  onClick={() => {this.setState({ Bluray: !this.state.Bluray })}}
+                />
+                <input
+                  className={this.state.iTunes ? 'format-button format-true button' : 'format-button format-false button'}
+                  type="button"
+                  value="iTunes"
+                  onClick={() => {this.setState({ iTunes: !this.state.iTunes })}}
+                />
+                <input
+                  className={this.state.Prime ? 'format-button format-true button' : 'format-button format-false button'}
+                  type="button"
+                  value="Prime"
+                  onClick={() => {this.setState({ Prime: !this.state.Prime })}}
+                />
               </form>
             </div>
           }
         <article className="p-movie-card-buttons">
           {!this.state.addMovieClick ?
             <button
-            onClick={() => {this.setState({ addMovieClick: !this.state.addMovieClick })}}
-            className="movie-card-button"
-            disabled={!this.state.submit ? false : true }
+              onClick={() => {this.setState({ addMovieClick: !this.state.addMovieClick })}}
+              className="movie-card-button"
+              disabled={!this.state.submit ? false : true }
             >{!this.state.submit ? 'Add Movie' : 'Added to your movies'}
             </button>
             :
             <button
-            onClick={() => this.createAndSend()}
-            className="movie-card-button"
+              onClick={() => this.createAndSend()}
+              className="movie-card-button"
             >Submit
             </button>
           }

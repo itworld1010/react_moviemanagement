@@ -108,16 +108,18 @@ export default class MovieCard extends Component {
         <div className="upcoming-poster-container">
         {this.props.movie.poster_path ?
           <img
-          className="poster"
-          alt={this.props.movie.original_title}
-          src={"https://image.tmdb.org/t/p/w500" + this.props.movie.poster_path}
+            className="poster"
+            alt={this.props.movie.original_title}
+            src={"https://image.tmdb.org/t/p/w500" + this.props.movie.poster_path}
           />
           : <img alt={this.props.movie.title} src={npa} className="poster"/>}
           </div>
           <Button bsStyle="primary"
-          bsSize="large"
-          alt={this.props.movie.original_title}
-          className="upcoming-movie-card-button button" onClick={() => this.setCast()}></Button>
+            bsSize="large"
+            alt={this.props.movie.original_title}
+            className="upcoming-movie-card-button button"
+            onClick={() => this.setCast()}>
+          </Button>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
                     <Modal.Header className="modal-header">
                       <Modal.Title className="modal-title">{this.props.movie.original_title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
