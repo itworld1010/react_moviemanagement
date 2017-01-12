@@ -67,13 +67,7 @@ a {
   padding: 3%;
 }
 
-// .format-true, .format-false {
-//   &:hover{
-//     background: #d5d7d9;
-//     text-decoration: none;
-//     cursor: pointer;
-//   }
-// }
+
 .button-box {
   width: inherit;
   margin: inherit;
@@ -382,7 +376,7 @@ footer {
   height: 55vh;
   display: flex;
   overflow-y: auto;
-  padding-top: 15%;
+  padding-top: 3%;
   position: relative;
   margin-bottom: 5%;
 }
@@ -413,6 +407,26 @@ footer {
   padding-top: 8%;
   padding-bottom: 5%;
   margin-top: 8%;
+}
+
+.modal-button-box {
+  position: absolute;
+  right: 5%;
+  top: 14%;
+  width: 30%;
+}
+
+.modal-format-button {
+  width: 46%;
+  padding: 5%;
+  margin: 2%;
+  opacity: 0.8;
+}
+
+.modal-movie-deets {
+  width: 64%;
+  height: 280px;
+  overflow: auto;
 }
 
 .modal-header {
@@ -459,10 +473,10 @@ footer {
 }
 
 .modal-crew {
-  margin-top: 5px;
-  margin-left: 5px;
+  padding: 10px;
   margin-right: 5px;
-  font-size: 18px;
+  font-size: 21px;
+  overflow-y: scroll;
 }
 
 .modal-backdrop {
@@ -471,6 +485,24 @@ footer {
   width: 100%;
   top: 30px;
   opacity: .2;
+}
+
+.absolute-center {
+  position: absolute;
+  left: 50%;
+}
+
+.back-to-deets-abs-center {
+  top: 0;
+}
+
+.to-deets-abs-center {
+  top: 44px;
+}
+
+.relative-center {
+  position: relative;
+  left: -50%;
 }
 
 @media only screen
