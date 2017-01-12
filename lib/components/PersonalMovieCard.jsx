@@ -143,12 +143,14 @@ export default class PersonalMovieCard extends Component {
                     <Modal.Header className="modal-header">
                       <Modal.Title className="modal-title">{this.props.movie.movie.title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
                     </Modal.Header>
+                        <a name="details" />
                     <Modal.Body className="modal-body">
+                    <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.backdrop_path}  />
                       <div className="modal-movie-deets" >
-                      <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.backdrop_path}  />
                       <p className="modal-crew modal-director">Director: {director}</p>
                       <p className="modal-crew modal-genre">Genre: {this.state.genreNamesArray.join(', ')} </p>
-                      <p className="modal-runtime modal-crew" > {this.minutesConverter(this.state.runtime)}</p>
+                      <p className="modal-runtime modal-crew" >Runtime:  {this.minutesConverter(this.state.runtime)}</p>
+                      <a href="#trailer">Trailer</a>
                       <p className="modal-crew modal-writers">Writer(s): {writers}</p>
                       <p className="modal-crew modal-overview">{this.props.movie.movie.overview}</p>
                       </div>
@@ -158,6 +160,7 @@ export default class PersonalMovieCard extends Component {
                         )}
                       </div>
                       <div className="youtube-container">
+                      <a name="trailer" href="#details">Back to Details</a>
                       { this.state.youtubeID ?
                         <YouTube
                           className="youtube"

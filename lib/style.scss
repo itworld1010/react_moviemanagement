@@ -451,9 +451,10 @@ footer {
 
 .modal-backdrop {
   position: absolute;
-  opacity: .3;
+  z-index: -1;
   width: 100%;
   top: 30px;
+  opacity: .2;
 }
 
 @media only screen
