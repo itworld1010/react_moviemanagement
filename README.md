@@ -20,6 +20,9 @@ Not pushed to production.
 
 ![Movie Details](lib/screenshots/Screen Shot 2017-01-12 at 2.30.55 AM.png?raw=true "Movie Details")
 
+![Movie Details](lib/screenshots/Screen Shot 2017-01-12 at 2.47.13 AM.png?raw=true "Movie Details")
+
+
 ## Installation and Setup Instructions
 
 Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
