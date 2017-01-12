@@ -156,28 +156,28 @@ export default class PersonalMovieCard extends Component {
                     <Modal.Header className="modal-header">
                       <Modal.Title className="modal-title">{this.props.movie.movie.title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
                     </Modal.Header>
-                        <a name="details" />
+                      <a name="details" />
                     <Modal.Body className="modal-body">
-                    <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.backdrop_path}  />
-                    <div className="absolute-center to-deets-abs-center">
-                    <a className="trailer-link relative-center" href="#trailer">Trailer</a>
-                    </div>
+                      <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.backdrop_path}  />
+                      <div className="absolute-center to-deets-abs-center">
+                        <a className="trailer-link relative-center" href="#trailer">Trailer</a>
+                      </div>
                       <div className="modal-movie-deets" >
-                      <p className="modal-crew">
-                        Director: {director} <br/><br/>
-                        Genre: {this.state.genreNamesArray.join(', ')} <br/><br/>
-                        Runtime:  {this.minutesConverter(this.state.runtime)} <br/><br/>
-                        Writer(s): {writers} <br/><br/>
-                        Plot: {this.props.movie.movie.overview}
-                      </p>
+                        <p className="modal-crew">
+                          Director: {director} <br/><br/>
+                          Genre: {this.state.genreNamesArray.join(', ')} <br/><br/>
+                          Runtime:  {this.minutesConverter(this.state.runtime)} <br/><br/>
+                          Writer(s): {writers} <br/><br/>
+                          Plot: {this.props.movie.movie.overview}
+                        </p>
                       </div>
                       <div  className="modal-button-box">
-                      <form>
-                      <input className={this.state.DVD ? 'modal-format-button format-true button' : 'modal-format-button format-false button'} type="button" value="DVD" onClick={() => this.updateFormat('DVD')}/>
-                      <input className={this.state.Bluray ? 'modal-format-button format-true button' : 'modal-format-button format-false button'} type="button" value="Blu-ray" onClick={() => this.updateFormat('Bluray')}/>
-                      <input className={this.state.iTunes ? 'modal-format-button format-true button' : 'modal-format-button format-false button'} type="button" value="iTunes" onClick={() => this.updateFormat('iTunes')}/>
-                      <input className={this.state.Prime ? 'modal-format-button format-true button' : 'modal-format-button format-false button'} type="button" value="Prime" onClick={() => this.updateFormat('Prime')}/>
-                      </form>
+                        <form>
+                          <input className={this.state.DVD ? 'modal-format-button format-true button' : 'modal-format-button format-false button'} type="button" value="DVD" onClick={() => this.updateFormat('DVD')}/>
+                          <input className={this.state.Bluray ? 'modal-format-button format-true button' : 'modal-format-button format-false button'} type="button" value="Blu-ray" onClick={() => this.updateFormat('Bluray')}/>
+                          <input className={this.state.iTunes ? 'modal-format-button format-true button' : 'modal-format-button format-false button'} type="button" value="iTunes" onClick={() => this.updateFormat('iTunes')}/>
+                          <input className={this.state.Prime ? 'modal-format-button format-true button' : 'modal-format-button format-false button'} type="button" value="Prime" onClick={() => this.updateFormat('Prime')}/>
+                        </form>
                       </div>
                       <div className="actor-list">
                         {this.state.cast.map((m, i) =>
