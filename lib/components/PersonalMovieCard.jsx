@@ -135,6 +135,7 @@ export default class PersonalMovieCard extends Component {
 
   render() {
     let writers = (filter(this.state.credits.crew, {'department': "Writing"})).map((e) => e.name).join(', ')
+    let writersArray = filter(this.state.credits.crew, {'department': "Writing"})
     let genre
     let uniqueID = this.state.movieID
     let director = get((find(this.state.credits.crew, {'job': "Director"})), 'name')
@@ -167,7 +168,7 @@ export default class PersonalMovieCard extends Component {
                           Director: {director} <br/><br/>
                           Genre: {this.state.genreNamesArray.join(', ')} <br/><br/>
                           Runtime:  {this.minutesConverter(this.state.runtime)} <br/><br/>
-                          Writer(s): {writers} <br/><br/>
+                          {writersArray.length > 1 ? 'Writers: ' : 'Writer: '} {writers} <br/><br/>
                           Plot: {this.props.movie.movie.overview}
                         </p>
                       </div>
