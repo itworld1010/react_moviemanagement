@@ -106,6 +106,12 @@ export default class PersonalMovieCard extends Component {
     });
   }
 
+  delete() {
+    const title = this.props.id
+    const { user } = this.state;
+    firebase.database().ref('users/' + user.displayName).child(title).remove()
+  }
+
   genreSwitch(genreID) {
      if (genreID === 28){return "Action"}
      else if (genreID === 12){return "Adventure"}
@@ -156,6 +162,7 @@ export default class PersonalMovieCard extends Component {
           className="personal-movie-card-button" onClick={() => this.setCast()}></Button>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
                     <Modal.Header className="modal-header">
+                      <button onClick={() =>  this.delete()}className="delete">Delete movie</button>
                       <Modal.Title className="modal-title">{this.props.movie.movie.title}<button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
                     </Modal.Header>
                       <a name="details" />

@@ -49,9 +49,8 @@ export default class SearchMovie extends Component {
           }}>
             <input
               className="search-input"
-              // value={this.state.userSearch}
               placeholder="Enter Movie Title"
-              // onChange={(e) => this.updateSearchQuery(input.value)}
+              autoFocus
               ref={ node => { input = node }}
             />
             <button
