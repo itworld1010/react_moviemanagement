@@ -33,17 +33,6 @@ export default class PersonalMovieCard extends Component {
   }
 
   componentWillMount() {
-    let user = this.props.user
-    let movie = this.props.movie
-    let DVD = this.props.movie.DVD
-    let Bluray = this.props.movie.Bluray
-    let Prime = this.props.movie.Prime
-    let iTunes = this.props.movie.iTunes
-    let id = this.props.id
-    let movieID = this.props.movie.movie.id
-    let genres = this.props.movie.movie.genre_ids
-    // this.setState({ user, movie, DVD, Bluray, iTunes, Prime, id, movieID, genres })
-
 
   }
 
