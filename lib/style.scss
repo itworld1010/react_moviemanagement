@@ -48,6 +48,18 @@ a {
     }
   }
 
+  .delete {
+    font-size: 12px;
+    position: relative;
+    left: 14.6px;
+    top: 0.8px;
+    color: #ff8935;
+    background: none;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
   .reel {
     position: absolute;
     width: 100px;
