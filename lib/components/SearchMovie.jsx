@@ -55,7 +55,7 @@ export default class SearchMovie extends Component {
               ref={ node => { input = node }}
             />
             <button
-              className="search-movies-button button"
+              className="button search-movies-button"
             > Search
             </button>
           </form>

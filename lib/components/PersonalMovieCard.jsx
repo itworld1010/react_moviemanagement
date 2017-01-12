@@ -97,6 +97,15 @@ export default class PersonalMovieCard extends Component {
     return `${hours} hours, ${newMinutes} minutes`
   }
 
+  updateFormat(format){
+    const title = this.props.id
+    const { user } = this.state;
+    this.setState({ [format]: !this['state'][format] })
+    firebase.database().ref('users/' + user.displayName).child(title).child('movie').update({
+      [format]: this.state[format]
+    });
+  }
+
   genreSwitch(genreID) {
      if (genreID === 28){return "Action"}
      else if (genreID === 12){return "Adventure"}
@@ -159,10 +168,10 @@ export default class PersonalMovieCard extends Component {
                       <p className="modal-crew modal-overview">{this.props.movie.movie.overview}</p>
                       <div  className="button-box">
                         <form>
-                          <input className={this.props.movie.DVD ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="DVD" onClick={() => {this.setState({ DVD: !this.props.movie.DVD })}}/>
-                          <input className={this.props.movie.Bluray ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="Blu-ray" onClick={() => {this.setState({ Bluray: !this.props.movie.Bluray })}}/>
-                          <input className={this.props.movie.iTunes ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="iTunes" onClick={() => {this.setState({ iTunes: !this.props.movie.iTunes })}}/>
-                          <input className={this.props.movie.Prime ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="Prime" onClick={() => {this.setState({ Prime: !this.props.movie.Prime })}}/>
+                          <input className={this.state.DVD ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="DVD" onClick={() => this.updateFormat('DVD')}/>
+                          <input className={this.state.Bluray ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="Blu-ray" onClick={() => this.updateFormat('Bluray')}/>
+                          <input className={this.state.iTunes ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="iTunes" onClick={() => this.updateFormat('iTunes')}/>
+                          <input className={this.state.Prime ? 'format-button format-true button' : 'format-button format-false button'} type="button" value="Prime" onClick={() => this.updateFormat('Prime')}/>
                         </form>
                       </div>
                       </div>
