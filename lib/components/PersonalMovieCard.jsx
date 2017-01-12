@@ -138,7 +138,8 @@ export default class PersonalMovieCard extends Component {
     let writersArray = filter(this.state.credits.crew, {'department': "Writing"})
     let genre
     let uniqueID = this.state.movieID
-    let director = get((find(this.state.credits.crew, {'job': "Director"})), 'name')
+    let director = filter(this.state.credits.crew, {'job': "Director"}).map((e) => e.name).join(', ')
+    let directorsArray = filter(this.state.credits.crew, {'job': "Director"})
 
     return (
       <article className="personal-movie-card poster-container">
@@ -165,7 +166,7 @@ export default class PersonalMovieCard extends Component {
                       </div>
                       <div className="modal-movie-deets" >
                         <p className="modal-crew">
-                          Director: {director} <br/><br/>
+                          {directorsArray.length > 1 ? 'Directors: ' : 'Director: '}  {director} {director} <br/><br/>
                           Genre: {this.state.genreNamesArray.join(', ')} <br/><br/>
                           Runtime:  {this.minutesConverter(this.state.runtime)} <br/><br/>
                           {writersArray.length > 1 ? 'Writers: ' : 'Writer: '} {writers} <br/><br/>

@@ -98,7 +98,8 @@ export default class MovieCard extends Component {
    }
 
   render() {
-    let director = get((find(this.state.credits.crew, {'job': "Director"})), 'name')
+    let director = filter(this.state.credits.crew, {'job': "Director"}).map((e) => e.name).join(', ')
+    let directorsArray = filter(this.state.credits.crew, {'job': "Director"})
     let writers = (filter(this.state.credits.crew, {'department': "Writing"})).map((e) => e.name).join(', ')
     let writersArray = filter(this.state.credits.crew, {'department': "Writing"})
 
@@ -129,7 +130,7 @@ export default class MovieCard extends Component {
                       </div>
                       <div className="modal-movie-deets">
                         <p className="modal-crew">
-                          Director: {director} <br/><br/>
+                          {directorsArray.length > 1 ? 'Directors: ' : 'Director: '} {director} <br/><br/>
                           { writersArray.length >1 ? 'Writers: ' : 'Writer: '} {writers} <br/><br/>
                           Genre: {this.state.genreNamesArray.join(', ')} <br/><br/>
                           Runtime: {this.minutesConverter(this.state.runtime)} <br/><br/>
