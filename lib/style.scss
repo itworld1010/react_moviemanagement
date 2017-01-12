@@ -11,20 +11,20 @@ body {
 h1 {
   font-size: 30px;
   position: absolute;
-  color: #ff8935;
+  color: $universalColor;
 }
 
 a:visited {
-  color: #ff8935;
+  color: $universalColor;
 }
 
 a:hover {
-  color:#ff8935;
+  color:$universalColor;
 }
 
 a {
   font-size: 18px;
-  color:#ff8935;
+  color:$universalColor;
 }
 
 .button, .auth-button, .movie-card-button{
@@ -38,7 +38,7 @@ a {
     padding: 4px;
     border: solid #d8dadb .5px;
     text-decoration: none;
-    border: #ff8935;
+    border: $universalColor;
     border-style: solid;
     border-width: thin;
     &:hover{
@@ -67,30 +67,24 @@ a {
   padding: 3%;
 }
 
-// .format-true, .format-false {
-//   &:hover{
-//     background: #d5d7d9;
-//     text-decoration: none;
-//     cursor: pointer;
-//   }
-// }
+
 .button-box {
   width: inherit;
   margin: inherit;
 }
 
 .format-true:hover{
-  background: #ff8935;
+  background: $universalColor;
   text-decoration: none;
   cursor: pointer;
 }
 
 .sign-out-button {
-  background-color: #ff8935;
+  background-color: $universalColor;
   padding: 9px;
   &:hover {
     background-color: black;
-    color: #ff8935;
+    color: $universalColor;
   }
 }
 
@@ -128,7 +122,7 @@ footer {
 }
 
 .format-true{
-  background-color: #ff8935;
+  background-color: $universalColor;
 }
 
 .nav-link{
@@ -192,7 +186,7 @@ footer {
   top: 2%;
   left: 37%;
   background: none;
-  color: #ff8935;
+  color: $universalColor;
   opacity: .5;
 }
 
@@ -220,7 +214,7 @@ footer {
   background-color: #fff;
   border-color: #d9d9d9 #ccc #b3b3b3;
   border-radius: 4px;
-  border: 1px solid #ff8935;
+  border: 1px solid $universalColor;
   line-height: 19px;
   padding-left: 10px;
   padding-right: 10px;
@@ -245,11 +239,11 @@ footer {
   display: inline-block;
   margin-left: 10px;
   width: 100%;
-  border: #ff8935;
+  border: $universalColor;
   border-style: solid;
   border-width: thin;
   &:disabled{
-    color: #ff8935;
+    color: $universalColor;
     border: none;
     cursor: auto;
     &:hover{
@@ -307,7 +301,7 @@ footer {
   font-size: 26px;
   margin-top: 6px;
   margin-bottom: 4px;
-  color: #ff8935;
+  color: $universalColor;
 }
 .upcoming-card-container {
   overflow: scroll;
@@ -382,9 +376,10 @@ footer {
   height: 55vh;
   display: flex;
   overflow-y: auto;
-  padding-top: 15%;
+  padding-top: 3%;
   position: relative;
   margin-bottom: 5%;
+  margin-left: 1%;
 }
 
 //modal
@@ -413,6 +408,26 @@ footer {
   padding-top: 8%;
   padding-bottom: 5%;
   margin-top: 8%;
+}
+
+.modal-button-box {
+  position: absolute;
+  right: 5%;
+  top: 14%;
+  width: 30%;
+}
+
+.modal-format-button {
+  width: 46%;
+  padding: 5%;
+  margin: 2%;
+  opacity: 0.8;
+}
+
+.modal-movie-deets {
+  width: 64%;
+  height: 280px;
+  overflow: auto;
 }
 
 .modal-header {
@@ -449,20 +464,20 @@ footer {
   top: 5%;
   padding: 13px;
   border: none;
-  background-color: #ff8935;
+  background-color: $universalColor;
   opacity: 0.8;
   border-radius: 20px;
   &:hover {
     opacity: 1;
-    background-color:#ff8935;
+    background-color:$universalColor;
   }
 }
 
 .modal-crew {
-  margin-top: 5px;
-  margin-left: 5px;
+  padding: 10px;
   margin-right: 5px;
-  font-size: 18px;
+  font-size: 21px;
+  overflow-y: scroll;
 }
 
 .modal-backdrop {
@@ -471,6 +486,24 @@ footer {
   width: 100%;
   top: 30px;
   opacity: .2;
+}
+
+.absolute-center {
+  position: absolute;
+  left: 50%;
+}
+
+.back-to-deets-abs-center {
+  top: 0;
+}
+
+.to-deets-abs-center {
+  top: 44px;
+}
+
+.relative-center {
+  position: relative;
+  left: -50%;
 }
 
 @media only screen

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 import firebase from '../firebase';
 import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
-import { map, extend, keyBy, keys, mapValues, values, find, get, forEach, join, dropRight } from 'lodash';
+import { filter, map, extend, keyBy, keys, mapValues, values, find, get, forEach, join, dropRight } from 'lodash';
 import YouTube from 'react-youtube'
 import ActorCard from './ActorCard'
 
@@ -41,7 +41,7 @@ export default class MovieCard extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://api.themoviedb.org/3/movie/${this.state.movie.id}?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US`)
+    fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.id}?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US`)
     .then((response) => response.json())
     .then((data) => this.setState({ movieDetails: data }))
   }
@@ -98,7 +98,10 @@ export default class MovieCard extends Component {
    }
 
   render() {
-    let director = get((find(this.state.credits.crew, {'job': "Director"})), 'name')
+    let director = filter(this.state.credits.crew, {'job': "Director"}).map((e) => e.name).join(', ')
+    let directorsArray = filter(this.state.credits.crew, {'job': "Director"})
+    let writers = (filter(this.state.credits.crew, {'department': "Writing"})).map((e) => e.name).join(', ')
+    let writersArray = filter(this.state.credits.crew, {'department': "Writing"})
 
     return (
       <article className="upcoming-movie-card">
@@ -121,19 +124,28 @@ export default class MovieCard extends Component {
                     </Modal.Header>
                       <a name="details" />
                     <Modal.Body className="modal-body">
-                      <p className="modal-crew modal-director">Director: {director}</p>
-                      <p className="modal-crew modal-genre">Genre: {this.state.genreNamesArray.join(', ')} </p>
-                      <p className="modal-crew" >{this.minutesConverter(this.state.runtime)}</p>
-                      <a href="#trailer">Trailer</a>
-                      <p className="modal-crew modal-overview">{this.props.movie.overview}</p>
                       <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.backdrop_path}  />
+                      <div className="absolute-center to-deets-abs-center">
+                        <a className="trailer-link relative-center" href="#trailer">Trailer</a>
+                      </div>
+                      <div className="modal-movie-deets">
+                        <p className="modal-crew">
+                          {directorsArray.length > 1 ? 'Directors: ' : 'Director: '} {director} <br/><br/>
+                          { writersArray.length >1 ? 'Writers: ' : 'Writer: '} {writers} <br/><br/>
+                          Genre: {this.state.genreNamesArray.join(', ')} <br/><br/>
+                          Runtime: {this.minutesConverter(this.state.runtime)} <br/><br/>
+                          Plot: {this.props.movie.overview} <br/><br/>
+                        </p>
+                      </div>
                       <div className="actor-list">
                         {this.state.cast.map((m, i) =>
                         <ActorCard cast={m} key={m.id}/>
                         )}
                       </div>
                       <div className="youtube-container">
-                      <a name="trailer" href="#details">Back to Details</a>
+                      <div className="absolute-center back-to-deets-abs-center">
+                        <a name="trailer" href="#details">Back to Details</a>
+                      </div>
                       { this.state.youtubeID ?
                         <YouTube
                           className="youtube"
