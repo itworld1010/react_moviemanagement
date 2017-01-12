@@ -6,6 +6,7 @@
 
 body {
   background: #fff;
+  font-family: $main-font;
 }
 
 h1 {
@@ -31,7 +32,7 @@ a {
     -webkit-border-radius: 60;
     -moz-border-radius: 60;
     border-radius: 5px;
-    font-family: Arial;
+    font-family: $main-font;
     color: #0f0f0f;
     font-size: 12px;
     background: #ffffff;
@@ -51,10 +52,10 @@ a {
   .delete {
     font-size: 12px;
     position: relative;
-    left: 14.6px;
-    top: 0.8px;
-    color: #ff8935;
+    top: 10px;
+    color: $universalColor;
     background: none;
+    display: inline-block;
     &:hover{
       cursor: pointer;
     }
@@ -236,7 +237,7 @@ footer {
   border-radius: 5px;
   border-spacing: 0;
   border-collapse: separate;
-  font-family: inherit;
+  font-family: $main-font;
   font-size: inherit;
   height: 35px;
 }
@@ -434,6 +435,7 @@ footer {
   padding: 5%;
   margin: 2%;
   opacity: 0.8;
+  font-size: 24px;
 }
 
 .modal-movie-deets {
@@ -443,19 +445,20 @@ footer {
 }
 
 .modal-header {
-  position: fixed;
-  display: flex;
+  position: absolute;
+  left: 50%;
   background-color: black;
-  width: 78%;
+  width: 100%;
   color: white;
   z-index: 10;
   height: 42px;
 }
 
 .modal-title {
-  margin: auto;
   font-size: 30px;
   position: relative;
+  display: inline-block;
+  left: -15%;
 }
 
 .modal-body {
