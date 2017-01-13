@@ -6,6 +6,7 @@
 
 body {
   background: #fff;
+  font-family: $main-font;
 }
 
 h1 {
@@ -31,7 +32,7 @@ a {
     -webkit-border-radius: 60;
     -moz-border-radius: 60;
     border-radius: 5px;
-    font-family: Arial;
+    font-family: $main-font;
     color: #0f0f0f;
     font-size: 12px;
     background: #ffffff;
@@ -51,10 +52,12 @@ a {
   .delete {
     font-size: 12px;
     position: relative;
-    left: 14.6px;
-    top: 0.8px;
-    color: #ff8935;
+    top: 10px;
+    color: #d33e15;
     background: none;
+    display: inline-block;
+    left: 10px;
+    z-index: 10;
     &:hover{
       cursor: pointer;
     }
@@ -236,7 +239,7 @@ footer {
   border-radius: 5px;
   border-spacing: 0;
   border-collapse: separate;
-  font-family: inherit;
+  font-family: $main-font;
   font-size: inherit;
   height: 35px;
 }
@@ -321,12 +324,12 @@ footer {
 }
 
 .upcoming-card-container-inner {
-  width: 5000px;
+  width: 10000px;
 }
 
 .upcoming-movie-card {
-  width: 175px;
-  height: 262.5px;
+  width: 250px;
+  height: 375px;
   position: relative;
   float: left;
   margin: 8px;
@@ -384,17 +387,33 @@ footer {
 }
 
 .actor-list {
-  width: 99%;
+  width: 98%;
   height: 55vh;
   display: flex;
   overflow-y: auto;
-  padding-top: 3%;
   position: relative;
-  margin-bottom: 5%;
-  margin-left: 1%;
+  margin-left: 10px;
+  top: 150px;
 }
 
 //modal
+
+th {
+  padding-right: 20px;
+  text-align: left;
+  padding-bottom: 20px;
+  color: $universalColor;
+  font-size: 20px;
+}
+
+td {
+  line-height: 24px;
+  font-weight: 300;
+}
+
+table {
+  margin-left: 60px;
+}
 .modal-container {
   display: block;
   position: fixed;
@@ -411,7 +430,12 @@ footer {
 
 .youtube {
   width: 100%;
-  margin-bottom: 5%;
+  margin-bottom: 143px;
+}
+
+.details-ref {
+  position: absolute;
+  top: .50px;
 }
 
 .youtube-container {
@@ -434,17 +458,18 @@ footer {
   padding: 5%;
   margin: 2%;
   opacity: 0.8;
+  font-size: 24px;
 }
 
 .modal-movie-deets {
-  width: 64%;
+  width: 55%;
   height: 280px;
   overflow: auto;
+  margin-top: 20px;
 }
 
 .modal-header {
   position: fixed;
-  display: flex;
   background-color: black;
   width: 78%;
   color: white;
@@ -453,9 +478,7 @@ footer {
 }
 
 .modal-title {
-  margin: auto;
   font-size: 30px;
-  position: relative;
 }
 
 .modal-body {
@@ -506,16 +529,29 @@ footer {
 }
 
 .back-to-deets-abs-center {
-  top: 0;
+  bottom: 765px;
+  left:50%;
+}
+
+.upcoming-back-to-deets-abs-center {
+  bottom: 765px;
+  left: 45%;
 }
 
 .to-deets-abs-center {
-  top: 44px;
+  top: 40px;
 }
 
 .relative-center {
   position: relative;
   left: -50%;
+  top: 5px;
+}
+
+.upcoming-relative-center {
+  position: relative;
+  left: -50%;
+  top: 25px;
 }
 
 @media only screen

@@ -122,35 +122,16 @@ export default class PersonalMovieCard extends Component {
      else if (genreID === 5373){return "Western"}
    }
 
-  open() {
-    this.setState({ runtime: this.state.movieDetails.runtime})
-    this.setState({ showModal: true });
-   }
 
   render() {
-    let writers = (filter(this.state.credits.crew, {'department': "Writing"})).map((e) => e.name).join(', ')
-    let writersArray = filter(this.state.credits.crew, {'department': "Writing"})
+    let writers = (filter(this.props.credits.crew, {'department': "Writing"})).map((e) => e.name).join(', ')
+    let writersArray = filter(this.props.credits.crew, {'department': "Writing"})
     let genre
-    let uniqueID = this.state.movieID
-    let director = filter(this.state.credits.crew, {'job': "Director"}).map((e) => e.name).join(', ')
-    let directorsArray = filter(this.state.credits.crew, {'job': "Director"})
+    let uniqueID = this.props.movieID
+    let director = filter(this.props.credits.crew, {'job': "Director"}).map((e) => e.name).join(', ')
+    let directorsArray = filter(this.props.credits.crew, {'job': "Director"})
 
     return (
-      <article className="personal-movie-card poster-container">
-        {this.props.movie.movie.poster_path ?
-          <img
-            className="poster"
-            alt={this.props.movie.movie.title}
-            src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.poster_path}
-          />
-          : <img alt={this.props.movie.movie.title} src={npa} className="poster"/>}
-          <Button bsStyle="primary"
-            bsSize="large"
-            alt={this.props.movie.movie.title}
-            className="personal-movie-card-button"
-            onClick={() => this.setCast()}>
-          </Button>
-          <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
                     <Modal.Header classname="modal-header" >
                     <Modal.Title className="modal-title absolute-center"><span className="relative-center">{this.props.movie.movie.title}</span><button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
@@ -248,8 +229,6 @@ export default class PersonalMovieCard extends Component {
                       </div>
                     </Modal.Body>
                   </Modal>
-                  </Modal>
-        </article>
     )
   }
 }
