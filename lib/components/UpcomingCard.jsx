@@ -121,7 +121,9 @@ export default class MovieCard extends Component {
             onClick={() => this.setCast()}>
           </Button>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
+          <Modal.Header className="modal-header" >
                       <Modal.Title className="modal-title absolute-center"><span className="relative-center">{this.props.movie.original_title}</span><button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
+                      </Modal.Header>
                       <a name="details" />
                     <Modal.Body className="modal-body">
                       <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.backdrop_path}  />
