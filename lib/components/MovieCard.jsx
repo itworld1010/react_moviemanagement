@@ -47,7 +47,6 @@ export default class MovieCard extends Component {
 
   createAndSend(){
     this.setState({ submit: !this.state.submit })
-    debugger
     const newMovie = {
       movieDetails: this.state.movieDetails,
       credits: this.state.credits,

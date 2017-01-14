@@ -144,7 +144,7 @@ export default class PersonalMovieCard extends Component {
           </Button>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
-                    <Modal.Header classname="modal-header" >
+                    <Modal.Header className="modal-header" >
                     <Modal.Title className="modal-title absolute-center"><span className="relative-center">{this.props.movie.movie.title}</span><button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
                     </Modal.Header>
                     <a className="details-ref" name="details" />
@@ -156,6 +156,7 @@ export default class PersonalMovieCard extends Component {
                       </div>
                       <div className="modal-movie-deets" >
                         <table>
+                        <tbody>
                           <tr>
                             <th>{directorsArray.length > 1 ? 'Directors:' : 'Director:'}</th>
                             <td>{director}</td>
@@ -176,6 +177,7 @@ export default class PersonalMovieCard extends Component {
                             <th>Plot:</th>
                             <td>{this.props.movie.movie.overview}</td>
                           </tr>
+                          </tbody>
                         </table>
                       </div>
                       <div  className="modal-button-box">
