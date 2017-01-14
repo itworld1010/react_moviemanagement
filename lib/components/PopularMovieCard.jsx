@@ -133,6 +133,7 @@ export default class PopularMovieCard extends Component {
                       </div>
                       <div className="modal-movie-deets">
                       <table>
+                      <tbody>
                         <tr>
                           <th>{directorsArray.length > 1 ? 'Directors:' : 'Director:'}</th>
                           <td>{director}</td>
@@ -153,6 +154,7 @@ export default class PopularMovieCard extends Component {
                           <th>Plot:</th>
                           <td>{this.props.movie.overview}</td>
                         </tr>
+                        </tbody>
                       </table>
                       </div>
                       <div className="actor-list">

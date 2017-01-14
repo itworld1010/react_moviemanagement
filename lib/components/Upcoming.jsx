@@ -31,6 +31,8 @@ export default class Upcoming extends Component {
 
 
   render() {
+    console.log('movie results', this.state.movieResults);
+    console.log('popular', this.state.popular);
 
     return (
       <div>

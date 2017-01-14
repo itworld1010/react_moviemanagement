@@ -115,6 +115,7 @@ export default class MovieCard extends Component {
           : <img alt={this.props.movie.title} src={npa} className="poster"/>}
           </div>
           <Button bsStyle="primary"
+            // onMouseOver={() => }
             bsSize="large"
             alt={this.props.movie.original_title}
             className="upcoming-movie-card-button button"
@@ -132,6 +133,7 @@ export default class MovieCard extends Component {
                       </div>
                       <div className="modal-movie-deets">
                       <table>
+                      <tbody>
                         <tr>
                           <th>{directorsArray.length > 1 ? 'Directors:' : 'Director:'}</th>
                           <td>{director}</td>
@@ -152,6 +154,7 @@ export default class MovieCard extends Component {
                           <th>Plot:</th>
                           <td>{this.props.movie.overview}</td>
                         </tr>
+                        </tbody>
                       </table>
                       </div>
                       <div className="actor-list">
