@@ -35,21 +35,23 @@ export default class MyMovies extends Component {
 
   filterByFormat(format) {
     let selectedFormat = format.value
-    if(selectedFormat !== 'Show-all')
+    if(this.state.filtered.length === 0)
       {let filtered = filter(this.state.movies, (o) => o.movie[selectedFormat])
       this.setState({ filtered: filtered, currentFilter: format.value })
     } else {
-      this.setState({ filtered: [], currentFilter: format.value })
+      let filtered = filter(this.state.filtered, (o) => o.movie[selectedFormat])
+      this.setState({ filtered: filtered, currentFilter: format.value })
     }
   }
 
   filterByRating(rating) {
     let selectedRating = rating.value
-    if(selectedRating !== 'show-all')
+    if(this.state.filtered === 0)
       { let filtered = filter(this.state.movies, (o) => o.movie.rating === selectedRating)
       this.setState({ filtered: filtered, currentRating: rating.value })
     } else {
-      this.setState({ filtered: [], currentRating: rating.value })
+      let filtered = filter(this.state.filtered, (o) => o.movie.rating === selectedRating)
+      this.setState({ filtered: filtered, currentRating: rating.value })
     }
   }
 
@@ -59,7 +61,8 @@ export default class MyMovies extends Component {
       { let filtered = filter(this.state.movies, (o) => o.movie.genres.includes(genre.value))
       this.setState({ filtered: filtered, currentGenre: genre.value })
     } else {
-      this.setState({ filtered: [], currentGenre: genre.value })
+      let filtered = filter(this.state.filtered, (o) => o.movie.rating === selectedRating)
+      this.setState({ filtered: filtered, currentRating: rating.value })
     }
   }
 
