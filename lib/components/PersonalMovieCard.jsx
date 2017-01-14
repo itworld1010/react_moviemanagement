@@ -4,6 +4,7 @@ import firebase from '../firebase';
 import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
 import { map, extend, keyBy, keys, mapValues, values, find, get, forEach, join, dropRight, filter } from 'lodash';
 import ActorCard from './ActorCard'
+import RateMovie from './RateMovie'
 import YouTube from 'react-youtube'
 
 export default class PersonalMovieCard extends Component {
@@ -27,7 +28,8 @@ export default class PersonalMovieCard extends Component {
       trailers: '',
       youtubeID: '',
       runtime: 0,
-      movieDetails: []
+      movieDetails: [],
+      rating: 'Not rated'
     }
   }
 
@@ -86,6 +88,22 @@ export default class PersonalMovieCard extends Component {
     });
   }
 
+  changeRating(rating) {
+    let selectedRating = rating.value
+    if(selectedRating.value !== 'Show-all')
+      {this.setState({ rating: selectedRating })
+    }
+  }
+
+  // rateMovie(userRating){
+  //   const title = this.props.id
+  //   const { user } = this.state;
+  //   this.setState({ rating: userRating })
+  //   firebase.database().ref('users/' + user.displayName).child(title).child('movie').update({
+  //     rating: userRating
+  //   });
+  // }
+
   delete() {
     const title = this.props.id
     const { user } = this.state;
@@ -126,6 +144,7 @@ export default class PersonalMovieCard extends Component {
     let uniqueID = this.state.movieID
     let director = filter(this.props.movie.credits.crew, {'job': "Director"}).map((e) => e.name).join(', ')
     let directorsArray = filter(this.props.movie.credits.crew, {'job': "Director"})
+    console.log(this.state.rating);
 
     return (
       <article className="personal-movie-card poster-container">
@@ -180,6 +199,7 @@ export default class PersonalMovieCard extends Component {
                           </tbody>
                         </table>
                       </div>
+                      <RateMovie rate={this.changeRating.bind(this)} rating={this.state.rating}/>
                       <div  className="modal-button-box">
                         <form>
                           <input
