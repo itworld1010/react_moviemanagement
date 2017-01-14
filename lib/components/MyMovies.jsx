@@ -38,18 +38,18 @@ export default class MyMovies extends Component {
       {let filtered = filter(this.state.movies, (o) => o.movie[selectedFormat])
       this.setState({ filtered: filtered, currentFilter: format.value })
     } else {
-      this.setState({ filtered: [] })
+      this.setState({ filtered: [], currentFilter: format.value })
     }
   }
 
   filterByRating(rating) {
     console.log(rating.value);
     let selectedRating = rating.value
-    if(selectedRating !== 'notrated')
+    if(selectedRating !== 'show-all')
       { let filtered = filter(this.state.movies, (o) => o.movie.rating === selectedRating)
       this.setState({ filtered: filtered, currentRating: rating.value })
     } else {
-      this.setState({ filtered: [] })
+      this.setState({ filtered: [], currentRating: rating.value })
     }
   }
 

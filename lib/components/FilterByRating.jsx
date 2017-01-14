@@ -5,7 +5,7 @@ import Select from 'react-select';
 
 const FilterByRating = ({ filter, currentRating }) => {
   var options = [
-    { value: 'notrated', label: 'Rate movie...' },
+    { value: 'show-all', label: 'Show All...' },
     { value: 'ten', label: '⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️ 10/10' },
     { value: 'nine', label: '⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️ 9/10' },
     { value: 'eight', label: '⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️ 8/10' },
