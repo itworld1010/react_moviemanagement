@@ -3,7 +3,8 @@ import npa from '../images/no-poster.png'
 import firebase from '../firebase';
 import { pick, map, extend, filter, keyBy } from 'lodash';
 import PersonalMovieCard from './PersonalMovieCard'
-import PersonalMovieSearch from './PersonalMovieSearch'
+import FilterByGenre from './FilterByGenre'
+import FilterByRating from './FilterByRating'
 
 export default class MyMovies extends Component {
   constructor() {
@@ -33,10 +34,20 @@ export default class MyMovies extends Component {
 
   filterByFormat(format) {
     let selectedFormat = format.value
-    if(selectedFormat.value !== 'Show-all')
-      {this.setState({ [selectedFormat]: !this['state'][selectedFormat] })
-      let filtered = filter(this.state.movies, (o) => o.movie[selectedFormat])
+    if(selectedFormat !== 'Show-all')
+      {let filtered = filter(this.state.movies, (o) => o.movie[selectedFormat])
       this.setState({ filtered: filtered, currentFilter: format.value })
+    } else {
+      this.setState({ filtered: [] })
+    }
+  }
+
+  filterByRating(rating) {
+    console.log(rating.value);
+    let selectedRating = rating.value
+    if(selectedRating !== 'notrated')
+      { let filtered = filter(this.state.movies, (o) => o.movie.rating === selectedRating)
+      this.setState({ filtered: filtered, currentRating: rating.value })
     } else {
       this.setState({ filtered: [] })
     }
@@ -74,7 +85,10 @@ export default class MyMovies extends Component {
     return (
       <div>
         <div className="p-movie-search">
-          <PersonalMovieSearch filter={this.filterByFormat.bind(this)} currentFilter={this.state.currentFilter}/>
+          <FilterByGenre filter={this.filterByFormat.bind(this)} currentFilter={this.state.currentFilter}/>
+        </div>
+        <div className="p-movie-search">
+          <FilterByRating filter={this.filterByRating.bind(this)} currentRating={this.state.currentRating}/>
         </div>
         <div className="my-movie-card-container">
           {this.state.filtered.length === 0 ? movieDisplay : filteredMovieDisplay }

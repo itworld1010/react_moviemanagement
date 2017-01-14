@@ -141,7 +141,7 @@ export default class PersonalMovieCard extends Component {
     let uniqueID = this.state.movieID
     let director = filter(this.props.movie.credits.crew, {'job': "Director"}).map((e) => e.name).join(', ')
     let directorsArray = filter(this.props.movie.credits.crew, {'job': "Director"})
-    console.log(this.state.rating);
+
 
     return (
       <article className="personal-movie-card poster-container">
