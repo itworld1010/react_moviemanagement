@@ -40,7 +40,8 @@ export default class PersonalMovieCard extends Component {
     let Bluray = this.props.movie.Bluray
     let iTunes = this.props.movie.iTunes
     let Prime = this.props.movie.Prime
-    this.setState({ user, movie, DVD, Bluray, iTunes, Prime })
+    let rating = this.props.movie.rating
+    this.setState({ user, movie, DVD, Bluray, iTunes, Prime, rating })
 
     fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.movie.id}/videos?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US`)
     .then((response) => response.json())
@@ -89,20 +90,16 @@ export default class PersonalMovieCard extends Component {
   }
 
   changeRating(rating) {
+    const title = this.props.id
+    const { user } = this.state;
     let selectedRating = rating.value
     if(selectedRating.value !== 'Show-all')
       {this.setState({ rating: selectedRating })
     }
+    firebase.database().ref('users/' + user.displayName).child(title).child('movie').update({
+      rating: selectedRating
+    });
   }
-
-  // rateMovie(userRating){
-  //   const title = this.props.id
-  //   const { user } = this.state;
-  //   this.setState({ rating: userRating })
-  //   firebase.database().ref('users/' + user.displayName).child(title).child('movie').update({
-  //     rating: userRating
-  //   });
-  // }
 
   delete() {
     const title = this.props.id
