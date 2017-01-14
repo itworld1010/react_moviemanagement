@@ -5,6 +5,7 @@ import { pick, map, extend, filter, keyBy } from 'lodash';
 import PersonalMovieCard from './PersonalMovieCard'
 import FilterByFormat from './FilterByFormat'
 import FilterByRating from './FilterByRating'
+import FilterByGenre from './FilterByGenre'
 
 export default class MyMovies extends Component {
   constructor() {
@@ -43,7 +44,6 @@ export default class MyMovies extends Component {
   }
 
   filterByRating(rating) {
-    console.log(rating.value);
     let selectedRating = rating.value
     if(selectedRating !== 'show-all')
       { let filtered = filter(this.state.movies, (o) => o.movie.rating === selectedRating)
@@ -54,13 +54,12 @@ export default class MyMovies extends Component {
   }
 
   filterByGenre(genre) {
-    console.log(genre.value);
     let selectedGenre = genre.value
     if(selectedGenre !== 'notrated')
-      { let filtered = filter(this.state.movies, (o) => o.movie.genre === selectedGenre)
-      this.setState({ filtered: filtered, currentRating: genre.value })
+      { let filtered = filter(this.state.movies, (o) => o.movie.genres.includes(genre.value))
+      this.setState({ filtered: filtered, currentGenre: genre.value })
     } else {
-      this.setState({ filtered: [] })
+      this.setState({ filtered: [], currentGenre: genre.value })
     }
   }
 
@@ -92,6 +91,7 @@ export default class MyMovies extends Component {
     let { DVD, Bluray, Prime, iTunes } = this.state
     let filteredMovieDisplay = this.state.filtered.map(m => <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>)
     let movieDisplay = this.state.movies.map(m => <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>)
+    // console.log(filter(this.state.movies, (o) => o.movie.genres.includes(12)));
 
     return (
       <div>
@@ -100,6 +100,9 @@ export default class MyMovies extends Component {
         </div>
         <div className="p-movie-search">
           <FilterByRating filter={this.filterByRating.bind(this)} currentRating={this.state.currentRating}/>
+        </div>
+        <div className="p-movie-search">
+          <FilterByGenre filter={this.filterByGenre.bind(this)} currentGenre={this.state.currentGenre}/>
         </div>
         <div className="my-movie-card-container">
           {this.state.filtered.length === 0 ? movieDisplay : filteredMovieDisplay }
