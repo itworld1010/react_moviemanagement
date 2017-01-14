@@ -3,7 +3,7 @@ import npa from '../images/no-poster.png'
 import firebase from '../firebase';
 import { pick, map, extend, filter, keyBy } from 'lodash';
 import PersonalMovieCard from './PersonalMovieCard'
-import FilterByGenre from './FilterByGenre'
+import FilterByFormat from './FilterByFormat'
 import FilterByRating from './FilterByRating'
 
 export default class MyMovies extends Component {
@@ -53,6 +53,17 @@ export default class MyMovies extends Component {
     }
   }
 
+  filterByGenre(genre) {
+    console.log(genre.value);
+    let selectedGenre = genre.value
+    if(selectedGenre !== 'notrated')
+      { let filtered = filter(this.state.movies, (o) => o.movie.genre === selectedGenre)
+      this.setState({ filtered: filtered, currentRating: genre.value })
+    } else {
+      this.setState({ filtered: [] })
+    }
+  }
+
   genreSwitch(genreID) {
      if (genreID === 28){return "Action"}
      else if (genreID === 12){return "Adventure"}
@@ -85,7 +96,7 @@ export default class MyMovies extends Component {
     return (
       <div>
         <div className="p-movie-search">
-          <FilterByGenre filter={this.filterByFormat.bind(this)} currentFilter={this.state.currentFilter}/>
+          <FilterByFormat filter={this.filterByFormat.bind(this)} currentFilter={this.state.currentFilter}/>
         </div>
         <div className="p-movie-search">
           <FilterByRating filter={this.filterByRating.bind(this)} currentRating={this.state.currentRating}/>

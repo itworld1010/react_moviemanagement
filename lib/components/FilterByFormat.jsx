@@ -3,7 +3,7 @@ import logo from '../images/reel.png'
 import Select from 'react-select';
 
 
-const FilterByGenre = ({ filter, currentFilter }) => {
+const FilterByFormat = ({ filter, currentFilter }) => {
   var options = [
       { value: 'Show-all', label: 'Show All' },
       { value: 'Bluray', label: 'Blu-ray' },
@@ -25,4 +25,4 @@ const FilterByGenre = ({ filter, currentFilter }) => {
   )
 }
 
-export default FilterByGenre
+export default FilterByFormat
