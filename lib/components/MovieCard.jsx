@@ -13,7 +13,10 @@ export default class MovieCard extends Component {
       Bluray: false,
       iTunes: false,
       Prime: false,
-      submit: false
+      submit: false,
+      credits: null,
+      trailers: null,
+      movieDetails: null
     }
   }
 
@@ -27,13 +30,27 @@ export default class MovieCard extends Component {
      const title = this.state.movie.title + this.state.movie.release_date
      const { user } = this.state;
      firebase.database().ref('users/' + user.displayName).child(title).set({
-       movie: movie
+       movie
      });
+   }
+
+   fetchDetails() {
+     this.setState({ addMovieClick: !this.state.addMovieClick })
+     fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.id}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
+     .then((response) => response.json())
+     .then((response) => this.setState({ credits: response }))
+
+     fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.id}?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US`)
+     .then((response) => response.json())
+     .then((data) => this.setState({ movieDetails: data }))
    }
 
   createAndSend(){
     this.setState({ submit: !this.state.submit })
+    debugger
     const newMovie = {
+      movieDetails: this.state.movieDetails,
+      credits: this.state.credits,
       movie: this.state.movie,
       genres: this.state.movie.genre_ids,
       DVD: this.state.DVD,
@@ -96,7 +113,7 @@ export default class MovieCard extends Component {
         <article className="p-movie-card-buttons">
           {!this.state.addMovieClick ?
             <button
-              onClick={() => {this.setState({ addMovieClick: !this.state.addMovieClick })}}
+              onClick={() => this.fetchDetails()}
               className="movie-card-button"
               disabled={!this.state.submit ? false : true }
             >{!this.state.submit ? 'Add Movie' : 'Added to your movies'}
