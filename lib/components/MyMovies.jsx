@@ -3,7 +3,9 @@ import npa from '../images/no-poster.png'
 import firebase from '../firebase';
 import { pick, map, extend, filter, keyBy } from 'lodash';
 import PersonalMovieCard from './PersonalMovieCard'
-import PersonalMovieSearch from './PersonalMovieSearch'
+import FilterByFormat from './FilterByFormat'
+import FilterByRating from './FilterByRating'
+import FilterByGenre from './FilterByGenre'
 
 export default class MyMovies extends Component {
   constructor() {
@@ -33,12 +35,31 @@ export default class MyMovies extends Component {
 
   filterByFormat(format) {
     let selectedFormat = format.value
-    if(selectedFormat.value !== 'Show-all')
-      {this.setState({ [selectedFormat]: !this['state'][selectedFormat] })
-      let filtered = filter(this.state.movies, (o) => o.movie[selectedFormat])
+    if(selectedFormat !== 'Show-all')
+      {let filtered = filter(this.state.movies, (o) => o.movie[selectedFormat])
       this.setState({ filtered: filtered, currentFilter: format.value })
     } else {
-      this.setState({ filtered: [] })
+      this.setState({ filtered: [], currentFilter: format.value })
+    }
+  }
+
+  filterByRating(rating) {
+    let selectedRating = rating.value
+    if(selectedRating !== 'show-all')
+      { let filtered = filter(this.state.movies, (o) => o.movie.rating === selectedRating)
+      this.setState({ filtered: filtered, currentRating: rating.value })
+    } else {
+      this.setState({ filtered: [], currentRating: rating.value })
+    }
+  }
+
+  filterByGenre(genre) {
+    let selectedGenre = genre.value
+    if(selectedGenre !== 'notrated')
+      { let filtered = filter(this.state.movies, (o) => o.movie.genres.includes(genre.value))
+      this.setState({ filtered: filtered, currentGenre: genre.value })
+    } else {
+      this.setState({ filtered: [], currentGenre: genre.value })
     }
   }
 
@@ -70,11 +91,18 @@ export default class MyMovies extends Component {
     let { DVD, Bluray, Prime, iTunes } = this.state
     let filteredMovieDisplay = this.state.filtered.map(m => <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>)
     let movieDisplay = this.state.movies.map(m => <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>)
+    // console.log(filter(this.state.movies, (o) => o.movie.genres.includes(12)));
 
     return (
       <div>
         <div className="p-movie-search">
-          <PersonalMovieSearch filter={this.filterByFormat.bind(this)} currentFilter={this.state.currentFilter}/>
+          <FilterByFormat filter={this.filterByFormat.bind(this)} currentFilter={this.state.currentFilter}/>
+        </div>
+        <div className="p-movie-search">
+          <FilterByRating filter={this.filterByRating.bind(this)} currentRating={this.state.currentRating}/>
+        </div>
+        <div className="p-movie-search">
+          <FilterByGenre filter={this.filterByGenre.bind(this)} currentGenre={this.state.currentGenre}/>
         </div>
         <div className="my-movie-card-container">
           {this.state.filtered.length === 0 ? movieDisplay : filteredMovieDisplay }
