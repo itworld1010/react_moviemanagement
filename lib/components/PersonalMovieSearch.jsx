@@ -3,7 +3,7 @@ import logo from '../images/reel.png'
 import Select from 'react-select';
 
 
-const PersonalMovieSearch = ({ filter }) => {
+const PersonalMovieSearch = ({ filter, currentFilter }) => {
   var options = [
       { value: 'Show-all', label: 'Show All' },
       { value: 'Bluray', label: 'Blu-ray' },
@@ -15,7 +15,7 @@ const PersonalMovieSearch = ({ filter }) => {
   return(
     <Select
         name="form-field-name"
-        value="one"
+        value={currentFilter}
         autofocus
         searchable={false}
         placeholder="Select Movie Format..."

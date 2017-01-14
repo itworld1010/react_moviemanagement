@@ -12,7 +12,8 @@ export default class MyMovies extends Component {
       user: null,
       movies: [],
       filtered: [],
-      genres:[]
+      genres:[],
+      currentFilter: ''
     }
   }
 
@@ -35,7 +36,7 @@ export default class MyMovies extends Component {
     if(selectedFormat.value !== 'Show-all')
       {this.setState({ [selectedFormat]: !this['state'][selectedFormat] })
       let filtered = filter(this.state.movies, (o) => o.movie[selectedFormat])
-      this.setState({ filtered: filtered})
+      this.setState({ filtered: filtered, currentFilter: format.value })
     } else {
       this.setState({ filtered: [] })
     }
@@ -73,7 +74,7 @@ export default class MyMovies extends Component {
     return (
       <div>
         <div className="p-movie-search">
-          <PersonalMovieSearch filter={this.filterByFormat.bind(this)} />
+          <PersonalMovieSearch filter={this.filterByFormat.bind(this)} currentFilter={this.state.currentFilter}/>
         </div>
         <div className="my-movie-card-container">
           {this.state.filtered.length === 0 ? movieDisplay : filteredMovieDisplay }
