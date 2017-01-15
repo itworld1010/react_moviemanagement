@@ -404,6 +404,7 @@ th {
   padding-bottom: 20px;
   color: $universalColor;
   font-size: 20px;
+  text-align: right;
 }
 
 td {
@@ -454,11 +455,17 @@ table {
 }
 
 .modal-format-button {
-  width: 46%;
-  padding: 5%;
+  width: 115px;
+  padding: 8px;
   margin: 2%;
   opacity: 0.8;
-  font-size: 24px;
+  font-size: 100%
+}
+
+.rate-movie {
+  width: 250px;
+  opacity: .8;
+  padding-top: 9px;
 }
 
 .modal-movie-deets {
