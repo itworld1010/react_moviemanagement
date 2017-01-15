@@ -309,6 +309,11 @@ footer {
   margin-top: 10px;
 }
 
+.movie-filter {
+  display: flex;
+  width: 30vw;
+}
+
 // upcoming
 
 .upcoming-header {
@@ -345,8 +350,9 @@ footer {
 
 //personal movie card
 .p-movie-search {
-  width: 50vw;
+  width: 80vw;
   margin: auto;
+  display: flex;
   margin-top: 10px;
 }
 
@@ -393,7 +399,7 @@ footer {
   overflow-y: auto;
   position: relative;
   margin-left: 10px;
-  top: 150px;
+  top: 2vh;
 }
 
 //modal
@@ -470,7 +476,7 @@ table {
 
 .modal-movie-deets {
   width: 55%;
-  height: 280px;
+  height: 240px;
   overflow: auto;
   margin-top: 20px;
 }

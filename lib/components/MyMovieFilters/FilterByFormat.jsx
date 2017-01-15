@@ -16,6 +16,8 @@ const FilterByFormat = ({ filter, currentFormat }) => {
         name="form-field-name"
         value={currentFormat}
         autofocus
+        clearable={false}
+        className="movie-filter"
         searchable={false}
         placeholder="Select Movie Format..."
         options={options}
