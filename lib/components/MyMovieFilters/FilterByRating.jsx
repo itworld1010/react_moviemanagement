@@ -22,6 +22,7 @@ const FilterByRating = ({ filter, currentRating }) => {
         name="form-field-name"
         value={currentRating}
         autofocus
+        clearable={false}
         className="movie-filter"
         searchable={false}
         placeholder="Select Movie Rating..."

@@ -23,6 +23,7 @@ const RateMovie = ({ rate, rating }) => {
         name="form-field-name"
         value={rating}
         autofocus
+        clearable={false}
         className="rate-movie"
         searchable={false}
         placeholder={"Rate movie..."}
