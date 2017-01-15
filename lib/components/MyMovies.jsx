@@ -3,9 +3,9 @@ import npa from '../images/no-poster.png'
 import firebase from '../firebase';
 import { pick, map, extend, filter, keyBy } from 'lodash';
 import PersonalMovieCard from './PersonalMovieCard'
-import FilterByFormat from './FilterByFormat'
-import FilterByRating from './FilterByRating'
-import FilterByGenre from './FilterByGenre'
+import FilterByFormat from './MyMovieFilters/FilterByFormat'
+import FilterByRating from './MyMovieFilters/FilterByRating'
+import FilterByGenre from './MyMovieFilters/FilterByGenre'
 
 export default class MyMovies extends Component {
   constructor() {
