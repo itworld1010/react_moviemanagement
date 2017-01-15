@@ -15,7 +15,9 @@ export default class MyMovies extends Component {
       movies: [],
       filtered: [],
       genres:[],
-      currentFilter: ''
+      currentFormat: '',
+      currentRating: '',
+      currentGenre: ''
     }
   }
 
@@ -37,10 +39,10 @@ export default class MyMovies extends Component {
     let selectedFormat = format.value
     if(this.state.filtered.length === 0)
       {let filtered = filter(this.state.movies, (o) => o.movie[selectedFormat])
-      this.setState({ filtered: filtered, currentFilter: format.value })
+      this.setState({ filtered: filtered, currentFormat: format.value })
     } else {
       let filtered = filter(this.state.filtered, (o) => o.movie[selectedFormat])
-      this.setState({ filtered: filtered, currentFilter: format.value })
+      this.setState({ filtered: filtered, currentFormat: format.value })
     }
   }
 
@@ -62,7 +64,7 @@ export default class MyMovies extends Component {
       this.setState({ filtered: filtered, currentGenre: genre.value })
     } else {
       let filtered = filter(this.state.filtered, (o) => o.movie.rating === selectedRating)
-      this.setState({ filtered: filtered, currentRating: rating.value })
+      this.setState({ filtered: filtered, currentGenre: rating.value })
     }
   }
 
