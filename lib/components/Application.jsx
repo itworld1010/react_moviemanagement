@@ -4,10 +4,8 @@ import { BrowserRouter, Match, Miss } from 'react-router'
 import { signIn, signOut } from '../firebase'
 import { split } from 'lodash';
 
-import Homepage from './Homepage';
 import SearchMovie from './SearchMovie';
 import Upcoming from './Upcoming';
-import MovieCard from './MovieCard';
 import MyMovies from './MyMovies';
 import NotFound from './NotFound';
 import Navigation from './Navigation';
@@ -43,7 +41,7 @@ class Application extends Component{
           { this.state.user ?
             <div>
               <Navigation user={this.state.user}/>
-              <Match exactly pattern="/" render={() => <Homepage user={this.state.user}/>}/>
+              <Match exactly pattern="/" render={() => <MyMovies user={this.state.user}/>}/>
               <Match exactly pattern="/explore" render={() => <Upcoming user={this.state.user}/>} />
               <Match exactly pattern="/search" render={() => <SearchMovie user={this.state.user}/>} />
               <Miss component={NotFound} />
