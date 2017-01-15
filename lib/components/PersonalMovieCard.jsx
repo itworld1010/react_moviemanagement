@@ -3,8 +3,8 @@ import npa from '../images/no-poster.png'
 import firebase from '../firebase';
 import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
 import { map, extend, keyBy, keys, mapValues, values, find, get, forEach, join, dropRight, filter } from 'lodash';
-import ActorCard from './ActorCard'
-import RateMovie from './RateMovie'
+import ActorModal from './Modals/ActorModal'
+import PersonalMovieModal from './Modals/PersonalMovieModal'
 import YouTube from 'react-youtube'
 
 export default class PersonalMovieCard extends Component {
@@ -29,7 +29,6 @@ export default class PersonalMovieCard extends Component {
       youtubeID: '',
       runtime: 0,
       movieDetails: [],
-      rating: 'Not rated',
       actorDetail: false
     }
   }
@@ -60,6 +59,10 @@ export default class PersonalMovieCard extends Component {
     this.setState({ showModal: false });
   }
 
+  showActorDetail() {
+    this.setState({ actorDetail: !this.state.actorDetail })
+  }
+
   setCast() {
     let holy
     let trailerObj = map(this.state.trailers.results, 'key')
@@ -79,27 +82,6 @@ export default class PersonalMovieCard extends Component {
     let hours = Math.floor(minutes / 60)
     let newMinutes = minutes % 60
     return `${hours} hours, ${newMinutes} minutes`
-  }
-
-  updateFormat(format){
-    const title = this.props.id
-    const { user } = this.state;
-    this.setState({ [format]: !this['state'][format] })
-    setTimeout(() => {firebase.database().ref('users/' + user.displayName).child(title).child('movie').update({
-      [format]: this.state[format]
-    })}, 100);
-  }
-
-  changeRating(rating) {
-    const title = this.props.id
-    const { user } = this.state;
-    let selectedRating = rating.value
-    if(selectedRating.value !== 'Show-all')
-      {this.setState({ rating: selectedRating })
-    }
-    firebase.database().ref('users/' + user.displayName).child(title).child('movie').update({
-      rating: selectedRating
-    });
   }
 
   delete() {
@@ -136,12 +118,7 @@ export default class PersonalMovieCard extends Component {
    }
 
   render() {
-    let writers = (filter(this.props.movie.credits.crew, {'department': "Writing"})).map((e) => e.name).join(', ')
-    let writersArray = filter(this.props.movie.credits.crew, {'department': "Writing"})
-    let genre
-    let uniqueID = this.state.movieID
-    let director = filter(this.props.movie.credits.crew, {'job': "Director"}).map((e) => e.name).join(', ')
-    let directorsArray = filter(this.props.movie.credits.crew, {'job': "Director"})
+
 
 
     return (
@@ -159,99 +136,22 @@ export default class PersonalMovieCard extends Component {
             className="personal-movie-card-button"
             onClick={() => this.setCast()}>
           </Button>
-          <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
-                    <Modal.Header className="modal-header" >
-                    <Modal.Title className="modal-title absolute-center"><span className="relative-center">{this.props.movie.movie.title}</span><button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
-                    </Modal.Header>
-                    <a className="details-ref" name="details" />
-                    <button onClick={() =>  this.delete()}className="delete">Delete movie</button>
-                    <Modal.Body className="modal-body">
-                      <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.backdrop_path}  />
-                      <div className="absolute-center to-deets-abs-center">
-                        <a className="trailer-link relative-center" href="#trailer">Trailer</a>
-                      </div>
-                      <div className="modal-movie-deets" >
-                        <table>
-                        <tbody>
-                          <tr>
-                            <th>{directorsArray.length > 1 ? 'Directors:' : 'Director:'}</th>
-                            <td>{director}</td>
-                          </tr>
-                          <tr>
-                            <th>Genre:</th>
-                            <td>{this.state.genreNamesArray.join(', ')}</td>
-                          </tr>
-                          <tr>
-                            <th>Runtime:</th>
-                            <td>{this.minutesConverter(this.state.runtime)}</td>
-                          </tr>
-                          <tr>
-                            <th>{writersArray.length > 1 ? 'Writers:' : 'Writer:'}</th>
-                            <td>{writers}</td>
-                          </tr>
-                          <tr>
-                            <th>Plot:</th>
-                            <td>{this.props.movie.movie.overview}</td>
-                          </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <RateMovie rate={this.changeRating.bind(this)} rating={this.state.rating}/>
-                      <div  className="modal-button-box">
-                        <form>
-                          <input
-                            className={this.state.DVD ? 'modal-format-button format-true button' : 'modal-format-button format-false button'}
-                            type="button"
-                            value="DVD"
-                            onClick={() => this.updateFormat('DVD')}
-                          />
-                          <input
-                            className={this.state.Bluray ? 'modal-format-button format-true button' : 'modal-format-button format-false button'}
-                            type="button"
-                            value="Blu-ray"
-                            onClick={() => this.updateFormat('Bluray')}
-                          />
-                          <input
-                            className={this.state.iTunes ? 'modal-format-button format-true button' : 'modal-format-button format-false button'}
-                            type="button"
-                            value="iTunes"
-                            onClick={() => this.updateFormat('iTunes')}
-                          />
-                          <input
-                            className={this.state.Prime ? 'modal-format-button format-true button' : 'modal-format-button format-false button'}
-                            type="button"
-                            value="Prime"
-                            onClick={() => this.updateFormat('Prime')}
-                          />
-                        </form>
-                      </div>
-                      <div className="actor-list">
-                        {this.state.cast.map((m, i) =>
-                        <ActorCard cast={m} key={m.id}/>
-                        )}
-                      </div>
-                      <div className="youtube-container">
-                      <div className="absolute-center back-to-deets-abs-center">
-                        <a className="relative-center" name="trailer" href="#details">Back to Details</a>
-                      </div>
-                      { this.state.youtubeID ?
-                        <YouTube
-                          className="youtube"
-                          controls="1"
-                          videoId={this.state.youtubeID}
-                          loop="1"
-                        />
-                      :
-                        <YouTube
-                          className="youtube"
-                          controls="1"
-                          fs
-                          videoId='dQw4w9WgXcQ'
-                        />
+          {!this.state.actorDetail ?
+            <PersonalMovieModal
+              user={this.props.user}
+              showModal={this.state.showModal}
+              movie={this.props.movie}
+              close={this.close.bind(this)}
+              genreNamesArray={this.state.genreNamesArray}
+              minutesConverter={this.minutesConverter.bind(this)}
+              runtime={this.state.runtime}
+              cast={this.state.cast}
+              youtubeID={this.state.youtubeID}
+              id={this.props.id}
+              />
+              :
+                  <ActorModal show={this.state.showModal}/>
                       }
-                      </div>
-                    </Modal.Body>
-                  </Modal>
         </article>
     )
   }
