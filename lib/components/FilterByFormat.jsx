@@ -3,7 +3,7 @@ import logo from '../images/reel.png'
 import Select from 'react-select';
 
 
-const FilterByFormat = ({ filter, currentFilter }) => {
+const FilterByFormat = ({ filter, currentFormat }) => {
   var options = [
       { value: 'Show-all', label: 'Show All' },
       { value: 'Bluray', label: 'Blu-ray' },
@@ -15,7 +15,7 @@ const FilterByFormat = ({ filter, currentFilter }) => {
   return(
     <Select
         name="form-field-name"
-        value={currentFilter}
+        value={currentFormat}
         autofocus
         searchable={false}
         placeholder="Select Movie Format..."
