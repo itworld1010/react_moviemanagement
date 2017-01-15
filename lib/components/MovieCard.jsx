@@ -76,7 +76,11 @@ export default class MovieCard extends Component {
           {!this.state.addMovieClick?
             <div className="center">
               <p className="card-title" >{this.state.movie.title}</p>
-              <p className="card-release-year">({this.state.movie.release_date.substring(0, 4)})</p>
+              {this.state.movie.release_date ?
+                <p className="card-release-year">({this.state.movie.release_date.substring(0, 4)})</p>
+                :
+                <p className="card-release-year">Not Available</p>
+              }
 
             </div>
             :
