@@ -80,12 +80,6 @@ export default class PersonalMovieCard extends Component {
     return `${hours} hours, ${newMinutes} minutes`
   }
 
-  delete() {
-    const title = this.props.id
-    const { user } = this.state;
-    firebase.database().ref('users/' + user.displayName).child(title).remove()
-  }
-
   genreSwitch(genreID) {
      if (genreID === 28){return "Action"}
      else if (genreID === 12){return "Adventure"}

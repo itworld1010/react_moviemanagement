@@ -28,6 +28,12 @@ export default class PersonalMovieModal extends Component {
     this.setState({ user, movie, DVD, Bluray, iTunes, Prime, rating })
   }
 
+  delete() {
+    const title = this.props.id
+    const { user } = this.state;
+    firebase.database().ref('users/' + user.displayName).child(title).remove()
+  }
+
   changeRating(rating) {
     const title = this.props.id
     const { user } = this.state;
@@ -63,6 +69,7 @@ export default class PersonalMovieModal extends Component {
               <Modal.Title className="modal-title absolute-center"><span className="relative-center">{this.props.movie.movie.original_title}</span><button className="button modal-top-exit" onClick={() => this.props.close()}>X</button></Modal.Title>
               </Modal.Header>
               <a className="details-ref" name="details" />
+             <button onClick={() =>  this.delete()} className="delete">Delete movie</button>
               <Modal.Body className="modal-body">
                 <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.backdrop_path}  />
                 <div className="absolute-center to-deets-abs-center">
