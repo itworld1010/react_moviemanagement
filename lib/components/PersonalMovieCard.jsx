@@ -84,9 +84,9 @@ export default class PersonalMovieCard extends Component {
     const title = this.props.id
     const { user } = this.state;
     this.setState({ [format]: !this['state'][format] })
-    firebase.database().ref('users/' + user.displayName).child(title).child('movie').update({
+    setTimeout(() => {firebase.database().ref('users/' + user.displayName).child(title).child('movie').update({
       [format]: this.state[format]
-    });
+    })}, 100);
   }
 
   changeRating(rating) {
