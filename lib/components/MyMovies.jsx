@@ -101,11 +101,9 @@ export default class MyMovies extends Component {
       <div>
         <div className="p-movie-search">
           <FilterByFormat filter={this.filterByFormat.bind(this)} currentFormat={this.state.currentFormat}/>
-        </div>
-        <div className="p-movie-search">
+
           <FilterByRating filter={this.filterByRating.bind(this)} currentRating={this.state.currentRating}/>
-        </div>
-        <div className="p-movie-search">
+
           <FilterByGenre filter={this.filterByGenre.bind(this)}
           currentGenre={this.state.currentGenre}/>
         </div>
