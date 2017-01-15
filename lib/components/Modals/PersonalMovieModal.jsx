@@ -12,8 +12,6 @@ export default class PersonalMovieModal extends Component {
   constructor() {
     super();
     this.state = {
-      rating: 'Not rated',
-      actorDetail: false
     }
   }
 
@@ -101,7 +99,6 @@ export default class PersonalMovieModal extends Component {
                     </tbody>
                   </table>
                 </div>
-                <button onClick={() => this.props.showActorDetail()} >Actor</button>
                 <RateMovie rate={this.changeRating.bind(this)} rating={this.state.rating}/>
                 <div  className="modal-button-box">
                   <form>
@@ -133,7 +130,7 @@ export default class PersonalMovieModal extends Component {
                 </div>
                 <div className="actor-list">
                   {this.props.cast.map((m, i) =>
-                  <ActorCard cast={m} key={m.id}/>
+                  <ActorCard cast={m} key={m.id} />
                   )}
                 </div>
                 <div className="youtube-container">

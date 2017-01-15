@@ -17,14 +17,7 @@ export default class ActorModal extends Component {
         <Modal.Header className="modal-header">
           <Modal.Title
             className="modal-title absolute-center">
-              <span
-                className="relative-center">
-                  Actor
-              </span>
-              <button
-                className="button modal-top-exit" >
-                  X
-              </button></Modal.Title>
+            </Modal.Title>
         </Modal.Header>
       <a className="details-ref" name="details" />
       <Modal.Body className="modal-body">

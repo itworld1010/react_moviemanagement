@@ -6,13 +6,18 @@ export default class MovieCard extends Component {
   constructor() {
     super();
     this.state = {
-      cast: null
+      cast: null,
+      actorDetail: false
     }
   }
 
   componentWillMount() {
     let cast = this.props.cast
     this.setState({ cast })
+  }
+
+  showActorDetail() {
+    this.setState({ actorDetail: !this.state.actorDetail })
   }
 
   render() {

@@ -3,7 +3,6 @@ import npa from '../images/no-poster.png'
 import firebase from '../firebase';
 import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
 import { map, extend, keyBy, keys, mapValues, values, find, get, forEach, join, dropRight, filter } from 'lodash';
-import ActorModal from './Modals/ActorModal'
 import PersonalMovieModal from './Modals/PersonalMovieModal'
 import YouTube from 'react-youtube'
 
@@ -127,7 +126,6 @@ export default class PersonalMovieCard extends Component {
             className="personal-movie-card-button"
             onClick={() => this.setCast()}>
           </Button>
-          {!this.state.actorDetail ?
             <PersonalMovieModal
               user={this.props.user}
               showModal={this.state.showModal}
@@ -139,15 +137,7 @@ export default class PersonalMovieCard extends Component {
               cast={this.state.cast}
               youtubeID={this.state.youtubeID}
               id={this.props.id}
-              showActorDetail={this.showActorDetail.bind(this)}
               />
-              :
-              <ActorModal
-                show={this.state.showModal}
-                showActorDetail={this.showActorDetail.bind(this)}
-                title={this.props.movie.movie.original_title}
-              />
-              }
         </article>
     )
   }
