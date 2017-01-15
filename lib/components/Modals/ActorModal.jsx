@@ -29,6 +29,7 @@ export default class ActorModal extends Component {
       <a className="details-ref" name="details" />
       <Modal.Body className="modal-body">
       <p>Hello</p>
+      <button onClick={() => this.props.showActorDetail()}>Back to {this.props.title}</button>
       </Modal.Body>
       </Modal>
     )

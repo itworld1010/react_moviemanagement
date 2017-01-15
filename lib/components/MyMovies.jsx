@@ -47,8 +47,8 @@ export default class MyMovies extends Component {
   }
 
   filterByRating(rating) {
-    let selectedRating = rating.value
-    if(this.state.filtered === 0)
+    let selectedRating = String(rating.value)
+    if(this.state.filtered.length === 0)
       { let filtered = filter(this.state.movies, (o) => o.movie.rating === selectedRating)
       this.setState({ filtered: filtered, currentRating: rating.value })
     } else {
@@ -96,7 +96,8 @@ export default class MyMovies extends Component {
     let { DVD, Bluray, Prime, iTunes } = this.state
     let filteredMovieDisplay = this.state.filtered.map(m => <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>)
     let movieDisplay = this.state.movies.map(m => <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>)
-    // console.log(filter(this.state.movies, (o) => o.movie.genres.includes(12)));
+
+    console.log('filtered', filter(this.state.movies, (o) => o.movie.rating === 'five'));
 
     return (
       <div>
@@ -107,7 +108,8 @@ export default class MyMovies extends Component {
           <FilterByRating filter={this.filterByRating.bind(this)} currentRating={this.state.currentRating}/>
         </div>
         <div className="p-movie-search">
-          <FilterByGenre filter={this.filterByGenre.bind(this)} currentGenre={this.state.currentGenre}/>
+          <FilterByGenre filter={this.filterByGenre.bind(this)}
+          currentGenre={this.state.currentGenre}/>
         </div>
         <div className="my-movie-card-container">
           {this.state.filtered.length === 0 ? movieDisplay : filteredMovieDisplay }

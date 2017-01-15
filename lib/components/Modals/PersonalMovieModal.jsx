@@ -12,7 +12,8 @@ export default class PersonalMovieModal extends Component {
   constructor() {
     super();
     this.state = {
-      rating: 'Not rated'
+      rating: 'Not rated',
+      actorDetail: false
     }
   }
 
@@ -56,7 +57,6 @@ export default class PersonalMovieModal extends Component {
     let director = filter(this.props.movie.credits.crew, {'job': "Director"}).map((e) => e.name).join(', ')
     let directorsArray = filter(this.props.movie.credits.crew, {'job': "Director"})
 
-    console.log(this.props.id);
     return(
       <Modal backdrop className="modal-container" show={this.props.showModal} onHide={() => this.close()}>
               <Modal.Header className="modal-header" >
@@ -94,7 +94,7 @@ export default class PersonalMovieModal extends Component {
                     </tbody>
                   </table>
                 </div>
-                <button onClick={() => this.showActorDetail()} >Actor</button>
+                <button onClick={() => this.props.showActorDetail()} >Actor</button>
                 <RateMovie rate={this.changeRating.bind(this)} rating={this.state.rating}/>
                 <div  className="modal-button-box">
                   <form>

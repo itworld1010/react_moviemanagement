@@ -59,10 +59,6 @@ export default class PersonalMovieCard extends Component {
     this.setState({ showModal: false });
   }
 
-  showActorDetail() {
-    this.setState({ actorDetail: !this.state.actorDetail })
-  }
-
   setCast() {
     let holy
     let trailerObj = map(this.state.trailers.results, 'key')
@@ -117,10 +113,11 @@ export default class PersonalMovieCard extends Component {
     this.setState({ showModal: true });
    }
 
+   showActorDetail() {
+     this.setState({ actorDetail: !this.state.actorDetail })
+   }
+
   render() {
-
-
-
     return (
       <article className="personal-movie-card poster-container">
         {this.props.movie.movie.poster_path ?
@@ -148,10 +145,15 @@ export default class PersonalMovieCard extends Component {
               cast={this.state.cast}
               youtubeID={this.state.youtubeID}
               id={this.props.id}
+              showActorDetail={this.showActorDetail.bind(this)}
               />
               :
-                  <ActorModal show={this.state.showModal}/>
-                      }
+              <ActorModal
+                show={this.state.showModal}
+                showActorDetail={this.showActorDetail.bind(this)}
+                title={this.props.movie.movie.original_title}
+              />
+              }
         </article>
     )
   }
