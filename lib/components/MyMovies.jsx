@@ -97,8 +97,6 @@ export default class MyMovies extends Component {
     let filteredMovieDisplay = this.state.filtered.map(m => <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>)
     let movieDisplay = this.state.movies.map(m => <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>)
 
-    console.log('filtered', filter(this.state.movies, (o) => o.movie.rating === 'five'));
-
     return (
       <div>
         <div className="p-movie-search">
