@@ -16,7 +16,7 @@ export default class MovieCard extends Component {
           :
             <img src={npa} className="actor-image"/>
           }
-          <p className="actor-card-name">{this.props.cast.character}</p>
+          <p className="actor-card-character">{this.props.cast.character}</p>
           <p className="actor-card-name">{this.props.cast.name}</p>
       </article>
     )
