@@ -22,7 +22,6 @@ const RateMovie = ({ rate, rating }) => {
     <Select
         name="form-field-name"
         value={rating}
-        autofocus
         clearable={false}
         className="rate-movie"
         searchable={false}

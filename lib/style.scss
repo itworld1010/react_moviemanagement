@@ -351,7 +351,7 @@ footer {
 //personal movie card
 .p-movie-search {
   width: 80vw;
-  margin: auto;
+  margin-left: 8vw;
   display: flex;
   margin-top: 10px;
 }
@@ -389,7 +389,15 @@ footer {
 .actor-card-name {
   font-size: 16px;
   overflow: auto;
-  text-align: center
+  text-align: center;
+  font-weight: 300;
+}
+
+.actor-card-character {
+  font-size: 16px;
+  overflow: auto;
+  text-align: center;
+  color: $universalColor;
 }
 
 .actor-list {
@@ -437,7 +445,8 @@ table {
 
 .youtube {
   width: 100%;
-  margin-bottom: 143px;
+  margin-top: -16%;
+  margin-bottom: 5%;
 }
 
 .details-ref {
@@ -542,7 +551,7 @@ table {
 }
 
 .back-to-deets-abs-center {
-  bottom: 765px;
+  top: -44%;
   left:50%;
 }
 
@@ -568,7 +577,7 @@ table {
 }
 
 @media only screen
-  and (max-width: 600px) {
+  and (max-width: 750px) {
 
     .personal-movie-card {
       width: 75px;
@@ -576,6 +585,15 @@ table {
       position: relative;
       float: left;
       display: flex;
+    }
+
+    .p-movie-search {
+      margin-left: 8vw;
+      display: inline-block;
+    }
+
+    .movie-filter {
+      width: 80vw;
     }
 
     .personal-movie-card-button {
