@@ -28,7 +28,8 @@ export default class PersonalMovieCard extends Component {
       youtubeID: '',
       runtime: 0,
       movieDetails: [],
-      actorDetail: false
+      actorDetail: false,
+      rating: ''
     }
   }
 
