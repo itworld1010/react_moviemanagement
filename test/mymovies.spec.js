@@ -15,10 +15,6 @@ describe('My Movies', () => {
     assert.equal(wrapper.type(), 'div');
   });
 
-  // it('calls componentDidMount', () => {
-  //   sinon.spy(Application.prototype, 'componentDidMount');
-  //       const wrapper = mount(<Application />);
-  //       expect(Application.prototype.componentDidMount.calledOnce).to.equal(true);
-  // });
+
 
 });
