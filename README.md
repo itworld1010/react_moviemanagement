@@ -16,12 +16,13 @@ Not pushed to production.
 
 ## Project Screen Shot(s)
 
-![Explore other movies](lib/screenshots/Screen Shot 2017-01-12 at 2.25.33 AM.png?raw=true "Explore other movies")
+![My Movies](lib/screenshots/my_movies.png?raw=true "My Movies")
 
-![Movie Details](lib/screenshots/Screen Shot 2017-01-12 at 2.30.55 AM.png?raw=true "Movie Details")
+![My Movie Details](lib/screenshots/my_movie_modal.png?raw=true "Movie Details")
 
-![Movie Details](lib/screenshots/Screen Shot 2017-01-12 at 2.47.13 AM.png?raw=true "Movie Details")
+![My Movie Trailer](lib/screenshots/my_movie_youtube.png?raw=true "My Movie Trailer")
 
+![Recent and Upcoming](lib/screenshots/recent_upcoming.png?raw=true "Recent and Upcoming")
 
 ## Installation and Setup Instructions
 
