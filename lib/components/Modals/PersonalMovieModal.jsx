@@ -100,6 +100,7 @@ export default class PersonalMovieModal extends Component {
                   </table>
                 </div>
                 <div  className="modal-button-box">
+                <RateMovie rate={this.changeRating.bind(this)} rating={this.state.rating}/>
                   <form>
                     <input
                       className={this.state.DVD ? 'modal-format-button format-true button' : 'modal-format-button format-false button'}
@@ -126,7 +127,6 @@ export default class PersonalMovieModal extends Component {
                       onClick={() => this.updateFormat('Prime')}
                     />
                   </form>
-                  <RateMovie rate={this.changeRating.bind(this)} rating={this.state.rating}/>
                 </div>
                 <div className="actor-list">
                   {this.props.cast.map((m, i) =>
