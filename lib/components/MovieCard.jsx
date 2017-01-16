@@ -55,7 +55,8 @@ export default class MovieCard extends Component {
       DVD: this.state.DVD,
       Bluray: this.state.Bluray,
       iTunes: this.state.iTunes,
-      Prime: this.state.Prime
+      Prime: this.state.Prime,
+      rating: 'unrated'
     };
     this.addNewMovie(newMovie);
     this.setState({ addMovieClick: !this.state.addMovieClick })
