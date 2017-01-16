@@ -6,12 +6,12 @@ let sinon = require('sinon');
 import moment from 'moment';
 import locus from 'locus';
 
-import Application from '../lib/components/Application';
+import MyMovies from '../lib/components/MyMovies';
 
-describe('Application', () => {
+describe('My Movies', () => {
 
   it('renders as a <div>', () => {
-    const wrapper = shallow(<Application />);
+    const wrapper = shallow(<MyMovies />);
     assert.equal(wrapper.type(), 'div');
   });
 

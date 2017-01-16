@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 import { BrowserRouter, Match, Miss } from 'react-router'
 import { signIn, signOut } from '../firebase'
 import { split } from 'lodash';
@@ -13,7 +12,7 @@ import firebase from '../firebase';
 import gravity from '../images/1.mp4'
 import reel from '../images/reel.png'
 
-class Application extends Component{
+export default class Application extends Component{
   constructor(){
     super()
     this.state = {
@@ -63,5 +62,3 @@ class Application extends Component{
     )
   }
 }
-
-render(<Application />, document.querySelector("#application"))

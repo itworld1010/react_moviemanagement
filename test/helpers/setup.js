@@ -4,6 +4,10 @@ require('babel-register')({
 
 require('babel-polyfill');
 
+require('require-noop')({
+  extensions: ['.png', '.mp4']
+});
+
 global.document = require('jsdom').jsdom(`
   <head>
     <meta charset='UTF-8'>
