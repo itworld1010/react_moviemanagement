@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import npa from './images/no-poster.png'
-// import firebase from '../firebase';
 import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
 
 export default class ActorModal extends Component {
