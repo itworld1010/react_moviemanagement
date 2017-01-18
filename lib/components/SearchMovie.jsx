@@ -1,51 +1,48 @@
 import React, { Component } from 'react';
-import firebase, { usersFromDatabase, signIn, signOut } from '../firebase';
-import { pick, split, map } from 'lodash';
 import MovieCard from './MovieCard'
 
 
 export default class SearchMovie extends Component {
-  constructor(){
-    super()
+  constructor() {
+    super();
     this.state = {
       user: null,
       movieResults: [],
-      userSearch: ''
-    }
+      userSearch: '',
+    };
   }
 
   componentDidMount() {
-   let user = this.props.user
-   this.setState({ user })
+    const user = this.props.user;
+    this.setState({ user });
   }
 
   retrieveMovieSearch(input) {
-    const updatedTitle = input.replace('', '+')
+    const updatedTitle = input.replace('', '+');
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=1500d38f789b9c7a70e564559a8c644d&query=${updatedTitle}`)
-    .then((response) => response.json())
-    .then(data => this.setState( {movieResults: data.results} ))
+    .then(response => response.json())
+    .then(data => this.setState({ movieResults: data.results }));
   }
 
   updateSearchQuery(query) {
-    this.setState({ userSearch: query })
+    this.setState({ userSearch: query });
   }
 
   clearQuery() {
-    this.setState({ userSearch: ''})
+    this.setState({ userSearch: '' });
   }
 
   render() {
-    let input
-
-    return(
+    let input;
+    return (
       <div>
         <div className="search-input-container">
           <form
           id='search-input-container'
           onClick={ (e) => {
-            e.preventDefault()
-            this.retrieveMovieSearch(input.value)
-            this.clearQuery()
+            e.preventDefault();
+            this.retrieveMovieSearch(input.value);
+            this.clearQuery();
           }}>
             <input
               className="search-input"
@@ -60,11 +57,11 @@ export default class SearchMovie extends Component {
           </form>
         </div>
         <div className="search-movie-card-container">
-        {this.state.movieResults.map((movie, index) =>
+        {this.state.movieResults.map(movie =>
           <MovieCard movie={movie} key={movie.id} user={this.state.user}/>
         )}
         </div>
       </div>
-    )
+    );
   }
 }
