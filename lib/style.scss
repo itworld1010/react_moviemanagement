@@ -11,7 +11,6 @@ body {
 
 h1 {
   font-size: 30px;
-  position: absolute;
   color: $universalColor;
 }
 
@@ -26,6 +25,7 @@ a:hover {
 a {
   font-size: 18px;
   color:$universalColor;
+  text-decoration: none;
 }
 
 .button, .auth-button, .movie-card-button{
@@ -146,8 +146,7 @@ footer {
 }
 
 .nav-container {
-  margin: auto;
-
+  margin-left: 23vw;
 }
 
 .video-background {
