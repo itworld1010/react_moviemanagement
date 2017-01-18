@@ -15,7 +15,6 @@ const FilterByFormat = ({ filter, currentFormat }) => {
     <Select
         name="form-field-name"
         value={currentFormat}
-        autofocus
         clearable={false}
         className="movie-filter"
         searchable={false}
