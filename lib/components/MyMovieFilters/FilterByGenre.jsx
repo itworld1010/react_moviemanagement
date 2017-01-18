@@ -30,7 +30,6 @@ const FilterByGenre = ({ filter, currentGenre }) => {
     <Select
         name="form-field-name"
         value={currentGenre}
-        autofocus
         clearable={false}
         className="movie-filter"
         searchable={false}
