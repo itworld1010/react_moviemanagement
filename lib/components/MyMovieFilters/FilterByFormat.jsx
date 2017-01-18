@@ -3,15 +3,15 @@ import Select from 'react-select';
 
 
 const FilterByFormat = ({ filter, currentFormat }) => {
-  var options = [
+  const options = [
       { value: 'Show-all', label: 'Show All' },
       { value: 'Bluray', label: 'Blu-ray' },
       { value: 'DVD', label: 'DVD' },
       { value: 'iTunes', label: 'iTunes' },
-      { value: 'Prime', label: 'Prime' }
+      { value: 'Prime', label: 'Prime' },
   ];
 
-  return(
+  return (
     <Select
         name="form-field-name"
         value={currentFormat}
@@ -23,7 +23,7 @@ const FilterByFormat = ({ filter, currentFormat }) => {
         options={options}
         onChange={filter}
     />
-  )
-}
+  );
+};
 
-export default FilterByFormat
+export default FilterByFormat;
