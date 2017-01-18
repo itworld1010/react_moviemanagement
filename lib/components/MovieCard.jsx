@@ -16,37 +16,37 @@ export default class MovieCard extends Component {
       submit: false,
       credits: null,
       trailers: null,
-      movieDetails: null
-    }
+      movieDetails: null,
+    };
   }
 
   componentWillMount() {
-    let user = this.props.user
-    let movie = this.props.movie
-    this.setState({ user, movie })
+    const user = this.props.user;
+    const movie = this.props.movie;
+    this.setState({ user, movie });
   }
 
   addNewMovie(movie) {
-     const title = this.state.movie.title + this.state.movie.release_date
-     const { user } = this.state;
-     firebase.database().ref('users/' + user.displayName).child(title).set({
-       movie
-     });
-   }
+    const title = this.state.movie.title + this.state.movie.release_date;
+    const { user } = this.state;
+    firebase.database().ref('users/' + user.displayName).child(title).set({
+      movie,
+    });
+  }
 
-   fetchDetails() {
-     this.setState({ addMovieClick: !this.state.addMovieClick })
-     fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.id}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
-     .then((response) => response.json())
-     .then((response) => this.setState({ credits: response }))
+  fetchDetails() {
+    this.setState({ addMovieClick: !this.state.addMovieClick });
+    fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.id}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
+    .then(response => response.json())
+    .then(response => this.setState({ credits: response }));
 
-     fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.id}?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US`)
-     .then((response) => response.json())
-     .then((data) => this.setState({ movieDetails: data }))
-   }
+    fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.id}?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US`)
+    .then(response => response.json())
+    .then(data => this.setState({ movieDetails: data }));
+  }
 
-  createAndSend(){
-    this.setState({ submit: !this.state.submit })
+  createAndSend() {
+    this.setState({ submit: !this.state.submit });
     const newMovie = {
       movieDetails: this.state.movieDetails,
       credits: this.state.credits,
@@ -56,25 +56,24 @@ export default class MovieCard extends Component {
       Bluray: this.state.Bluray,
       iTunes: this.state.iTunes,
       Prime: this.state.Prime,
-      rating: 'unrated'
+      rating: 'unrated',
     };
     this.addNewMovie(newMovie);
-    this.setState({ addMovieClick: !this.state.addMovieClick })
+    this.setState({ addMovieClick: !this.state.addMovieClick });
   }
 
   render() {
-
     return (
       <article className="movie-card">
         <div className="poster-container">
         {this.state.movie.poster_path ?
           <img
           className="poster"
-          src={"https://image.tmdb.org/t/p/w500" + this.state.movie.poster_path}
+          src={'https://image.tmdb.org/t/p/w500' + this.state.movie.poster_path}
           />
           : <img src={npa} className="poster"/>}
           </div>
-          {!this.state.addMovieClick?
+          {!this.state.addMovieClick ?
             <div className="center">
               <p className="card-title" >{this.state.movie.title}</p>
               {this.state.movie.release_date ?
@@ -85,31 +84,31 @@ export default class MovieCard extends Component {
 
             </div>
             :
-            <div  className="button-box">
+            <div className="button-box">
               <form>
                 <input
                   className={this.state.DVD ? 'format-button format-true button' : 'format-button format-false button'}
                   type="button"
                   value="DVD"
-                  onClick={() => {this.setState({ DVD: !this.state.DVD })}}
+                  onClick={() => { this.setState({ DVD: !this.state.DVD }); }}
                 />
                 <input
                   className={this.state.Bluray ? 'format-button format-true button' : 'format-button format-false button'}
                   type="button"
                   value="Blu-ray"
-                  onClick={() => {this.setState({ Bluray: !this.state.Bluray })}}
+                  onClick={() => { this.setState({ Bluray: !this.state.Bluray }); }}
                 />
                 <input
                   className={this.state.iTunes ? 'format-button format-true button' : 'format-button format-false button'}
                   type="button"
                   value="iTunes"
-                  onClick={() => {this.setState({ iTunes: !this.state.iTunes })}}
+                  onClick={() => { this.setState({ iTunes: !this.state.iTunes }); }}
                 />
                 <input
                   className={this.state.Prime ? 'format-button format-true button' : 'format-button format-false button'}
                   type="button"
                   value="Prime"
-                  onClick={() => {this.setState({ Prime: !this.state.Prime })}}
+                  onClick={() => { this.setState({ Prime: !this.state.Prime }); }}
                 />
               </form>
             </div>
@@ -119,7 +118,7 @@ export default class MovieCard extends Component {
             <button
               onClick={() => this.fetchDetails()}
               className="movie-card-button"
-              disabled={!this.state.submit ? false : true }
+              disabled={this.state.submit && true }
             >{!this.state.submit ? 'Add Movie' : 'Added to your movies'}
             </button>
             :
@@ -131,6 +130,6 @@ export default class MovieCard extends Component {
           }
         </article>
       </article>
-    )
+    );
   }
 }
