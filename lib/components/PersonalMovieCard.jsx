@@ -81,26 +81,26 @@ export default class PersonalMovieCard extends Component {
   }
 
   genreSwitch(genreID) {
-     if (genreID === 28){return "Action"}
-     else if (genreID === 12){return "Adventure"}
-     else if (genreID === 16){return "Animation"}
-     else if (genreID === 35){return "Comedy"}
-     else if (genreID === 80){return "Crime"}
-     else if (genreID === 99){return "Documentary"}
-     else if (genreID === 18){return "Drama"}
-     else if (genreID === 10751){return "Family"}
-     else if (genreID === 14){return "Fantasy"}
-     else if (genreID === 36){return "History"}
-     else if (genreID === 27){return "Horror"}
-     else if (genreID === 10402){return "Music"}
-     else if (genreID === 9648){return "Mystery"}
-     else if (genreID === 10749){return "Romance"}
-     else if (genreID === 878){return "Science Fiction"}
-     else if (genreID === 10770){return "TV Movie"}
-     else if (genreID === 53){return "Thriller"}
-     else if (genreID === 10752){return "War"}
-     else if (genreID === 5373){return "Western"}
-   }
+    if (genreID === 28){return 'Action'}
+    else if (genreID === 12) { return 'Adventure' }
+    else if (genreID === 16) { return 'Animation' }
+    else if (genreID === 35) { return 'Comedy' }
+    else if (genreID === 80) { return 'Crime' }
+    else if (genreID === 99) { return 'Documentary' }
+    else if (genreID === 18) { return 'Drama' }
+    else if (genreID === 10751) { return 'Family' }
+    else if (genreID === 14) { return 'Fantasy' }
+    else if (genreID === 36) { return 'History' }
+    else if (genreID === 27) { return 'Horror' }
+    else if (genreID === 10402) { return 'Music' }
+    else if (genreID === 9648) { return 'Mystery' }
+    else if (genreID === 10749) { return 'Romance' }
+    else if (genreID === 878) { return 'Science Fiction' }
+    else if (genreID === 10770) { return 'TV Movie' }
+    else if (genreID === 53) { return 'Thriller' }
+    else if (genreID === 10752) { return 'War' }
+    else if (genreID === 5373) { return 'Western' }
+  }
 
   open() {
     this.setState({ runtime: this.props.movie.movieDetails.runtime})
