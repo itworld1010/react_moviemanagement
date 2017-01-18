@@ -6,11 +6,11 @@ export default class ActorModal extends Component {
     super();
     this.state = {
       cast: null,
-    }
+    };
   }
 
   render() {
-    return(
+    return (
       <Modal backdrop className="modal-container" show={this.props.show}>
         <Modal.Header className="modal-header">
           <Modal.Title
@@ -23,6 +23,6 @@ export default class ActorModal extends Component {
       <button onClick={() => this.props.showActorDetail()}>Back to {this.props.title}</button>
       </Modal.Body>
       </Modal>
-    )
+    );
   }
 }
