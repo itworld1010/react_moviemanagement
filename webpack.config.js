@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    main: "./lib/index.js"
+    main: './lib/index.js',
   },
   output: {
     path: __dirname,
@@ -20,14 +20,14 @@ module.exports = {
       },
       {
         test: /\.mp4$/,
-        loader: 'file'
+        loader: 'file',
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
           'file?hash=sha512&digest=hex&name=[hash].[ext]',
-          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-        ]
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
+        ],
       },
       { test: /\.css$/, loader: 'style!css' },
       { test: /\.scss$/, loader: 'style!css!sass' },

@@ -45,7 +45,6 @@
     "moment": "^2.17.1",
     "node-libs-browser": "^1.0.0",
     "node-sass": "^3.10.0",
-    "react": "^15.3.1",
     "react-addons-test-utils": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-router": "^4.0.0-alpha.6",
@@ -58,8 +57,10 @@
     "webpack-dev-server": "^1.15.2"
   },
   "dependencies": {
+    "eslint-plugin-import": "^2.2.0",
     "locus": "^1.2.0",
     "moment": "^2.15.1",
+    "react": "^15.3.1",
     "react-bootstrap": "^0.30.7",
     "react-html5video": "^1.4.0",
     "react-select": "^1.0.0-rc.2",

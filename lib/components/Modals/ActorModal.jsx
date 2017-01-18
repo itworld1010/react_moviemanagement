@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import npa from './images/no-poster.png'
-// import firebase from '../firebase';
 import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
 
 export default class ActorModal extends Component {
@@ -8,11 +6,11 @@ export default class ActorModal extends Component {
     super();
     this.state = {
       cast: null,
-    }
+    };
   }
 
   render() {
-    return(
+    return (
       <Modal backdrop className="modal-container" show={this.props.show}>
         <Modal.Header className="modal-header">
           <Modal.Title
@@ -25,6 +23,6 @@ export default class ActorModal extends Component {
       <button onClick={() => this.props.showActorDetail()}>Back to {this.props.title}</button>
       </Modal.Body>
       </Modal>
-    )
+    );
   }
 }

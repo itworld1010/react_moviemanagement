@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import npa from '../../images/no-poster.png'
 import firebase from '../../firebase';
 import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
-import { map, extend, keyBy, keys, mapValues, values, find, get, forEach, join, dropRight, filter } from 'lodash';
+import { filter } from 'lodash';
 import YouTube from 'react-youtube'
 import RateMovie from '../RateMovie'
 import ActorCard from '../ActorCard'
@@ -12,7 +11,7 @@ export default class PersonalMovieModal extends Component {
   constructor() {
     super();
     this.state = {
-    }
+    };
   }
 
   componentWillMount(){
@@ -27,49 +26,51 @@ export default class PersonalMovieModal extends Component {
   }
 
   delete() {
-    const title = this.props.id
+    const title = this.props.id;
     const { user } = this.state;
     firebase.database().ref('users/' + user.displayName).child(title).remove()
   }
 
   changeRating(rating) {
-    const title = this.props.id
+    const title = this.props.id;
     const { user } = this.state;
-    let selectedRating = rating.value
-    if(selectedRating.value !== 'Show-all')
-      {this.setState({ rating: selectedRating })
+    const selectedRating = rating.value;
+    if (selectedRating.value !== 'Show-all') {
+      this.setState({ rating: selectedRating });
     }
-    firebase.database().ref('users/' + user.displayName).child(title).child('movie').update({
-      rating: selectedRating
+    firebase.database().ref('users/' + user.displayName).child(title).child('movie')
+    .update({
+      rating: selectedRating,
     });
   }
 
-  updateFormat(format){
-    const title = this.props.id
+  updateFormat(format) {
+    const title = this.props.id;
     const { user } = this.state;
-    this.setState({ [format]: !this['state'][format] })
-    setTimeout(() => {firebase.database().ref('users/' + user.displayName).child(title).child('movie').update({
-      [format]: this.state[format]
-    })}, 100);
+    this.setState({ [format]: !this['state'][format] });
+    setTimeout(() => {
+      firebase.database().ref('users/' + user.displayName).child(title).child('movie')
+      .update({
+        [format]: this.state[format],
+      });
+    }, 100);
   }
 
   render() {
-    let writers = (filter(this.props.movie.credits.crew, {'department': "Writing"})).map((e) => e.name).join(', ')
-    let writersArray = filter(this.props.movie.credits.crew, {'department': "Writing"})
-    let genre
-    let uniqueID = this.state.movieID
-    let director = filter(this.props.movie.credits.crew, {'job': "Director"}).map((e) => e.name).join(', ')
-    let directorsArray = filter(this.props.movie.credits.crew, {'job': "Director"})
+    const writers = (filter(this.props.movie.credits.crew, { department: 'Writing' })).map(e => e.name).join(', ');
+    const writersArray = filter(this.props.movie.credits.crew, { department: 'Writing' });
+    const director = filter(this.props.movie.credits.crew, { job: 'Director' }).map(e => e.name).join(', ');
+    const directorsArray = filter(this.props.movie.credits.crew, { job: 'Director' });
 
-    return(
+    return (
       <Modal backdrop className="modal-container" show={this.props.showModal} onHide={() => this.close()}>
               <Modal.Header className="modal-header" >
               <Modal.Title className="modal-title absolute-center"><span className="relative-center">{this.props.movie.movie.original_title}</span><button className="button modal-top-exit" onClick={() => this.props.close()}>X</button></Modal.Title>
               </Modal.Header>
               <a className="details-ref" name="details" />
-             <button onClick={() =>  this.delete()} className="delete">Delete movie</button>
+             <button onClick={() => this.delete()} className="delete">Delete movie</button>
               <Modal.Body className="modal-body">
-                <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.backdrop_path}  />
+                <img className="modal-backdrop" src={'https://image.tmdb.org/t/p/w500' + this.props.movie.movie.backdrop_path} />
                 <div className="absolute-center to-deets-abs-center">
                   <a className="trailer-link relative-center" href="#trailer">Trailer</a>
                 </div>
@@ -99,7 +100,7 @@ export default class PersonalMovieModal extends Component {
                     </tbody>
                   </table>
                 </div>
-                <div  className="modal-button-box">
+                <div className="modal-button-box">
                 <RateMovie rate={this.changeRating.bind(this)} rating={this.state.rating}/>
                   <form>
                     <input
@@ -129,7 +130,7 @@ export default class PersonalMovieModal extends Component {
                   </form>
                 </div>
                 <div className="actor-list">
-                  {this.props.cast.map((m, i) =>
+                  {this.props.cast.map(m =>
                   <ActorCard cast={m} key={m.id} />
                   )}
                 </div>
@@ -155,6 +156,6 @@ export default class PersonalMovieModal extends Component {
                 </div>
               </Modal.Body>
             </Modal>
-    )
+    );
   }
 }
