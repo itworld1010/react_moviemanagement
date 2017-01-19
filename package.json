@@ -43,6 +43,7 @@
     "mocha": "^3.0.2",
     "mocha-loader": "^1.0.0",
     "moment": "^2.17.1",
+    "nock": "^9.0.2",
     "node-libs-browser": "^1.0.0",
     "node-sass": "^3.10.0",
     "react-addons-test-utils": "^15.3.1",
@@ -58,6 +59,7 @@
   },
   "dependencies": {
     "eslint-plugin-import": "^2.2.0",
+    "jquery": "^3.1.1",
     "locus": "^1.2.0",
     "moment": "^2.15.1",
     "react": "^15.3.1",

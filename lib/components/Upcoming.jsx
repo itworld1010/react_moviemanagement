@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import UpcomingCard from './UpcomingCard';
 import PopularMovieCard from './PopularMovieCard';
+const $ = require('jquery');
 
 export default class Upcoming extends Component {
   constructor() {
@@ -15,16 +16,25 @@ export default class Upcoming extends Component {
   componentWillMount() {
     const user = this.props.user;
     this.setState({ user });
-
-    fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US&page=1`)
-    .then(response => response.json())
-    .then(movies => this.setState({ upcoming: movies.results }));
-
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US&page=1`)
-    .then(response => response.json())
-    .then(movies => this.setState({ popular: movies.results }));
+    this.getMovies()
   }
 
+
+  getMovies() {
+     $.get("https://api.themoviedb.org/3/movie/upcoming?api_key=3b0cb67fa2d52569a7722e1614ea5df3&language=en-US&region=US",
+     function(upcoming) {
+       this.setState({
+         upcoming: upcoming.results,
+       })
+     }.bind(this))
+
+     $.get("https://api.themoviedb.org/3/movie/popular?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US&page=1",
+     function(popular) {
+       this.setState({
+         popular: popular.results,
+       })
+     }.bind(this))
+  }
 
   render() {
     return (
