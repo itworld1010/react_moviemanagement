@@ -52,7 +52,7 @@ export default class MyMovies extends Component {
   }
 
   clearFilters() {
-    this.setState({ filtered: this.state.movies })
+    this.setState({ filtered: this.state.movies, currentGenre: '', currentRating: '', currentFormat: '' })
   }
 
   render() {
