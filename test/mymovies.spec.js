@@ -11,6 +11,7 @@ import MyMovies from '../lib/components/MyMovies';
 import FilterByFormat from '../lib/components/MyMovieFilters/FilterByFormat';
 import FilterByGenre from '../lib/components/MyMovieFilters/FilterByGenre';
 import FilterByRating from '../lib/components/MyMovieFilters/FilterByRating';
+import PersonalMovieCard from '../lib/components/PersonalMovieCard';
 
 describe('My Movies', () => {
 
@@ -33,4 +34,10 @@ describe('My Movies', () => {
     const wrapper = shallow(<MyMovies />)
     expect(wrapper.find(FilterByRating)).to.have.length(1)
   })
+
+  it.skip('has a filter by PersonalMovieCard component', () => {
+    const wrapper = shallow(<MyMovies />)
+    expect(wrapper.find(PersonalMovieCard)).to.have.length(1)
+  })
+
 });
