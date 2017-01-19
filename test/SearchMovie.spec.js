@@ -12,6 +12,18 @@ describe('Seach Movie', () => {
     assert.equal(wrapper.type(), 'div');
   });
 
+  it('has an input element', () => {
+    const wrapper = shallow(<SearchMovie />)
+
+    expect(wrapper.find('input').length, 1)
+  })
+
+  it('has a button to submit pinned locations', () => {
+    const wrapper = shallow(<SearchMovie />)
+
+    expect(wrapper.find('button').length, 1)
+  })
+
   it.skip('calls retrieveMovieSearch on click of Submit', () => {
   // Render a checkbox with label in the document
   const wrapper = shallow(
