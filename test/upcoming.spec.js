@@ -22,7 +22,7 @@ const props = {
 
 describe('Upcoming page', () => {
 
-  it('renders as a <div>', () => {
+  it.skip('renders as a <div>', () => {
     const wrapper = shallow(<Upcoming {...props}/>);
     expect(wrapper).to.exist;
   });
