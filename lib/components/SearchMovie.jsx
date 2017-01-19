@@ -24,10 +24,6 @@ export default class SearchMovie extends Component {
     .then(data => this.setState({ movieResults: data.results }));
   }
 
-  updateSearchQuery(query) {
-    this.setState({ userSearch: query });
-  }
-
   clearQuery() {
     this.setState({ userSearch: '' });
   }

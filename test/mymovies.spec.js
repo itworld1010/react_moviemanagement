@@ -5,6 +5,7 @@ import { assert, expect } from 'chai';
 let sinon = require('sinon');
 import moment from 'moment';
 import locus from 'locus';
+import Mock from './helpers/Mock'
 
 import MyMovies from '../lib/components/MyMovies';
 
@@ -15,6 +16,5 @@ describe('My Movies', () => {
     assert.equal(wrapper.type(), 'div');
   });
 
-
-
+  
 });
