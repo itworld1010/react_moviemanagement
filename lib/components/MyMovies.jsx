@@ -51,6 +51,10 @@ export default class MyMovies extends Component {
     this.setState({ filtered, currentGenre: genre.value });
   }
 
+  clearFilters() {
+    this.setState({ filtered: this.state.movies })
+  }
+
   render() {
     const { user } = this.state;
     const filteredMovieDisplay = this.state.filtered.map(m =>
@@ -61,6 +65,7 @@ export default class MyMovies extends Component {
     return (
       <div>
         <div className="p-movie-search">
+          <button onClick={() => this.clearFilters()} className="button remove-filters">Remove Filters</button>
           <FilterByFormat
             filter={this.filterByFormat.bind(this)}
             currentFormat={this.state.currentFormat}

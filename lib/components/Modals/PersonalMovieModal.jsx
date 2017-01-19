@@ -130,9 +130,9 @@ export default class PersonalMovieModal extends Component {
                   </form>
                 </div>
                 <div className="actor-list">
-                  {this.props.cast.map(m =>
-                  <ActorCard cast={m} key={m.id} />
-                  )}
+                {this.props.cast.map((m, i) =>
+                <ActorCard cast={m} key={m.id} />
+                )}
                 </div>
                 <div className="youtube-container">
                 <div className="absolute-center back-to-deets-abs-center">
