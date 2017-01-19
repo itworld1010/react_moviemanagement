@@ -16,9 +16,5 @@ describe('My Movies', () => {
     assert.equal(wrapper.type(), 'div');
   });
 
-//   it('renders individual movies', () => {
-//  const wrapper = mount(<MyMovies movieDisplay={Mock}/>)
-//  assert.equal(wrapper.find('.my-movie-card-container').length,17)
-// })
-
+  
 });
