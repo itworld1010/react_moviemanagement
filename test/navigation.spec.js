@@ -13,4 +13,10 @@ describe('Navigation', () => {
     assert.equal(wrapper.type(), 'div');
   });
 
+  it('renders individual links', () => {
+    const wrapper = shallow(<Navigation user={User}/> );
+    const texts = wrapper.find('.link-test').map(node => node.props().children);
+    expect(texts).to.eql([ 'My Movies', 'Explore', 'Search' ]);
+  })
+
 });
