@@ -8,6 +8,9 @@ import locus from 'locus';
 import Mock from './helpers/Mock'
 
 import MyMovies from '../lib/components/MyMovies';
+import FilterByFormat from '../lib/components/MyMovieFilters/FilterByFormat';
+import FilterByGenre from '../lib/components/MyMovieFilters/FilterByGenre';
+import FilterByRating from '../lib/components/MyMovieFilters/FilterByRating';
 
 describe('My Movies', () => {
 
@@ -16,5 +19,18 @@ describe('My Movies', () => {
     assert.equal(wrapper.type(), 'div');
   });
 
-  
+  it('has a filter by format component', () => {
+    const wrapper = shallow(<MyMovies />)
+    expect(wrapper.find(FilterByFormat)).to.have.length(1)
+  })
+
+  it('has a filter by genre component', () => {
+    const wrapper = shallow(<MyMovies />)
+    expect(wrapper.find(FilterByGenre)).to.have.length(1)
+  })
+
+  it('has a filter by rating component', () => {
+    const wrapper = shallow(<MyMovies />)
+    expect(wrapper.find(FilterByRating)).to.have.length(1)
+  })
 });
