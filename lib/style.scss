@@ -49,6 +49,10 @@ a {
     }
   }
 
+  .remove-filters {
+    border: solid #d8dadb .5px;
+  }
+
   .delete {
     font-size: 12px;
     position: relative;
@@ -312,6 +316,7 @@ footer {
   display: flex;
   width: 30vw;
   margin-left: 10px;
+  border-color: $universalColor;
 }
 
 // upcoming
