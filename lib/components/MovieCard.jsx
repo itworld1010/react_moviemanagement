@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 import firebase from '../firebase';
-const $ = require('jquery');
 
 export default class MovieCard extends Component {
   constructor() {
@@ -37,19 +36,13 @@ export default class MovieCard extends Component {
 
   fetchDetails() {
     this.setState({ addMovieClick: !this.state.addMovieClick });
-    $.get(`https://api.themoviedb.org/3/movie/${this.props.movie.id}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`,
-    function(response) {
-      this.setState({
-        credits: response,
-      })
-    }.bind(this))
+    fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.id}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
+    .then(response => response.json())
+    .then(response => this.setState({ credits: response }));
 
-    $.get(`https://api.themoviedb.org/3/movie/${this.props.movie.id}?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US`,
-    function(response) {
-      this.setState({
-        movieDetails: response,
-      })
-    }.bind(this))
+    fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.id}?api_key=1500d38f789b9c7a70e564559a8c644d&language=en-US`)
+    .then(response => response.json())
+    .then(data => this.setState({ movieDetails: data }));
   }
 
   createAndSend() {
