@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import npa from '../images/no-poster.png'
 import firebase from '../firebase';
+import { update } from 'react-addons-update'
 
 export default class MovieCard extends Component {
   constructor() {
@@ -27,7 +28,13 @@ export default class MovieCard extends Component {
   }
 
   addNewMovie(movie) {
-    const title = this.state.movie.title + this.state.movie.release_date;
+    let title
+    if (this.state.movie.title.slice(0,4) === 'The '){
+      title = this.state.movie.title.slice(4) + this.state.movie.release_date;
+    } else {
+      title = this.state.movie.title + this.state.movie.release_date;
+    }
+    console.log(title);
     const { user } = this.state;
     firebase.database().ref('users/' + user.displayName).child(title).set({
       movie,
