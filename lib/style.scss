@@ -100,7 +100,6 @@ a {
 
 .sign-out-button {
   background-color: $universalColor;
-  padding: 9px;
   &:hover {
     background-color: black;
     color: $universalColor;
@@ -132,14 +131,17 @@ footer {
 
 .navigation {
   color: white;
-  padding-left: 10px;
   display: flex;
   align-items: center;
   background-color: $navigation;
   height: 50px;
   width: 100%;
+  justify-content: space-between;
+  padding: 0 10px 0 10px;
 }
-
+.movie-keeper-home {
+  padding: 0 0 0 10px;
+}
 .format-true{
   background-color: $universalColor;
 }
@@ -150,7 +152,8 @@ footer {
 }
 
 .nav-container {
-  margin-left: 23vw;
+  display: flex;
+  padding: 0 20px 0 0;
 }
 
 .video-background {
