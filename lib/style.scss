@@ -176,6 +176,12 @@ footer {
   left: 0;
 }
 
+.my-movies-entire-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .personal-movie-card-button {
   width: 100%;
   height: 100%;
@@ -309,10 +315,12 @@ footer {
 //my movies
 
 .my-movie-card-container, .search-movie-card-container {
-  width: 90vw;
-  overflow-x: auto;
+  width: 80vw;
+  display: flex;
   margin: auto;
   margin-top: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .movie-filter {
@@ -359,7 +367,6 @@ footer {
 //personal movie card
 .p-movie-search {
   width: 80vw;
-  margin-left: 8vw;
   display: flex;
   margin-top: 16px;
 }
