@@ -12,14 +12,12 @@ const Navigation = ({ user }) => {
   }
   return (
     <div className="navigation">
-      <Link to="/"><h1>Movie Keeper</h1></Link>
+      <Link className="movie-keeper-home" to="/"><h1>Movie Keeper</h1></Link>
         <div className="nav-container">
-        <ul>
-        <li className="nav-link"><Link className="link-test" to="/">My Movies</Link></li>
-          <li className="nav-link"><Link className="link-test" to="/explore">Explore</Link></li>
-          <li className="nav-link"><Link className="link-test" to="/search">Search</Link></li>
-        </ul>
-        <span className="log-in">
+        <p className="nav-link"><Link to="/">My Movies</Link></p>
+        <p className="nav-link"><Link to="/explore">Explore</Link></p>
+        <p className="nav-link"><Link to="/search">Search</Link></p>
+        <span>
           <button
             className='auth-button sign-out-button button'
             onClick={() => signOut()}>

@@ -63,7 +63,7 @@ export default class MyMovies extends Component {
       <PersonalMovieCard {...m} user={user} key={m.key} id={m.key}/>);
 
     return (
-      <div>
+      <div className="my-movies-entire-container">
         <div className="p-movie-search">
           <button onClick={() => this.clearFilters()} className="button remove-filters">Remove Filters</button>
           <FilterByFormat
