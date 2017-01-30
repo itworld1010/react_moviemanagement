@@ -8,9 +8,8 @@ import Upcoming from './Upcoming';
 import MyMovies from './MyMovies';
 import NotFound from './NotFound';
 import Navigation from './Navigation';
+import Login from './Login';
 import firebase from '../firebase';
-import gravity from '../images/1.mp4'
-import reel from '../images/reel.png'
 
 export default class Application extends Component{
   constructor(){
@@ -46,16 +45,7 @@ export default class Application extends Component{
               <Miss component={NotFound} />
             </div>
           :
-            <div>
-              <div className="video-background" >
-                <video id="my-video" className="video" autoPlay="autoplay" loop="loop" muted >
-                  <source src={gravity} type="video/mp4" />
-                  Your browser doesn't support HTML5 video. Here's a <a href="#">link</a> to the video
-                </video>
-                <div className="shadow"></div>
-              </div>
-                <button className='sign-in-btn' onClick={() => signIn()}><span className="title-button">MOVIE KEEPER</span><br/>Click to sign in with Google</button>
-            </div>
+            <Login />
           }
         </div>
       </BrowserRouter>
