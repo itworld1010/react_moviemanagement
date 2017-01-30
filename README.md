@@ -20,7 +20,7 @@ Not pushed to production.
 
 ![My Movie Details](lib/screenshots/my_movie_modal.png?raw=true "Movie Details")
 
-![My Movie Trailer](lib/screenshots/my_movie_youtube.png?raw=true "My Movie Trailer")
+![My Movie Trailer](lib/screenshots/my_movie-youtube.png?raw=true "My Movie Trailer")
 
 ![Recent and Upcoming](lib/screenshots/recent_upcoming.png?raw=true "Recent and Upcoming")
 
