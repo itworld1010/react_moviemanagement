@@ -72,7 +72,7 @@ export default class MovieCard extends Component {
   render() {
     return (
       <article className="movie-card">
-        <div className="poster-container">
+        <div className="search-poster-container">
         {this.state.movie.poster_path ?
           <img
           className="poster"

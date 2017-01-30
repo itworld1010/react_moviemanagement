@@ -338,7 +338,7 @@ footer {
 .upcoming-card-container {
   overflow: scroll;
   width: 99%;
-  height: 398px;
+  height:398px;
 }
 
 .upcoming-card-container-inner {
@@ -376,6 +376,15 @@ footer {
   float: left;
   margin:10px;
   box-shadow: -5px 5px 7px #888888;
+}
+
+.search-poster-container {
+    width: 200px;
+    height: 300px;
+    position: relative;
+    float: left;
+    margin:10px;
+    box-shadow: -5px 5px 7px #888888;
 }
 
 .personal-poster {
