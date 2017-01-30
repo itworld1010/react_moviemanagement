@@ -43,8 +43,6 @@ a {
     border-style: solid;
     border-width: thin;
     &:hover{
-      background: #d5d7d9;
-      text-decoration: none;
       cursor: pointer;
     }
   }
@@ -100,10 +98,7 @@ a {
 
 .sign-out-button {
   background-color: $universalColor;
-  &:hover {
-    background-color: black;
-    color: $universalColor;
-  }
+  width: 60px;
 }
 
 .sign-in-btn:hover {
@@ -154,6 +149,7 @@ footer {
 .nav-container {
   display: flex;
   padding: 0 20px 0 0;
+  align-items: center;
 }
 
 .video-background {
@@ -342,6 +338,7 @@ footer {
 .upcoming-card-container {
   overflow: scroll;
   width: 99%;
+  height: 398px;
 }
 
 .upcoming-card-container-inner {
@@ -362,6 +359,7 @@ footer {
   position: relative;
   float: left;
   margin:5px;
+  box-shadow: -5px 5px 7px #888888;
 }
 
 //personal movie card
@@ -372,11 +370,12 @@ footer {
 }
 
 .poster-container {
-  width: 200px;
-  height: 300px;
+  width: 150px;
+  height: 225px;
   position: relative;
   float: left;
   margin:10px;
+  box-shadow: -5px 5px 7px #888888;
 }
 
 .personal-poster {

@@ -18,11 +18,12 @@ const Navigation = ({ user }) => {
         <p className="nav-link"><Link to="/explore">Explore</Link></p>
         <p className="nav-link"><Link to="/search">Search</Link></p>
         <span>
-          <button
+          <img
             className='auth-button sign-out-button button'
-            onClick={() => signOut()}>
-            Sign Out
-          </button>
+            onClick={() => signOut()}
+            src="../../lib/images/signout.png"
+          >
+          </img>
         </span>
         </div>
     </div>
