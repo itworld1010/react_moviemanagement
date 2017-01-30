@@ -100,10 +100,7 @@ a {
 
 .sign-out-button {
   background-color: $universalColor;
-  &:hover {
-    background-color: black;
-    color: $universalColor;
-  }
+  width: 60px;
 }
 
 .sign-in-btn:hover {
@@ -154,6 +151,7 @@ footer {
 .nav-container {
   display: flex;
   padding: 0 20px 0 0;
+  align-items: center;
 }
 
 .video-background {
@@ -372,8 +370,8 @@ footer {
 }
 
 .poster-container {
-  width: 200px;
-  height: 300px;
+  width: 150px;
+  height: 225px;
   position: relative;
   float: left;
   margin:10px;
