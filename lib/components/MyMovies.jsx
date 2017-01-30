@@ -65,7 +65,7 @@ export default class MyMovies extends Component {
     return (
       <div className="my-movies-entire-container">
         <div className="p-movie-search">
-          <button onClick={() => this.clearFilters()} className="button remove-filters">Remove Filters</button>
+          <button onClick={() => this.clearFilters()} className="button remove-filters">Reset Filters</button>
           <FilterByFormat
             filter={this.filterByFormat.bind(this)}
             currentFormat={this.state.currentFormat}
