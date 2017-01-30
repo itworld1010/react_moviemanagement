@@ -65,11 +65,12 @@ export default class PersonalMovieModal extends Component {
     return (
       <Modal backdrop className="modal-container" show={this.props.showModal} onHide={() => this.close()}>
               <Modal.Header className="modal-header" >
-              <Modal.Title className="modal-title absolute-center"><span className="relative-center">{this.props.movie.movie.original_title}</span><button className="button modal-top-exit" onClick={() => this.props.close()}>X</button></Modal.Title>
+              <Modal.Title className="modal-title absolute-center"><span className="relative-center">{this.props.movie.movie.original_title}</span><img onClick={() => this.props.close()} src="../lib/images/X.png" className="modal-top-exit"/></Modal.Title>
               </Modal.Header>
               <a className="details-ref" name="details" />
              <button onClick={() => this.delete()} className="delete">Delete movie</button>
               <Modal.Body className="modal-body">
+              <div className="movie-details">
                 <img className="modal-backdrop" src={'https://image.tmdb.org/t/p/w500' + this.props.movie.movie.backdrop_path} />
                 <div className="absolute-center to-deets-abs-center">
                   <a className="trailer-link relative-center" href="#trailer">Trailer</a>
@@ -133,6 +134,7 @@ export default class PersonalMovieModal extends Component {
                 {this.props.cast.map((m, i) =>
                 <ActorCard cast={m} key={m.id} />
                 )}
+                </div>
                 </div>
                 <div className="youtube-container">
                 <div className="absolute-center back-to-deets-abs-center">

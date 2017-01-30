@@ -315,12 +315,12 @@ footer {
 //my movies
 
 .my-movie-card-container, .search-movie-card-container {
-  width: 80vw;
+  width: 85vw;
   display: flex;
   margin: auto;
   margin-top: 10px;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .movie-filter {
@@ -406,6 +406,8 @@ footer {
   overflow: auto;
   text-align: center;
   font-weight: 300;
+  display: flex;
+  justify-content: center;
 }
 
 .actor-card-character {
@@ -413,16 +415,17 @@ footer {
   overflow: auto;
   text-align: center;
   color: $universalColor;
+  display: flex;
+  justify-content: center;
 }
 
 .actor-list {
   width: 98%;
-  height: 55vh;
+  height: 400px;
   display: flex;
   overflow-y: auto;
-  position: relative;
-  margin-left: 10px;
-  top: 2vh;
+  margin: 5px 5px 5px 5px;
+  display: flex;
 }
 
 //modal
@@ -481,7 +484,10 @@ table {
   position: absolute;
   right: 5%;
   top: 14%;
-  width: 30%;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .modal-format-button {
@@ -494,15 +500,15 @@ table {
 
 .rate-movie {
   width: 250px;
-  opacity: .8;
   padding-top: 9px;
 }
 
 .modal-movie-deets {
   width: 55%;
-  height: 240px;
+  height: 400px;
   overflow: auto;
   margin-top: 20px;
+  display: flex;
 }
 
 .modal-header {
@@ -520,6 +526,8 @@ table {
 
 .modal-body {
   padding-top: 50px;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-bottom-exit {
@@ -532,17 +540,9 @@ table {
 
 .modal-top-exit {
   position: fixed;
-  right: 9.5%;
-  top: 5%;
-  padding: 13px;
-  border: none;
-  background-color: $universalColor;
-  opacity: 0.8;
-  border-radius: 20px;
-  &:hover {
-    opacity: 1;
-    background-color:$universalColor;
-  }
+  left: 88%;
+  top: 5.8%;
+  width: 40px;
 }
 
 .modal-crew {
