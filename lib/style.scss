@@ -338,6 +338,7 @@ footer {
 .upcoming-card-container {
   overflow: scroll;
   width: 99%;
+  height: 398px;
 }
 
 .upcoming-card-container-inner {
@@ -358,6 +359,7 @@ footer {
   position: relative;
   float: left;
   margin:5px;
+  box-shadow: -5px 5px 7px #888888;
 }
 
 //personal movie card
@@ -373,6 +375,7 @@ footer {
   position: relative;
   float: left;
   margin:10px;
+  box-shadow: -5px 5px 7px #888888;
 }
 
 .personal-poster {
