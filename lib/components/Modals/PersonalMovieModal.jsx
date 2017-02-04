@@ -61,6 +61,7 @@ export default class PersonalMovieModal extends Component {
     const writersArray = filter(this.props.movie.credits.crew, { department: 'Writing' });
     const director = filter(this.props.movie.credits.crew, { job: 'Director' }).map(e => e.name).join(', ');
     const directorsArray = filter(this.props.movie.credits.crew, { job: 'Director' });
+    const moviePath = this.props.movie.movie
 
     return (
       <Modal backdrop className="modal-container" show={this.props.showModal} onHide={() => this.close()}>

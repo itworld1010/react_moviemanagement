@@ -123,7 +123,7 @@ export default class PopularMovieCard extends Component {
           </Button>
           <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
             <Modal.Header className="modal-header" >
-                      <Modal.Title className="modal-title absolute-center"><span className="upcoming-relative-center">{this.props.movie.original_title}</span><button className="button modal-top-exit" onClick={() => this.close()}>X</button></Modal.Title>
+                      <Modal.Title className="modal-title absolute-center"><span className="upcoming-relative-center">{this.props.movie.original_title}</span><img onClick={() => this.close()} src="../lib/images/X.png" className="modal-top-exit"/></Modal.Title>
                       </Modal.Header>
                       <a name="details" />
                     <Modal.Body className="modal-body">
