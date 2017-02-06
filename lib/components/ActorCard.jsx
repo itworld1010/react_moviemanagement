@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import npa from '../images/no-image.png'
 
-export default class MovieCard extends Component {
+export default class ActorCard extends Component {
   render() {
     return (
       <article className="actor-card">
