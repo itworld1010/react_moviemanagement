@@ -18,7 +18,7 @@ Not pushed to production.
 
 ![My Movies](lib/screenshots/my_movies.png?raw=true "My Movies")
 
-<!-- ![My Movie Details](lib/screenshots/my_movie_modal.png?raw=true "Movie Details") -->
+![My Movie Details](lib/screenshots/my_movie_modal.png?raw=true "Movie Details")
 
 ![My Movie Trailer](lib/screenshots/my_movie_youtube.png?raw=true "My Movie Trailer")
 
