@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import firebase from '../../firebase';
-import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
 import { filter } from 'lodash';
 import YouTube from 'react-youtube'
 import RateMovie from '../RateMovie'
@@ -64,13 +63,16 @@ export default class PersonalMovieModal extends Component {
     const moviePath = this.props.movie.movie
 
     return (
-      <Modal backdrop className="modal-container" show={this.props.showModal} onHide={() => this.close()}>
-              <Modal.Header className="modal-header" >
-              <Modal.Title className="modal-title absolute-center"><span className="relative-center">{this.props.movie.movie.original_title}</span><img onClick={() => this.props.close()} src="../lib/images/X.png" className="modal-top-exit"/></Modal.Title>
-              </Modal.Header>
+      <div>
+      <div className="modal-background" onClick={() => this.props.close()}></div>
+      <div className="modal-container" >
+              <div className="modal-header" >
+              <div className="modal-title absolute-center"><span className="relative-center">{this.props.movie.movie.original_title}</span><img onClick={() => this.props.close()} src="../lib/images/X.png" className="modal-top-exit"/></div>
+              </div>
+
               <a className="details-ref" name="details" />
              <button onClick={() => this.delete()} className="delete">Delete movie</button>
-              <Modal.Body className="modal-body">
+              <div className="modal-body">
               <div className="movie-details">
                 <img className="modal-backdrop" src={'https://image.tmdb.org/t/p/w500' + this.props.movie.movie.backdrop_path} />
                 <div className="absolute-center to-deets-abs-center">
@@ -157,8 +159,9 @@ export default class PersonalMovieModal extends Component {
                   />
                 }
                 </div>
-              </Modal.Body>
-            </Modal>
+              </div>
+            </div>
+            </div>
     );
   }
 }

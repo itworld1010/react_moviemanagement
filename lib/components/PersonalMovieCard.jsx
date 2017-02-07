@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import npa from '../images/no-poster.png';
 import firebase from '../firebase';
-import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap';
 import { map, forEach, dropRight } from 'lodash';
 import PersonalMovieModal from './Modals/PersonalMovieModal';
 import YouTube from 'react-youtube';
@@ -121,24 +120,27 @@ export default class PersonalMovieCard extends Component {
             src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.poster_path}
           />
           : <img alt={this.props.movie.movie.title} src={npa} className="poster"/>}
-          <Button bsStyle="primary"
-            bsSize="large"
+          <button
             alt={this.props.movie.movie.title}
             className="personal-movie-card-button"
             onClick={() => this.setCast()}>
-          </Button>
-            <PersonalMovieModal
-              user={this.props.user}
-              showModal={this.state.showModal}
-              movie={this.props.movie}
-              close={this.close.bind(this)}
-              genreNamesArray={this.state.genreNamesArray}
-              minutesConverter={this.minutesConverter.bind(this)}
-              runtime={this.state.runtime}
-              cast={this.state.cast}
-              youtubeID={this.state.youtubeID}
-              id={this.props.id}
-              />
+          </button>
+            { !this.state.showModal ?
+            null
+          :
+          <PersonalMovieModal
+            user={this.props.user}
+            showModal={this.state.showModal}
+            movie={this.props.movie}
+            close={this.close.bind(this)}
+            genreNamesArray={this.state.genreNamesArray}
+            minutesConverter={this.minutesConverter.bind(this)}
+            runtime={this.state.runtime}
+            cast={this.state.cast}
+            youtubeID={this.state.youtubeID}
+            id={this.props.id}
+            />
+        }
         </article>
     );
   }

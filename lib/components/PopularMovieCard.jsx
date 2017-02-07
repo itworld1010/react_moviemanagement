@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import npa from '../images/no-poster.png'
+import npa from '../images/no-poster.png';
 import firebase from '../firebase';
-import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap';
 import { filter, map, forEach, dropRight } from 'lodash';
 import YouTube from 'react-youtube';
 import ActorCard from './ActorCard';
+import UpcomingMovieModal from './Modals/UpcomingMovieModal';
 
 export default class PopularMovieCard extends Component {
   constructor() {
@@ -29,7 +29,7 @@ export default class PopularMovieCard extends Component {
   componentWillMount() {
     const user = this.props.user;
     const movie = this.props.movie;
-    this.setState({ user, movie });
+    this.setState({ user, movie })
 
     fetch(`https://api.themoviedb.org/3/movie/${this.props.movie.id}/credits?api_key=1500d38f789b9c7a70e564559a8c644d`)
     .then(response => response.json())
@@ -47,8 +47,8 @@ export default class PopularMovieCard extends Component {
   }
 
   setCast() {
-    let holy
-    const trailerObj = map(this.state.trailers.results, 'key');
+    let holy;
+    const trailerObj = map(this.state.trailers.results, 'key')
     if (trailerObj.length === 1) {
       holy = trailerObj;
     } else {
@@ -60,7 +60,6 @@ export default class PopularMovieCard extends Component {
     this.setState({ cast, genreNamesArray: genreArray });
     this.open();
   }
-
   open() {
     this.setState({ runtime: this.state.movieDetails.runtime });
     this.setState({ showModal: true });
@@ -99,11 +98,6 @@ export default class PopularMovieCard extends Component {
   }
 
   render() {
-    const director = filter(this.state.credits.crew, { job: 'Director' }).map(e => e.name).join(', ');
-    const directorsArray = filter(this.state.credits.crew, { job: 'Director' });
-    const writersArray = filter(this.state.credits.crew, { department: 'Writing' });
-    const writers = (filter(this.state.credits.crew, { department: 'Writing' })).map(e => e.name).join(', ');
-
     return (
       <article className="upcoming-movie-card">
         <div className="upcoming-poster-container">
@@ -115,75 +109,27 @@ export default class PopularMovieCard extends Component {
           />
           : <img alt={this.props.movie.title} src={npa} className="poster"/>}
           </div>
-          <Button bsStyle="primary"
-                  bsSize="large"
-                  alt={this.props.movie.original_title}
-                  className="upcoming-movie-card-button button"
-                  onClick={() => this.setCast()}>
-          </Button>
-          <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
-            <Modal.Header className="modal-header" >
-                      <Modal.Title className="modal-title absolute-center"><span className="upcoming-relative-center">{this.props.movie.original_title}</span><img onClick={() => this.close()} src="../lib/images/X.png" className="modal-top-exit"/></Modal.Title>
-                      </Modal.Header>
-                      <a name="details" />
-                    <Modal.Body className="modal-body">
-                      <img className="modal-backdrop" src={"https://image.tmdb.org/t/p/w500" + this.props.movie.backdrop_path} />
-                      <div className="absolute-center to-deets-abs-center">
-                        <a className="trailer-link relative-center" href="#trailer">Trailer</a>
-                      </div>
-                      <div className="modal-movie-deets">
-                      <table>
-                      <tbody>
-                        <tr>
-                          <th>{directorsArray.length > 1 ? 'Directors:' : 'Director:'}</th>
-                          <td>{director}</td>
-                        </tr>
-                        <tr>
-                          <th>Genre:</th>
-                          <td>{this.state.genreNamesArray.join(', ')}</td>
-                        </tr>
-                        <tr>
-                          <th>Runtime:</th>
-                          <td>{this.minutesConverter(this.state.runtime)}</td>
-                        </tr>
-                        <tr>
-                          <th>{writersArray.length > 1 ? 'Writers:' : 'Writer:'}</th>
-                          <td>{writers}</td>
-                        </tr>
-                        <tr>
-                          <th>Plot:</th>
-                          <td>{this.props.movie.overview}</td>
-                        </tr>
-                        </tbody>
-                      </table>
-                      </div>
-                      <div className="actor-list">
-                        {this.state.cast.map(m =>
-                          <ActorCard cast={m} key={m.id}/>
-                        )}
-                      </div>
-                      <div className="youtube-container">
-                      <div className="absolute-center back-to-deets-abs-center">
-                        <a name="trailer" href="#details">Back to Details</a>
-                      </div>
-                      { this.state.youtubeID ?
-                        <YouTube
-                          className="youtube"
-                          controls="1"
-                          videoId={this.state.youtubeID}
-                          loop="1"
-                        />
-                      :
-                        <YouTube
-                          className="youtube"
-                          controls="1"
-                          fs
-                          videoId='dQw4w9WgXcQ'
-                        />
-                      }
-                      </div>
-                    </Modal.Body>
-                  </Modal>
+          <button
+            alt={this.props.movie.original_title}
+            className="upcoming-movie-card-button button"
+            onClick={() => this.setCast()}>
+          </button>
+          { !this.state.showModal ?
+              null
+            :
+              <UpcomingMovieModal
+                user={this.state.user}
+                movie={this.props.movie}
+                close={this.close.bind(this)}
+                minutesConverter={this.minutesConverter.bind(this)}
+                credits={this.state.credits}
+                cast={this.state.cast}
+                genreNamesArray={this.state.genreNamesArray}
+                showModal={this.state.showModal}
+                youtubeID={this.state.youtubeID}
+                runtime={this.state.runtime}
+              />
+            }
         </article>
     );
   }
