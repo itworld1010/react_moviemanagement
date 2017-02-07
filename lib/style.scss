@@ -59,7 +59,7 @@ a {
     background: none;
     display: inline-block;
     left: 10px;
-    z-index: 10;
+    z-index: 1;
     &:hover{
       cursor: pointer;
     }
@@ -165,7 +165,7 @@ footer {
   position: fixed;
   background-color: rgb(1, 1, 1);
   opacity: .3;
-  z-index: 2;
+  z-index: 1;
   top: 0;
   right: 0;
   bottom: 0;
@@ -428,8 +428,6 @@ footer {
 }
 
 .actor-list {
-  width: 98%;
-  height: 400px;
   display: flex;
   overflow-y: auto;
   margin: 5px 5px 5px 5px;
@@ -458,7 +456,6 @@ table {
 .modal-container {
   display: block;
   position: fixed;
-  background-color: black;
   width: 78%;
   height: 84%;
   left: 11%;
@@ -468,12 +465,12 @@ table {
   overflow-y: auto;
   color: white;
   z-index: 1;
+  background: radial-gradient(541px, rgb(72, 70, 70), black);
 }
 
 .youtube {
   width: 100%;
-  margin-top: -16%;
-  margin-bottom: 5%;
+  height: 100%;
 }
 
 .details-ref {
@@ -481,12 +478,32 @@ table {
   top: .50px;
 }
 
+.trailer-link:hover {
+  cursor: pointer;
+}
+
 .youtube-container {
   background-color: black;
-  position: relative;
-  padding-top: 8%;
-  padding-bottom: 5%;
-  margin-top: 8%;
+  position: fixed;
+  width: 50%;
+  height: 50%;
+  left: 11%;
+  right: 11%;
+  top: 10%;
+  bottom: 8%;
+  z-index: 1;
+  margin: auto;
+}
+
+.youtube-background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: black;
+  opacity: .8;
 }
 
 .modal-button-box {
@@ -525,7 +542,7 @@ table {
   background-color: black;
   width: 78%;
   color: white;
-  z-index: 10;
+  z-index: 1;
   height: 42px;
 }
 
@@ -575,8 +592,9 @@ table {
   position: absolute;
   z-index: -1;
   width: 100%;
+  height: 96%;
   top: 30px;
-  opacity: .4;
+  opacity: .1;
 }
 
 .absolute-center {
