@@ -38,13 +38,13 @@ export default class Upcoming extends Component {
         </div>
       </article>
       <h3 className="upcoming-header">Popular Movies</h3>
-      {/* <article className="upcoming-card-container">
+      <article className="upcoming-card-container">
         <div className="upcoming-card-container-inner">
         {this.state.popular.map(m =>
           <PopularMovieCard movie={m} key={m.id} user={this.state.user}/>
         )}
         </div>
-      </article> */}
+      </article>
       </div>
     );
   }

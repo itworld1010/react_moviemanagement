@@ -99,7 +99,6 @@ export default class MovieCard extends Component {
   }
 
   render() {
-    console.log('credits2', this.state.trailers);
     return (
       <article className="upcoming-movie-card">
         <div className="upcoming-poster-container">
