@@ -5,6 +5,7 @@ import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
 import { filter, map, forEach, dropRight } from 'lodash';
 import YouTube from 'react-youtube';
 import ActorCard from './ActorCard';
+import UpcomingMovieModal from './Modals/UpcomingMovieModal';
 
 export default class MovieCard extends Component {
   constructor() {
@@ -98,11 +99,7 @@ export default class MovieCard extends Component {
   }
 
   render() {
-    const director = filter(this.state.credits.crew, { job: 'Director' }).map(e => e.name).join(', ');
-    const directorsArray = filter(this.state.credits.crew, { job: 'Director' });
-    const writers = (filter(this.state.credits.crew, { department: 'Writing' })).map(e => e.name).join(', ');
-    const writersArray = filter(this.state.credits.crew, { department: 'Writing' });
-
+    console.log('credits2', this.state.trailers);
     return (
       <article className="upcoming-movie-card">
         <div className="upcoming-poster-container">
@@ -121,69 +118,18 @@ export default class MovieCard extends Component {
             className="upcoming-movie-card-button button"
             onClick={() => this.setCast()}>
           </Button>
-          <Modal backdrop className="modal-container" show={this.state.showModal} onHide={() => this.close()}>
-          <Modal.Header className="modal-header" >
-                      <Modal.Title className="modal-title absolute-center"><span className="relative-center">{this.props.movie.original_title}</span><img onClick={() => this.props.close()} src="../lib/images/X.png" className="modal-top-exit"/></Modal.Title>
-                      </Modal.Header>
-                      <a name="details" />
-                    <Modal.Body className="modal-body">
-                      <img className="modal-backdrop" src={'https://image.tmdb.org/t/p/w500' + this.props.movie.backdrop_path} />
-                      <div className="absolute-center to-deets-abs-center">
-                        <a className="trailer-link relative-center" href="#trailer">Trailer</a>
-                      </div>
-                      <div className="modal-movie-deets">
-                      <table>
-                      <tbody>
-                        <tr>
-                          <th>{directorsArray.length > 1 ? 'Directors:' : 'Director:'}</th>
-                          <td>{director}</td>
-                        </tr>
-                        <tr>
-                          <th>Genre:</th>
-                          <td>{this.state.genreNamesArray.join(', ')}</td>
-                        </tr>
-                        <tr>
-                          <th>Runtime:</th>
-                          <td>{this.minutesConverter(this.state.runtime)}</td>
-                        </tr>
-                        <tr>
-                          <th>{writersArray.length > 1 ? 'Writers:' : 'Writer:'}</th>
-                          <td>{writers}</td>
-                        </tr>
-                        <tr>
-                          <th>Plot:</th>
-                          <td>{this.props.movie.overview}</td>
-                        </tr>
-                        </tbody>
-                      </table>
-                      </div>
-                      <div className="actor-list">
-                        {this.state.cast.map(m =>
-                        <ActorCard cast={m} key={m.id}/>
-                        )}
-                      </div>
-                      <div className="youtube-container">
-                      <div className="absolute-center upcoming-back-to-deets-abs-center">
-                        <a name="trailer" href="#details">Back to Details</a>
-                      </div>
-                      { this.state.youtubeID ?
-                        <YouTube
-                          className="youtube"
-                          controls="1"
-                          videoId={this.state.youtubeID}
-                          loop="1"
-                        />
-                      :
-                        <YouTube
-                          className="youtube"
-                          controls="1"
-                          fs
-                          videoId='dQw4w9WgXcQ'
-                        />
-                      }
-                      </div>
-                    </Modal.Body>
-                  </Modal>
+              <UpcomingMovieModal
+                user={this.state.user}
+                movie={this.props.movie}
+                close={this.close.bind(this)}
+                minutesConverter={this.minutesConverter.bind(this)}
+                credits={this.state.credits}
+                cast={this.state.cast}
+                genreNamesArray={this.state.genreNamesArray}
+                showModal={this.state.showModal}
+                youtubeID={this.state.youtubeID}
+                runtime={this.state.runtime}
+              />
         </article>
     );
   }
