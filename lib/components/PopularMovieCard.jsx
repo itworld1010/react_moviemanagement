@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import npa from '../images/no-poster.png';
 import firebase from '../firebase';
-import { Modal, Header, OverlayTrigger, Button } from 'react-bootstrap'
 import { filter, map, forEach, dropRight } from 'lodash';
 import YouTube from 'react-youtube';
 import ActorCard from './ActorCard';
