@@ -5,7 +5,8 @@ import YouTube from 'react-youtube'
 export default class YouTubeComp extends Component {
   render() {
     return (
-      <div>
+      <div className="youtube-container">
+      <div className="youtube-background" onClick={() => this.props.toggleTrailer()}></div>
       { this.props.youtubeID ?
         <YouTube
           className="youtube"

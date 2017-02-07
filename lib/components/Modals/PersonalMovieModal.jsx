@@ -4,12 +4,14 @@ import { filter } from 'lodash';
 import YouTube from 'react-youtube'
 import RateMovie from '../RateMovie'
 import ActorCard from '../ActorCard'
+import YouTubeComp from '../Helpers/YouTubeComp'
 
 
 export default class PersonalMovieModal extends Component {
   constructor() {
     super();
     this.state = {
+      showTrailer: false
     };
   }
 
@@ -55,6 +57,10 @@ export default class PersonalMovieModal extends Component {
     }, 100);
   }
 
+  toggleTrailer() {
+    this.setState({ showTrailer: !this.state.showTrailer })
+  }
+
   render() {
     const writers = (filter(this.props.movie.credits.crew, { department: 'Writing' })).map(e => e.name).join(', ');
     const writersArray = filter(this.props.movie.credits.crew, { department: 'Writing' });
@@ -76,7 +82,15 @@ export default class PersonalMovieModal extends Component {
               <div className="movie-details">
                 <img className="modal-backdrop" src={'https://image.tmdb.org/t/p/w500' + this.props.movie.movie.backdrop_path} />
                 <div className="absolute-center to-deets-abs-center">
-                  <a className="trailer-link relative-center" href="#trailer">Trailer</a>
+                  <p className="trailer-link relative-center" onClick={() => this.toggleTrailer()}>Trailer</p>
+                  { this.state.showTrailer ?
+                    <YouTubeComp
+                      youtubeID={this.props.youtubeID}
+                      toggleTrailer={this.toggleTrailer.bind(this)}
+                    />
+                    :
+                    null
+                  }
                 </div>
                 <div className="modal-movie-deets" >
                   <table>
@@ -138,26 +152,6 @@ export default class PersonalMovieModal extends Component {
                 <ActorCard cast={m} key={m.id} />
                 )}
                 </div>
-                </div>
-                <div className="youtube-container">
-                <div className="absolute-center back-to-deets-abs-center">
-                  <a className="relative-center" name="trailer" href="#details">Back to Details</a>
-                </div>
-                { this.props.youtubeID ?
-                  <YouTube
-                    className="youtube"
-                    controls="1"
-                    videoId={this.props.youtubeID}
-                    loop="1"
-                  />
-                :
-                  <YouTube
-                    className="youtube"
-                    controls="1"
-                    fs
-                    videoId='dQw4w9WgXcQ'
-                  />
-                }
                 </div>
               </div>
             </div>
