@@ -110,13 +110,14 @@ export default class MovieCard extends Component {
           />
           : <img alt={this.props.movie.title} src={npa} className="poster"/>}
           </div>
-          <Button bsStyle="primary"
-            // onMouseOver={() => }
-            bsSize="large"
+          <button 
             alt={this.props.movie.original_title}
             className="upcoming-movie-card-button button"
             onClick={() => this.setCast()}>
-          </Button>
+          </button>
+            { !this.state.showModal ?
+              null
+            :
               <UpcomingMovieModal
                 user={this.state.user}
                 movie={this.props.movie}
@@ -129,6 +130,7 @@ export default class MovieCard extends Component {
                 youtubeID={this.state.youtubeID}
                 runtime={this.state.runtime}
               />
+            }
         </article>
     );
   }

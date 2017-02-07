@@ -121,8 +121,7 @@ export default class PersonalMovieCard extends Component {
             src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.poster_path}
           />
           : <img alt={this.props.movie.movie.title} src={npa} className="poster"/>}
-          <button bsStyle="primary"
-            bsSize="large"
+          <button
             alt={this.props.movie.movie.title}
             className="personal-movie-card-button"
             onClick={() => this.setCast()}>

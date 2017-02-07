@@ -26,12 +26,14 @@ export default class UpcomingMovieModal extends Component {
     const writersArray = filter(this.props.credits.crew, { department: 'Writing' });
 
     return (
-      <Modal backdrop className="modal-container" show={this.props.showModal} onHide={() => this.close()}>
-      <Modal.Header className="modal-header" >
-                  <Modal.Title className="modal-title absolute-center"><span className="relative-center">{this.props.movie.original_title}</span><img onClick={() => this.props.close()} src="../lib/images/X.png" className="modal-top-exit"/></Modal.Title>
-                  </Modal.Header>
+      <div>
+      <div className="modal-background" onClick={() => this.props.close()}></div>
+      <div className="modal-container" >
+      <div className="modal-header" >
+                  <div className="modal-title absolute-center"><span className="relative-center">{this.props.movie.original_title}</span><img onClick={() => this.props.close()} src="../lib/images/X.png" className="modal-top-exit"/></div>
+                  </div>
                   <a name="details" />
-                <Modal.Body className="modal-body">
+                <div className="modal-body">
                   <img className="modal-backdrop" src={'https://image.tmdb.org/t/p/w500' + this.props.movie.backdrop_path} />
                   <div className="absolute-center to-deets-abs-center">
                     <a className="trailer-link relative-center" href="#trailer">Trailer</a>
@@ -87,8 +89,9 @@ export default class UpcomingMovieModal extends Component {
                     />
                   }
                   </div>
-                </Modal.Body>
-              </Modal>
+                </div>
+              </div>
+              </div>
     );
   }
 }
