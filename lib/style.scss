@@ -132,7 +132,6 @@ footer {
   height: 50px;
   width: 100%;
   justify-content: space-between;
-  padding: 0 10px 0 10px;
 }
 .movie-keeper-home {
   padding: 0 0 0 10px;
@@ -454,18 +453,18 @@ table {
   margin-left: 60px;
 }
 .modal-container {
-    display: block;
-    position: fixed;
-    width: 78%;
-    height: 84%;
-    left: 11%;
-    right: 11%;
-    top: 8%;
-    bottom: 8%;
-    overflow-y: auto;
-    color: white;
-    z-index: 1;
-    background: radial-gradient(541px, rgb(72, 70, 70), black);
+  display: block;
+  position: fixed;
+  width: 998px;
+  height: 600px;
+  left: 140px;
+  right: 140px;
+  top: 55px;
+  bottom: 55px;
+  overflow-y: auto;
+  color: white;
+  z-index: 1;
+  background: radial-gradient(541px, #484646, black);
 }
 
 .youtube {
@@ -508,8 +507,8 @@ table {
 
 .modal-button-box {
   position: absolute;
-  right: 5%;
-  top: 14%;
+  right: 50px;
+  top: 65px;
   width: 260px;
   display: flex;
   flex-direction: column;
@@ -531,7 +530,7 @@ table {
 
 .modal-movie-deets {
   width: 55%;
-  height: 400px;
+  height: 250px;
   overflow: auto;
   margin-top: 20px;
   display: flex;
