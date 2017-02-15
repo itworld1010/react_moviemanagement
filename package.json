@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "start": "webpack-dev-server --devtool --inline --hot, --history-api-fallback",
+    "start": "webpack-dev-server --devtool --inline --hot",
     "build": "webpack",
     "test": "mocha --compilers js:babel-register --require test/helpers/setup.js --recursive"
   },

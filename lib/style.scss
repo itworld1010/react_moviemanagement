@@ -454,18 +454,18 @@ table {
   margin-left: 60px;
 }
 .modal-container {
-  display: block;
-  position: fixed;
-  width: 78%;
-  height: 84%;
-  left: 11%;
-  right: 11%;
-  top: 8%;
-  bottom: 8%;
-  overflow-y: auto;
-  color: white;
-  z-index: 1;
-  background: radial-gradient(541px, rgb(72, 70, 70), black);
+    display: block;
+    position: fixed;
+    width: 78%;
+    height: 84%;
+    left: 11%;
+    right: 11%;
+    top: 8%;
+    bottom: 8%;
+    overflow-y: auto;
+    color: white;
+    z-index: 1;
+    background: radial-gradient(541px, rgb(72, 70, 70), black);
 }
 
 .youtube {
@@ -640,7 +640,6 @@ table {
     }
 
     .p-movie-search {
-      margin-left: 8vw;
       display: inline-block;
     }
 
@@ -664,4 +663,19 @@ table {
       height: 125px;
     }
 
+    .remove-filters {
+      width: 100%;
+      margin-left: 10px;
+    }
+
+    .movie-keeper-home {
+      width: 80vw;
+    }
+
+    .nav-container {
+      display: none;
+    }
+    .sign-out-button {
+      display: none;
+    }
 }
