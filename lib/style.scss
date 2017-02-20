@@ -630,6 +630,42 @@ table {
 @media only screen
   and (max-width: 750px) {
 
+    .modal-container {
+      display: block;
+      position: fixed;
+      width: 100vw;
+      height: 80vh;
+      left: 0px;
+      overflow-y: auto;
+      color: white;
+      z-index: 1;
+      background: radial-gradient(541px, #484646, black);
+    }
+
+    .modal-button-box {
+      width: 260px;
+      display: flex;
+      flex-wrap: wrap;
+      position: inherit;
+      margin: auto;
+    }
+
+    .modal-movie-deets {
+      height: 250px;
+      overflow: auto;
+      margin-top: 20px;
+      display: flex;
+      width: 100%;
+    }
+
+    modal-header {
+      width: 100%;
+    }
+
+    table {
+      margin-left: 5px;
+    }
+
     .personal-movie-card {
       width: 75px;
       height: 125px;
