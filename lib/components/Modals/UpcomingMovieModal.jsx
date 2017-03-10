@@ -3,7 +3,7 @@ import firebase from '../../firebase';
 import { filter } from 'lodash';
 import YouTube from 'react-youtube'
 import RateMovie from '../RateMovie'
-import ActorCard from '../ActorCard'
+import { ActorCard } from '../ActorCard'
 import {YouTubeComp} from '../Helpers/YouTubeComp'
 
 export default class UpcomingMovieModal extends Component {

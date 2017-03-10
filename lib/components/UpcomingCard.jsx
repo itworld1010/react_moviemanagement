@@ -3,7 +3,7 @@ import npa from '../images/no-poster.png';
 import firebase from '../firebase';
 import { filter, map, forEach, dropRight } from 'lodash';
 import YouTube from 'react-youtube';
-import ActorCard from './ActorCard';
+import { ActorCard } from './ActorCard';
 import UpcomingMovieModal from './Modals/UpcomingMovieModal';
 
 export default class MovieCard extends Component {
