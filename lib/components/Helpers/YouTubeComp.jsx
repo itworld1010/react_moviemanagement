@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import YouTube from 'react-youtube'
 
-
-export default class YouTubeComp extends Component {
-  render() {
+export const YouTubeComp = ({ youtubeID, toggleTrailer }) => {
     return (
       <div className="youtube-container">
-      <div className="youtube-background" onClick={() => this.props.toggleTrailer()}></div>
-      { this.props.youtubeID ?
+      <div className="youtube-background" onClick={() => toggleTrailer()}></div>
+      { youtubeID ?
         <YouTube
           className="youtube"
           controls="1"
-          videoId={this.props.youtubeID}
+          videoId={youtubeID}
           loop="1"
         />
       :
@@ -24,5 +22,4 @@ export default class YouTubeComp extends Component {
       }
       </div>
     );
-  }
 }
