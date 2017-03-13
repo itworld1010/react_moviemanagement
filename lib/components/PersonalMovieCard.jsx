@@ -59,14 +59,14 @@ export default class PersonalMovieCard extends Component {
   }
 
   setCast() {
-    let holy;
+    let youtubeIdArray;
     const trailerObj = map(this.state.trailers.results, 'key');
     if (trailerObj.length === 1) {
-      holy = trailerObj;
+      youtubeIdArray = trailerObj;
     } else {
-      holy = dropRight(trailerObj, (trailerObj.length - (trailerObj.length - 1)));
+      youtubeIdArray = dropRight(trailerObj, (trailerObj.length - (trailerObj.length - 1)));
     }
-    forEach(holy, e => this.setState({ youtubeID: e }));
+    forEach(youtubeIdArray, e => this.setState({ youtubeID: e }));
     const cast = this.props.movie.credits.cast;
     const genreArray = (this.state.movie.genres.map(e => this.genreSwitch(e)));
     this.setState({ cast, genreNamesArray: genreArray });
