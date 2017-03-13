@@ -47,19 +47,20 @@ export default class PopularMovieCard extends Component {
   }
 
   setCast() {
-    let holy;
+    let youtubeIdArray;
     const trailerObj = map(this.state.trailers.results, 'key')
     if (trailerObj.length === 1) {
-      holy = trailerObj;
+      youtubeIdArray = trailerObj;
     } else {
-      holy = dropRight(trailerObj, (trailerObj.length - (trailerObj.length - 1)));
+      youtubeIdArray = dropRight(trailerObj, (trailerObj.length - (trailerObj.length - 1)));
     }
-    forEach(holy, e => this.setState({ youtubeID: e }));
+    forEach(youtubeIdArray, e => this.setState({ youtubeID: e }));
     const cast = this.state.credits.cast;
     const genreArray = (this.state.movie.genre_ids.map(e => this.genreSwitch(e)));
     this.setState({ cast, genreNamesArray: genreArray });
     this.open();
   }
+  
   open() {
     this.setState({ runtime: this.state.movieDetails.runtime });
     this.setState({ showModal: true });
