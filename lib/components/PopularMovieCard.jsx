@@ -60,6 +60,7 @@ export default class PopularMovieCard extends Component {
     this.setState({ cast, genreNamesArray: genreArray });
     this.open();
   }
+  
   open() {
     this.setState({ runtime: this.state.movieDetails.runtime });
     this.setState({ showModal: true });

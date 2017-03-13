@@ -33,7 +33,7 @@ export default class Upcoming extends Component {
       <article className="upcoming-card-container">
         <div className="upcoming-card-container-inner">
         {this.state.upcoming.map(m =>
-          <UpcomingCard movie={m} key={m.id} user={this.state.user}/>
+          <PopularMovieCard movie={m} key={m.id} user={this.state.user}/>
         )}
         </div>
       </article>
