@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import UpcomingCard from './UpcomingCard';
 import PopularMovieCard from './PopularMovieCard';
 
 export default class Upcoming extends Component {
