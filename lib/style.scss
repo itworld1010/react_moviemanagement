@@ -58,7 +58,6 @@ a {
     color: #d33e15;
     background: none;
     display: inline-block;
-    left: 10px;
     z-index: 1;
     &:hover{
       cursor: pointer;
@@ -455,8 +454,8 @@ table {
 .modal-container {
   display: block;
   position: fixed;
-  width: 998px;
-  height: 600px;
+  min-width: 550px;
+  min-height: 600px;
   left: 140px;
   right: 140px;
   top: 55px;
@@ -537,9 +536,8 @@ table {
 }
 
 .modal-header {
-  position: fixed;
   background-color: black;
-  width: 78%;
+  min-width: 550px;
   color: white;
   z-index: 1;
   height: 42px;
@@ -565,8 +563,8 @@ table {
 
 .modal-top-exit {
   position: fixed;
-  left: 88%;
-  top: 5.8%;
+  right: 120px;
+  top: 38px;
   width: 40px;
 }
 

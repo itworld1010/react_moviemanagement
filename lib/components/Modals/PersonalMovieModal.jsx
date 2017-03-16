@@ -77,7 +77,6 @@ export default class PersonalMovieModal extends Component {
               </div>
 
               <a className="details-ref" name="details" />
-             <button onClick={() => this.delete()} className="delete">Delete movie</button>
               <div className="modal-body">
               <div className="movie-details">
                 <img className="modal-backdrop" src={'https://image.tmdb.org/t/p/w500' + this.props.movie.movie.backdrop_path} />
@@ -146,6 +145,7 @@ export default class PersonalMovieModal extends Component {
                       onClick={() => this.updateFormat('Prime')}
                     />
                   </form>
+                  <button onClick={() => this.delete()} className="delete">Delete movie</button>
                 </div>
                 <div className="actor-list">
                 {this.props.cast.map((m, i) =>
