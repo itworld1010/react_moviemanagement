@@ -21,7 +21,7 @@ const Navigation = ({ user }) => {
           <img
             className='auth-button sign-out-button button'
             onClick={() => signOut()}
-            src="../../lib/images/signout.png"
+            src="https://firebasestorage.googleapis.com/v0/b/moviekeeper-65458.appspot.com/o/signout.png?alt=media&token=76f46743-9f75-4ea7-8b78-41e9ccf4e25a"
           >
           </img>
         </span>

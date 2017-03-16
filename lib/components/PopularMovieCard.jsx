@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import npa from '../images/no-poster.png';
 import firebase from '../firebase';
 import { filter, map, forEach, dropRight } from 'lodash';
 import YouTube from 'react-youtube';
@@ -60,7 +59,7 @@ export default class PopularMovieCard extends Component {
     this.setState({ cast, genreNamesArray: genreArray });
     this.open();
   }
-  
+
   open() {
     this.setState({ runtime: this.state.movieDetails.runtime });
     this.setState({ showModal: true });
@@ -108,7 +107,7 @@ export default class PopularMovieCard extends Component {
             alt={this.props.movie.original_title}
             src={"https://image.tmdb.org/t/p/w500" + this.props.movie.poster_path}
           />
-          : <img alt={this.props.movie.title} src={npa} className="poster"/>}
+          : <img alt={this.props.movie.title} src="https://firebasestorage.googleapis.com/v0/b/moviekeeper-65458.appspot.com/o/no-poster.png?alt=media&token=f47f98d5-dab5-4e98-8060-07aa63a02b11" className="poster"/>}
           </div>
           <button
             alt={this.props.movie.original_title}

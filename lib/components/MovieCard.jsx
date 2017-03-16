@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import npa from '../images/no-poster.png'
 import firebase from '../firebase';
 import { update } from 'react-addons-update'
 
@@ -78,7 +77,7 @@ export default class MovieCard extends Component {
           className="poster"
           src={'https://image.tmdb.org/t/p/w500' + this.state.movie.poster_path}
           />
-          : <img src={npa} className="poster"/>}
+          : <img src="https://firebasestorage.googleapis.com/v0/b/moviekeeper-65458.appspot.com/o/no-poster.png?alt=media&token=f47f98d5-dab5-4e98-8060-07aa63a02b11" className="poster"/>}
           </div>
           {!this.state.addMovieClick ?
             <div className="center">
