@@ -2,12 +2,15 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    main: ['babel-polyfill', './lib/index.js']
+    main: './lib/index.js'
   },
   output: {
     path: path.join(__dirname, 'public'),
-    publicPath: '/public/',
     filename: '[name].bundle.js',
+  },
+  devServer: {
+    contentBase: './public',
+    hot: true
   },
   module: {
     loaders: [
