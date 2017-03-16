@@ -73,7 +73,7 @@ export default class PersonalMovieModal extends Component {
       <div className="modal-background" onClick={() => this.props.close()}></div>
       <div className="modal-container" >
               <div className="modal-header" >
-              <div className="modal-title absolute-center"><span className="relative-center">{this.props.movie.movie.original_title}</span><img onClick={() => this.props.close()} src="../lib/images/X.png" className="modal-top-exit"/></div>
+              <div className="modal-title absolute-center"><span className="relative-center">{this.props.movie.movie.original_title}</span><img onClick={() => this.props.close()} src="https://firebasestorage.googleapis.com/v0/b/moviekeeper-65458.appspot.com/o/X.png?alt=media&token=45cd9f78-a61e-4681-94a9-2e8edd5e4808" className="modal-top-exit"/></div>
               </div>
 
               <a className="details-ref" name="details" />

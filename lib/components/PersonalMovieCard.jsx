@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import npa from '../images/no-poster.png';
 import firebase from '../firebase';
 import { map, forEach, dropRight } from 'lodash';
 import PersonalMovieModal from './Modals/PersonalMovieModal';
@@ -119,7 +118,7 @@ export default class PersonalMovieCard extends Component {
             alt={this.props.movie.movie.title}
             src={"https://image.tmdb.org/t/p/w500" + this.props.movie.movie.poster_path}
           />
-          : <img alt={this.props.movie.movie.title} src={npa} className="poster"/>}
+          : <img alt={this.props.movie.movie.title} src="https://firebasestorage.googleapis.com/v0/b/moviekeeper-65458.appspot.com/o/no-poster.png?alt=media&token=f47f98d5-dab5-4e98-8060-07aa63a02b11"className="poster"/>}
           <button
             alt={this.props.movie.movie.title}
             className="personal-movie-card-button"
