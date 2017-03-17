@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router'
 import { signIn } from '../firebase'
 import { split } from 'lodash';
-import gravity from '../images/1.mp4'
 
 const Login = ({ user }) => {
 
@@ -10,7 +9,7 @@ const Login = ({ user }) => {
     <div>
       <div className="video-background" >
         <video id="my-video" className="video" autoPlay="autoplay" loop="loop" muted >
-          <source src={gravity} type="video/mp4" />
+
           Your browser doesn't support HTML5 video. Here's a <a href="#">link</a> to the video
         </video>
         <div className="shadow"></div>

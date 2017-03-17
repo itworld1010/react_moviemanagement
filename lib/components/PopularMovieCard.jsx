@@ -114,22 +114,18 @@ export default class PopularMovieCard extends Component {
             className="upcoming-movie-card-button button"
             onClick={() => this.setCast()}>
           </button>
-          { !this.state.showModal ?
-              null
-            :
-              <UpcomingMovieModal
-                user={this.state.user}
-                movie={this.props.movie}
-                close={this.close.bind(this)}
-                minutesConverter={this.minutesConverter.bind(this)}
-                credits={this.state.credits}
-                cast={this.state.cast}
-                genreNamesArray={this.state.genreNamesArray}
-                showModal={this.state.showModal}
-                youtubeID={this.state.youtubeID}
-                runtime={this.state.runtime}
-              />
-            }
+            <UpcomingMovieModal
+              user={this.state.user}
+              movie={this.props.movie}
+              close={this.close.bind(this)}
+              minutesConverter={this.minutesConverter.bind(this)}
+              credits={this.state.credits}
+              cast={this.state.cast}
+              genreNamesArray={this.state.genreNamesArray}
+              showModal={this.state.showModal}
+              youtubeID={this.state.youtubeID}
+              runtime={this.state.runtime}
+            />
         </article>
     );
   }

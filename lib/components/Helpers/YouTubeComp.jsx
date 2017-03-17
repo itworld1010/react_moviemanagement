@@ -1,9 +1,13 @@
 import React from 'react';
 import YouTube from 'react-youtube'
+var classNames = require('classnames');
 
-export const YouTubeComp = ({ youtubeID, toggleTrailer }) => {
+
+export const YouTubeComp = ({ youtubeID, toggleTrailer, showTrailer }) => {
+  let trailerShow = showTrailer ? 'show-trailer' : 'hide-trailer'
+  let trailer = classNames('youtube-container', trailerShow)
     return (
-      <div className="youtube-container">
+      <div className={trailer}>
       <div className="youtube-background" onClick={() => toggleTrailer()}></div>
       { youtubeID ?
         <YouTube
