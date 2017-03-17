@@ -124,9 +124,6 @@ export default class PersonalMovieCard extends Component {
             className="personal-movie-card-button"
             onClick={() => this.setCast()}>
           </button>
-            { !this.state.showModal ?
-            null
-          :
           <PersonalMovieModal
             user={this.props.user}
             showModal={this.state.showModal}
@@ -139,7 +136,6 @@ export default class PersonalMovieCard extends Component {
             youtubeID={this.state.youtubeID}
             id={this.props.id}
             />
-        }
         </article>
     );
   }

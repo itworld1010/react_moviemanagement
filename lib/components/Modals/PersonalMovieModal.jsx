@@ -5,7 +5,7 @@ import YouTube from 'react-youtube'
 import RateMovie from '../RateMovie'
 import { ActorCard } from '../ActorCard'
 import {YouTubeComp} from '../Helpers/YouTubeComp'
-
+var classNames = require('classnames');
 
 export default class PersonalMovieModal extends Component {
   constructor() {
@@ -62,6 +62,8 @@ export default class PersonalMovieModal extends Component {
   }
 
   render() {
+    let modalShow = this.props.showModal ? 'show-modal' : 'hide-modal'
+    let modal = classNames('modal-false', modalShow)
     const writers = (filter(this.props.movie.credits.crew, { department: 'Writing' })).map(e => e.name).join(', ');
     const writersArray = filter(this.props.movie.credits.crew, { department: 'Writing' });
     const director = filter(this.props.movie.credits.crew, { job: 'Director' }).map(e => e.name).join(', ');
@@ -69,7 +71,7 @@ export default class PersonalMovieModal extends Component {
     const moviePath = this.props.movie.movie
 
     return (
-      <div>
+      <div className={modal}>
       <div className="modal-background" onClick={() => this.props.close()}></div>
       <div className="modal-container" >
               <div className="modal-header" >
@@ -82,14 +84,11 @@ export default class PersonalMovieModal extends Component {
                 <img className="modal-backdrop" src={'https://image.tmdb.org/t/p/w500' + this.props.movie.movie.backdrop_path} />
                 <div className="absolute-center to-deets-abs-center">
                   <p className="trailer-link relative-center" onClick={() => this.toggleTrailer()}>Trailer</p>
-                  { this.state.showTrailer ?
                     <YouTubeComp
                       youtubeID={this.props.youtubeID}
+                      showTrailer={this.state.showTrailer}
                       toggleTrailer={this.toggleTrailer.bind(this)}
                     />
-                    :
-                    null
-                  }
                 </div>
                 <div className="modal-movie-deets" >
                   <table>

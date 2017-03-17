@@ -5,6 +5,7 @@ import YouTube from 'react-youtube'
 import RateMovie from '../RateMovie'
 import { ActorCard } from '../ActorCard'
 import {YouTubeComp} from '../Helpers/YouTubeComp'
+var classNames = require('classnames');
 
 export default class UpcomingMovieModal extends Component {
   constructor() {
@@ -25,13 +26,15 @@ export default class UpcomingMovieModal extends Component {
   }
 
   render() {
+    let modalShow = this.props.showModal ? 'show-modal' : 'hide-modal'
+    let modal = classNames('modal-false', modalShow)
     const director = filter(this.props.credits.crew, { job: 'Director' }).map(e => e.name).join(', ');
     const directorsArray = filter(this.props.credits.crew, { job: 'Director' });
     const writers = (filter(this.props.credits.crew, { department: 'Writing' })).map(e => e.name).join(', ');
     const writersArray = filter(this.props.credits.crew, { department: 'Writing' });
 
     return (
-      <div>
+      <div className={modal}>
       <div className="modal-background" onClick={() => this.props.close()}></div>
       <div className="modal-container" >
       <div className="modal-header" >
