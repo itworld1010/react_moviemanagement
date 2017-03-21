@@ -112,6 +112,18 @@ export default class PersonalMovieCard extends Component {
   render() {
     return (
       <article className="personal-movie-card poster-container">
+      <PersonalMovieModal
+      user={this.props.user}
+      showModal={this.state.showModal}
+      movie={this.props.movie}
+      close={this.close.bind(this)}
+      genreNamesArray={this.state.genreNamesArray}
+      minutesConverter={this.minutesConverter.bind(this)}
+      runtime={this.state.runtime}
+      cast={this.state.cast}
+      youtubeID={this.state.youtubeID}
+      id={this.props.id}
+      />
         {this.props.movie.movie.poster_path ?
           <img
             className="poster"
@@ -124,18 +136,6 @@ export default class PersonalMovieCard extends Component {
             className="personal-movie-card-button"
             onClick={() => this.setCast()}>
           </button>
-          <PersonalMovieModal
-            user={this.props.user}
-            showModal={this.state.showModal}
-            movie={this.props.movie}
-            close={this.close.bind(this)}
-            genreNamesArray={this.state.genreNamesArray}
-            minutesConverter={this.minutesConverter.bind(this)}
-            runtime={this.state.runtime}
-            cast={this.state.cast}
-            youtubeID={this.state.youtubeID}
-            id={this.props.id}
-            />
         </article>
     );
   }
