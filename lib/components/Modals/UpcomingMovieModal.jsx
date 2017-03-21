@@ -40,7 +40,6 @@ export default class UpcomingMovieModal extends Component {
       <div className="modal-header" >
                   <div className="modal-title absolute-center"><span className="relative-center">{this.props.movie.original_title}</span><img onClick={() => this.props.close()} src="https://firebasestorage.googleapis.com/v0/b/moviekeeper-65458.appspot.com/o/X.png?alt=media&token=45cd9f78-a61e-4681-94a9-2e8edd5e4808" className="modal-top-exit"/></div>
                   </div>
-                  <a name="details" />
                 <div className="modal-body">
                   <img className="modal-backdrop" src={'https://image.tmdb.org/t/p/w500' + this.props.movie.backdrop_path} />
                   <div className="absolute-center to-deets-abs-center">
