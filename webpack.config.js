@@ -5,7 +5,7 @@ module.exports = {
     main: './lib/index.js'
   },
   output: {
-    path: path.join(__dirname, 'public'),
+    path: __dirname,
     filename: '[name].bundle.js',
   },
   devServer: {
@@ -37,7 +37,6 @@ module.exports = {
       { test: /\.scss$/, loader: 'style!css!sass' },
     ],
   },
-  devtool: 'source-map',
   resolve: {
     extensions: ['', '.js', '.jsx', '.json', '.scss', '.css'],
   },

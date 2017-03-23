@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PopularMovieCard from './PopularMovieCard';
+import 'whatwg-fetch'; 
 
 export default class Upcoming extends Component {
   constructor() {

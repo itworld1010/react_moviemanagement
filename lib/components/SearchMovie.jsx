@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MovieCard from './MovieCard'
-
+import 'whatwg-fetch'; 
 
 export default class SearchMovie extends Component {
   constructor() {
