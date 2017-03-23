@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PopularMovieCard from './PopularMovieCard';
-import 'whatwg-fetch'; 
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 export default class Upcoming extends Component {
   constructor() {

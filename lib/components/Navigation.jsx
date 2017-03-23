@@ -12,7 +12,7 @@ const Navigation = ({ user }) => {
   }
   return (
     <div className="navigation">
-      <Link className="movie-keeper-home" to="/"><h1>Your Movie Keeper</h1></Link>
+      <Link className="movie-keeper-home" to="/"><h1>Movie Keeper</h1></Link>
         <div className="nav-container">
         <p className="nav-link"><Link to="/">My Movies</Link></p>
         <p className="nav-link"><Link to="/explore">Explore</Link></p>

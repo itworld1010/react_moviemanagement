@@ -4,7 +4,8 @@ import { filter, map, forEach, dropRight } from 'lodash';
 import YouTube from 'react-youtube';
 import { ActorCard } from './ActorCard';
 import UpcomingMovieModal from './Modals/UpcomingMovieModal';
-import 'whatwg-fetch'; 
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 export default class PopularMovieCard extends Component {
   constructor() {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MovieCard from './MovieCard'
-import 'whatwg-fetch'; 
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 export default class SearchMovie extends Component {
   constructor() {

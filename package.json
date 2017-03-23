@@ -63,7 +63,9 @@
   "dependencies": {
     "babel-jest": "^18.0.0",
     "babel-polyfill": "^6.20.0",
+    "es6-promise": "^4.1.0",
     "eslint-plugin-import": "^2.2.0",
+    "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.1.1",
     "locus": "^1.2.0",
     "moment": "^2.15.1",
@@ -71,7 +73,6 @@
     "react-addons-update": "^15.4.2",
     "react-html5video": "^1.4.0",
     "react-select": "^1.0.0-rc.2",
-    "sinon": "^1.17.6",
-    "whatwg-fetch": "^2.0.3"
+    "sinon": "^1.17.6"
   }
 }

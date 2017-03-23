@@ -3,7 +3,8 @@ import firebase from '../firebase';
 import { map, forEach, dropRight } from 'lodash';
 import PersonalMovieModal from './Modals/PersonalMovieModal';
 import YouTube from 'react-youtube';
-import 'whatwg-fetch'; 
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 export default class PersonalMovieCard extends Component {
   constructor() {

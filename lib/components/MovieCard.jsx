@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import firebase from '../firebase';
 import { update } from 'react-addons-update';
-import 'whatwg-fetch';
+require('isomorphic-fetch');
 
 export default class MovieCard extends Component {
   constructor() {
