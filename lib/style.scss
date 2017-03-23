@@ -202,12 +202,15 @@ footer {
 }
 
 .sign-in-btn{
-  position: absolute;
-  top: 2%;
-  left: 37%;
   background: none;
   color: $universalColor;
-  opacity: .5;
+}
+
+.sign-in-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .title-button {
