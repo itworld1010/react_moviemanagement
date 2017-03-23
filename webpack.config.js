@@ -5,7 +5,7 @@ module.exports = {
     main: ['babel-polyfill', './lib/index.js']
   },
   output: {
-    path: __dirname,
+    path: path.join(__dirname, '/public'),
     filename: '[name].bundle.js',
   },
   devServer: {
