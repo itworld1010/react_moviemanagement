@@ -76,7 +76,8 @@ export default class PersonalMovieModal extends Component {
       <div className="modal-container" >
         <div>
           <div className="modal-header" >
-          <div className="modal-title absolute-center"><span className="relative-center">{this.props.movie.movie.original_title}</span><img  className="modal-top-exit"/></div>
+            <div className="modal-title absolute-center"><span className="relative-center">{this.props.movie.movie.original_title}</span>
+            </div>
           </div>
         </div>
         <div>

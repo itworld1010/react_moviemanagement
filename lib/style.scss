@@ -435,7 +435,7 @@ footer {
   width: 988px;
   display: flex;
   overflow-y: auto;
-  margin: 5px 5px 5px 5px;
+  margin: 20px 5px;
   display: flex;
 }
 
@@ -461,14 +461,12 @@ table {
 .modal-container {
   display: block;
   width: 1000px;
-  height: 600px;
+  height: 650px;
   overflow-y: auto;
   color: white;
   z-index: 1;
   background: radial-gradient(541px, #484646, black);
   margin: 0 auto;
-  display: flex;
-  flex-direction: row;
 }
 
 .youtube {
@@ -518,6 +516,7 @@ table {
   width: 260px;
   display: flex;
   flex-direction: column;
+  margin: 20px auto;
 }
 
 .flex-row {
@@ -540,7 +539,7 @@ table {
 
 .modal-movie-deets {
   width: 650px;
-  height: 250px;
+  height: 300px;
   overflow: auto;
   margin-top: 20px;
   display: flex;
@@ -558,7 +557,6 @@ table {
 }
 
 .modal-body {
-  padding-top: 50px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -626,7 +624,6 @@ table {
   z-index: -1;
   width: 1000px;
   height: 570px;
-  top: 30px;
   opacity: .1;
 }
 
