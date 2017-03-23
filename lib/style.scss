@@ -450,14 +450,15 @@ table {
 }
 .modal-container {
   display: block;
-  position: relative;
   width: 1000px;
   height: 600px;
   overflow-y: auto;
   color: white;
   z-index: 1;
   background: radial-gradient(541px, #484646, black);
-  margin: 50px auto 50px auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
 }
 
 .youtube {
@@ -472,6 +473,11 @@ table {
 
 .trailer-link:hover {
   cursor: pointer;
+}
+
+.trailer-link {
+  display: flex;
+  justify-content: center;
 }
 
 .youtube-container {
@@ -499,13 +505,14 @@ table {
 }
 
 .modal-button-box {
-  position: absolute;
-  right: 50px;
-  top: 65px;
   width: 260px;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }
 
 .modal-format-button {
@@ -544,6 +551,7 @@ table {
   padding-top: 50px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .modal-bottom-exit {
@@ -590,6 +598,9 @@ table {
   top: 0;
   left: 0;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hide-trailer {
@@ -603,8 +614,8 @@ table {
 .modal-backdrop {
   position: absolute;
   z-index: -1;
-  width: 100%;
-  height: 96%;
+  width: 1000px;
+  height: 570px;
   top: 30px;
   opacity: .1;
 }
@@ -612,16 +623,6 @@ table {
 .absolute-center {
   position: absolute;
   left: 50%;
-}
-
-.back-to-deets-abs-center {
-  top: -44%;
-  left:50%;
-}
-
-.upcoming-back-to-deets-abs-center {
-  bottom: 765px;
-  left: 45%;
 }
 
 .to-deets-abs-center {
