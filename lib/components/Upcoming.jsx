@@ -29,7 +29,7 @@ export default class Upcoming extends Component {
 
   render() {
     return (
-      <div>
+      <div className="explore">
       <h3 className="upcoming-header">Recent & Upcoming</h3>
       <article className="upcoming-card-container">
         <div className="upcoming-card-container-inner">
