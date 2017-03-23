@@ -435,7 +435,7 @@ footer {
   width: 988px;
   display: flex;
   overflow-y: auto;
-  margin: 20px 5px;
+  margin: 0px 5px;
   display: flex;
 }
 
@@ -550,6 +550,8 @@ table {
   color: white;
   z-index: 1;
   height: 42px;
+  width: 1000px;
+  position: fixed;
 }
 
 .modal-title {
@@ -557,6 +559,7 @@ table {
 }
 
 .modal-body {
+  margin-top: 42px;
   display: flex;
   flex-direction: column;
   position: relative;
