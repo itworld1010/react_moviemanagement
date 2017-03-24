@@ -689,13 +689,12 @@ table {
       min-height: null;
       display: flex;
       width: 100vw;
-      height: 80vh;
+      height: 100vh;
       left: 0px;
       color: white;
       z-index: 1;
       background: radial-gradient(541px, #484646, black);
       position: absolute;
-      overflow: visible;
     }
 
     .modal-body-container {
@@ -713,7 +712,7 @@ table {
     }
 
     .modal-movie-deets {
-      height: 250px;
+      height: auto;
       overflow: auto;
       margin-top: 20px;
       display: flex;
@@ -805,12 +804,17 @@ table {
 
     .modal-body {
       width: 100vw;
+      overflow: hidden;
     }
 
     .modal-close-title {
+      font-size: 30px;
       display: block;
       position: absolute;
       right: 0;
       margin: 0 15px;
+      &:hover {
+        cursor: pointer;
+      }
     }
 }

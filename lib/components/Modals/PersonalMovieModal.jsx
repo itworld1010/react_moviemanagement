@@ -76,7 +76,7 @@ export default class PersonalMovieModal extends Component {
       <div className="modal-container" >
         <div className="modal-header">
             <p className="modal-title">{this.props.movie.movie.original_title}</p>
-            <p className="modal-close-title">X</p>
+            <p className="modal-close-title" onClick={() => this.props.close()}>X</p>
         </div>
         <div className="modal-body-container">
         <div className="modal-body">
