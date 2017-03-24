@@ -804,7 +804,8 @@ table {
 
     .modal-body {
       width: 100vw;
-      overflow: hidden;
+      overflow-y: scroll;
+      overflow-x: hidden;
     }
 
     .modal-close-title {
