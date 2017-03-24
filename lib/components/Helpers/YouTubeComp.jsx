@@ -6,6 +6,11 @@ var classNames = require('classnames');
 export const YouTubeComp = ({ youtubeID, toggleTrailer, showTrailer }) => {
   let trailerShow = showTrailer ? 'show-trailer' : 'hide-trailer'
   let trailer = classNames('youtube-container', trailerShow)
+  let opts = {
+    playerVars: {
+      autoplay: 1
+    }
+  }
     return (
       <div className={trailer}>
       <div className="youtube-background" onClick={() => toggleTrailer()}></div>
@@ -15,6 +20,7 @@ export const YouTubeComp = ({ youtubeID, toggleTrailer, showTrailer }) => {
           controls="1"
           videoId={youtubeID}
           loop="1"
+          opts={opts}
         />
       :
         <YouTube

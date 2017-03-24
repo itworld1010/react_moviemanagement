@@ -463,8 +463,8 @@ table {
 }
 .modal-container {
   display: block;
-  min-width: 1000px;
-  min-height: 650px;
+  width: 1000px;
+  height: 700px;
   overflow-y: auto;
   color: white;
   z-index: 1;
@@ -487,11 +487,13 @@ table {
 }
 
 .trailer-link {
-  margin: 25px auto;
-  color: $universalColor;
-  font-size: 25px;
-  display: flex;
-  justify-content: center;
+  width: 250px;
+  height: 187px;
+}
+
+.trailer-container {
+  width: 250px;
+  height: 187px;
 }
 
 .youtube-container {
@@ -505,6 +507,21 @@ table {
   bottom: 8%;
   z-index: 1;
   margin: auto;
+}
+
+.play-trailer {
+  position: relative;
+  top: -145px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  opacity: 0.6;
+  font-weight: bold;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .youtube-background {
@@ -545,7 +562,7 @@ table {
 
 .modal-movie-deets {
   width: 650px;
-  height: 300px;
+  height: 315px;
   overflow: auto;
   margin-top: 20px;
   display: flex;
@@ -632,7 +649,7 @@ table {
   position: absolute;
   z-index: -1;
   width: 1000px;
-  height: 608px;
+  height: 623px;
   opacity: .1;
 }
 
@@ -658,18 +675,25 @@ table {
 }
 
 @media only screen
-  and (max-width: 750px) {
+  and (max-width: 1000px) {
 
     .modal-container {
-      display: block;
-      position: fixed;
+      min-width: null;
+      min-height: null;
+      display: flex;
       width: 100vw;
       height: 80vh;
       left: 0px;
-      overflow-y: auto;
       color: white;
       z-index: 1;
       background: radial-gradient(541px, #484646, black);
+      position: absolute;
+    }
+
+    .modal-body-container {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
     }
 
     .modal-button-box {
@@ -677,7 +701,7 @@ table {
       display: flex;
       flex-wrap: wrap;
       position: inherit;
-      margin: auto;
+      margin: 20px auto;
     }
 
     .modal-movie-deets {
@@ -688,8 +712,13 @@ table {
       width: 100%;
     }
 
-    modal-header {
-      width: 100%;
+    .modal-header {
+      width: 100vw;
+      height: 42px;
+    }
+
+    .modal-backdrop {
+      width: 100vw;
     }
 
     table {
@@ -742,5 +771,23 @@ table {
     }
     .sign-out-button {
       display: none;
+    }
+
+    .flex-row {
+      flex-direction: column;
+      width: 95vw;
+    }
+
+    .modal-title {
+      font-size: 20px;
+      top: 25%;
+    }
+
+    .youtube-container {
+      background-color: black;
+      position: fixed;
+      width: 100vw;
+      height: 540px;
+      left: 0;
     }
 }
