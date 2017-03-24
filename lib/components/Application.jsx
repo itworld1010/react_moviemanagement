@@ -16,12 +16,17 @@ export default class Application extends Component{
     super()
     this.state = {
       user: null,
-      movieResults: []
+      movieResults: [],
+      showMenu: false
     }
   }
 
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => this.setState({ user }));
+  }
+
+  toggleMobileMenu() {
+    this.setState({ showMenu: !this.state.showMenu})
   }
 
   render() {
@@ -38,7 +43,11 @@ export default class Application extends Component{
         <div>
           { this.state.user ?
             <div>
-              <Navigation user={this.state.user}/>
+              <Navigation
+                user={this.state.user}
+                showMenu={this.state.showMenu}
+                toggleMobileMenu={this.toggleMobileMenu.bind(this)}
+              />
               <Match exactly pattern="/" render={() => <MyMovies user={this.state.user}/>}/>
               <Match exactly pattern="/explore" render={() => <Upcoming user={this.state.user}/>} />
               <Match exactly pattern="/search" render={() => <SearchMovie user={this.state.user}/>} />

@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { signOut } from '../firebase'
 import { split } from 'lodash';
 
-const Navigation = ({ user }) => {
+const Navigation = ({ user, showMenu, toggleMobileMenu }) => {
   let currentUser;
   let firstName;
   if (user !== null) {
@@ -26,6 +26,18 @@ const Navigation = ({ user }) => {
           </img>
         </span>
         </div>
+        { showMenu ?
+          <div>
+            <div className="mobile-menu-background"/>
+            <div className="mobile-menu">
+              <p className="mobile-nav-link"><Link onClick={() => toggleMobileMenu()} to="/">My Movies</Link></p>
+              <p className="mobile-nav-link"><Link onClick={() => toggleMobileMenu()} to="/explore">Explore</Link></p>
+              <p className="mobile-nav-link"><Link onClick={() => toggleMobileMenu()} to="/search">Search</Link></p>
+            </div>
+          </div>
+          :
+          <div className="mobile-menu-text" onClick={() => toggleMobileMenu() }>Menu</div>
+        }
     </div>
   );
 };
