@@ -8,7 +8,9 @@ export const YouTubeComp = ({ youtubeID, toggleTrailer, showTrailer }) => {
   let trailer = classNames('youtube-container', trailerShow)
   let opts = {
     playerVars: {
-      autoplay: 1
+      autoplay: 1,
+      loop: 1,
+      controls: 1
     }
   }
     return (
@@ -17,9 +19,7 @@ export const YouTubeComp = ({ youtubeID, toggleTrailer, showTrailer }) => {
       { youtubeID ?
         <YouTube
           className="youtube"
-          controls="1"
           videoId={youtubeID}
-          loop="1"
           opts={opts}
         />
       :
