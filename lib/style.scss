@@ -71,9 +71,8 @@ a {
     left: 45%;
   }
 
-  @keyframes reel-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.mobile-menu {
+  display: none;
 }
 
 
@@ -81,7 +80,6 @@ a {
   width: 50%;
   padding: 3%;
 }
-
 
 .button-box {
   width: inherit;
@@ -683,6 +681,42 @@ table {
 
 @media only screen
   and (max-width: 1000px) {
+
+    .mobile-menu {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: column;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+
+    .mobile-menu-background {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      opacity: .9;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .mobile-nav-link {
+      margin: 10px;
+    }
+
+    .mobile-menu-text {
+      margin: 10px;
+      color: $universalColor;
+      &:hover{
+        cursor: pointer;
+      }
+    }
 
     .modal-container {
       min-width: null;
