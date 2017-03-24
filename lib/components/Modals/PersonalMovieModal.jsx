@@ -137,9 +137,8 @@ export default class PersonalMovieModal extends Component {
                   onClick={() => this.updateFormat('Prime')}
                 />
               </form>
+              <p className="trailer-link" onClick={() => this.toggleTrailer()}>Watch Trailer</p>
               <button onClick={() => this.delete()} className="delete">Delete movie</button>
-              <br/>
-              <p className="trailer-link" onClick={() => this.toggleTrailer()}>Trailer</p>
               { this.state.showTrailer ?
                 <YouTubeComp
                 youtubeID={this.props.youtubeID}

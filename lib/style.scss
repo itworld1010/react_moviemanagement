@@ -52,10 +52,10 @@ a {
   }
 
   .delete {
-    font-size: 12px;
+    font-size: 10px;
     position: relative;
     top: 10px;
-    color: #d33e15;
+    color: #fff;
     background: none;
     display: inline-block;
     &:hover{
@@ -463,8 +463,8 @@ table {
 }
 .modal-container {
   display: block;
-  width: 1000px;
-  height: 650px;
+  min-width: 1000px;
+  min-height: 650px;
   overflow-y: auto;
   color: white;
   z-index: 1;
@@ -487,6 +487,9 @@ table {
 }
 
 .trailer-link {
+  margin: 25px auto;
+  color: $universalColor;
+  font-size: 25px;
   display: flex;
   justify-content: center;
 }
