@@ -75,6 +75,9 @@ a {
   display: none;
 }
 
+.mobile-menu-text {
+  display: none;
+}
 
 .format-button {
   width: 50%;
@@ -695,6 +698,10 @@ table {
       z-index: 2;
     }
 
+    .mobile-menu-text {
+      display: block;
+    }
+
     .mobile-menu-background {
       position: fixed;
       width: 100vw;
@@ -798,8 +805,8 @@ table {
     }
 
     .poster{
-      width: 82.5px;
-      height: 125px;
+      width: 100%;
+      height: 100%;
     }
 
     .remove-filters {
@@ -851,5 +858,43 @@ table {
       &:hover {
         cursor: pointer;
       }
+    }
+
+    .explore {
+      width: 80vw;
+      height: auto;
+      align-items: center;
+    }
+
+    .upcoming-poster-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .upcoming-header {
+      margin-top: 20px;
+    }
+
+    .upcoming-movie-card {
+      width: 82.5px;
+      height: 125px;
+    }
+
+    .upcoming-card-container {
+      height: auto;
+    }
+
+    .search-input {
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .search-movies-button {
+      width: 100%;
+    }
+
+    .search-input-container {
+      width: 90vw;
     }
 }
