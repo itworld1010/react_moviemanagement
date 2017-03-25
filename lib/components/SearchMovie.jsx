@@ -36,19 +36,22 @@ export default class SearchMovie extends Component {
         <div className="search-input-container">
           <form
           id='search-input-container'
-          onClick={ (e) => {
-            e.preventDefault();
-            this.retrieveMovieSearch(input.value);
-            this.clearQuery();
-          }}>
+          onChange={() => this.setState({ userSearch: input.value })}
+          >
             <input
               className="search-input"
               placeholder="Enter Movie Title"
               autoFocus
+              value={this.state.userSearch}
               ref={ node => { input = node }}
             />
             <button
               className="button search-movies-button"
+              onClick={ (e) => {
+                e.preventDefault();
+                this.retrieveMovieSearch(input.value);
+                this.clearQuery();
+              }}
             > Search
             </button>
           </form>

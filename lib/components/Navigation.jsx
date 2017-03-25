@@ -28,11 +28,12 @@ const Navigation = ({ user, showMenu, toggleMobileMenu }) => {
         </div>
         { showMenu ?
           <div>
-            <div className="mobile-menu-background"/>
-            <div className="mobile-menu">
-              <p className="mobile-nav-link"><Link onClick={() => toggleMobileMenu()} to="/">My Movies</Link></p>
-              <p className="mobile-nav-link"><Link onClick={() => toggleMobileMenu()} to="/explore">Explore</Link></p>
-              <p className="mobile-nav-link"><Link onClick={() => toggleMobileMenu()} to="/search">Search</Link></p>
+            <div className="mobile-menu-background" />
+            <div className="mobile-menu" onClick={() => toggleMobileMenu()}>
+              <button onClick={() => toggleMobileMenu()} className="mobile-nav-link"><Link  to="/">My Movies</Link></button>
+              <button onClick={() => toggleMobileMenu()} className="mobile-nav-link"><Link  to="/explore">Explore</Link></button>
+              <button onClick={() => toggleMobileMenu()} className="mobile-nav-link"><Link  to="/search">Search</Link></button>
+              <button onClick={() => signOut()} className="mobile-nav-link"><Link to="/search">Sign Out</Link></button>
             </div>
           </div>
           :
