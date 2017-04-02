@@ -629,7 +629,7 @@ table {
   height: 100vh;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: -2;
   opacity: 0.7;
 }
 
@@ -659,7 +659,7 @@ table {
 
 .modal-backdrop {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   width: 1000px;
   height: 623px;
   opacity: .1;
