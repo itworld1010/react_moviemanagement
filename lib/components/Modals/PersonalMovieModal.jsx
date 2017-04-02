@@ -74,13 +74,13 @@ export default class PersonalMovieModal extends Component {
       <div className={modal}>
       <div className="modal-background" onClick={() => this.props.close()}></div>
       <div className="modal-container" >
+      <img className="modal-backdrop" src={'https://image.tmdb.org/t/p/w500' + this.props.movie.movie.backdrop_path} />
         <div className="modal-header">
             <p className="modal-title">{this.props.movie.movie.original_title}</p>
             <p className="modal-close-title" onClick={() => this.props.close()}>X</p>
         </div>
         <div className="modal-body-container">
         <div className="modal-body">
-        <img className="modal-backdrop" src={'https://image.tmdb.org/t/p/w500' + this.props.movie.movie.backdrop_path} />
         <div className="movie-details">
           <div className="flex-row">
             <div className="modal-movie-deets" >
