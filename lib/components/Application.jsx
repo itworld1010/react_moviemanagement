@@ -51,7 +51,6 @@ export default class Application extends Component{
               <Route exact path="/" render={() => <MyMovies user={this.state.user}/>}/>
               <Route exact path="/explore" render={() => <Upcoming user={this.state.user}/>} />
               <Route exact path="/search" render={() => <SearchMovie user={this.state.user}/>} />
-              {/* <Miss component={NotFound} /> */}
             </div>
           :
             <Login />
