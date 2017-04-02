@@ -30,11 +30,10 @@ export default class MovieCard extends Component {
   addNewMovie(movie) {
     let title
     if (this.state.movie.title.slice(0,4) === 'The '){
-      title = this.state.movie.title.slice(4) + this.state.movie.release_date;
+      title = this.state.movie.title.slice(4).replace(/[\.,:-]+/g, '') + this.state.movie.release_date;
     } else {
-      title = this.state.movie.title + this.state.movie.release_date;
+      title = this.state.movie.title.replace(/[\.,:-]+/g, '') + this.state.movie.release_date;
     }
-    console.log(title);
     const { user } = this.state;
     firebase.database().ref('users/' + user.displayName).child(title).set({
       movie,

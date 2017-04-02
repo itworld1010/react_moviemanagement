@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Match, Miss } from 'react-router'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import { signIn, signOut } from '../firebase'
 import { split } from 'lodash';
 
@@ -39,7 +39,7 @@ export default class Application extends Component{
     }
 
     return(
-      <BrowserRouter>
+      <Router>
         <div>
           { this.state.user ?
             <div>
@@ -48,16 +48,15 @@ export default class Application extends Component{
                 showMenu={this.state.showMenu}
                 toggleMobileMenu={this.toggleMobileMenu.bind(this)}
               />
-              <Match exactly pattern="/" render={() => <MyMovies user={this.state.user}/>}/>
-              <Match exactly pattern="/explore" render={() => <Upcoming user={this.state.user}/>} />
-              <Match exactly pattern="/search" render={() => <SearchMovie user={this.state.user}/>} />
-              <Miss component={NotFound} />
+              <Route exact path="/" render={() => <MyMovies user={this.state.user}/>}/>
+              <Route exact path="/explore" render={() => <Upcoming user={this.state.user}/>} />
+              <Route exact path="/search" render={() => <SearchMovie user={this.state.user}/>} />
             </div>
           :
             <Login />
           }
         </div>
-      </BrowserRouter>
+      </Router>
     )
   }
 }
