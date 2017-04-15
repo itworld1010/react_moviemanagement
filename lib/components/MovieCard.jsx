@@ -14,6 +14,7 @@ export default class MovieCard extends Component {
       Bluray: false,
       iTunes: false,
       Prime: false,
+      GOOGLE: false,
       submit: false,
       credits: null,
       trailers: null,
@@ -97,6 +98,12 @@ export default class MovieCard extends Component {
                   type="button"
                   value="DVD"
                   onClick={() => { this.setState({ DVD: !this.state.DVD }); }}
+                />
+                <input
+                  className={this.state.GOOGLE ? 'format-button format-true button' : 'format-button format-false button'}
+                  type="button"
+                  value="Google"
+                  onClick={() => { this.setState({ GOOGLE: !this.state.GOOGLE }); }}
                 />
                 <input
                   className={this.state.Bluray ? 'format-button format-true button' : 'format-button format-false button'}
