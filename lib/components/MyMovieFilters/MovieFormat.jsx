@@ -13,7 +13,7 @@ const MovieFormat = ({ handleSelectChange, value }) => {
   return (
     <Select
         name="form-field-name"
-        className="movie-filter"
+        className="format-filter"
         multi
         value={value}
         searchable={false}

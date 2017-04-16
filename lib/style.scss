@@ -222,7 +222,7 @@ footer {
 //search movie card
 .movie-card {
   width: 200px;
-  height: 425px;
+  height: 390px;
   position: relative;
   float: left;
   margin:10px;
@@ -291,13 +291,14 @@ footer {
 }
 
 .card-title{
-  font-size: 18px;
+  font-size: 14px;
   margin-left: 11px;
   text-align: center;
 }
 
 .card-release-year {
   text-align: center;
+  font-size: 12px;
 }
 
 .card-body{
@@ -322,6 +323,14 @@ footer {
   margin-top: 10px;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.format-filter {
+  display: flex;
+  width: 100%;
+  margin-left: auto
+  ;
+  border-color: $universalColor;
 }
 
 .movie-filter {

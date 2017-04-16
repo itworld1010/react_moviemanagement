@@ -98,7 +98,6 @@ export default class MovieCard extends Component {
                 :
                 <p className="card-release-year">Not Available</p>
               }
-
             </div>
             :
             <div className="button-box">
