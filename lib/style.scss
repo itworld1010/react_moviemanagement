@@ -80,13 +80,30 @@ a {
 }
 
 .format-button {
-  width: 50%;
+  width: 100%;
   padding: 3%;
+  margin: 5px 0;
+  height: 49px;
+  background: none;
+  color: white;
+  border: none;
 }
 
 .button-box {
-  width: inherit;
+  width: 100%;
   margin: inherit;
+  margin-top: -310px;
+  z-index: 2;
+  height: 300px;
+}
+
+.button-box-background {
+  width: 100%;
+  z-index: 1;
+  background-color: black;
+  opacity: 0.6;
+  height: 100%;
+  display: inline-block;
 }
 
 .format-true:hover{
@@ -226,6 +243,8 @@ footer {
   position: relative;
   float: left;
   margin:10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .search-input-container {

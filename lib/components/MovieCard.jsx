@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import firebase from '../firebase';
 import { update } from 'react-addons-update';
-import MovieFormat from './MyMovieFilters/MovieFormat'
 require('isomorphic-fetch');
 
 export default class MovieCard extends Component {
@@ -20,7 +19,6 @@ export default class MovieCard extends Component {
       credits: null,
       trailers: null,
       movieDetails: null,
-      formats: []
     };
   }
 
@@ -29,13 +27,6 @@ export default class MovieCard extends Component {
     const movie = this.props.movie;
     this.setState({ user, movie });
   }
-
-  handleSelectChange (value) {
-		console.log('You\'ve selected:', value);
-    console.log(value.length);
-    this.setState({ DVD: false, Bluray: false, iTunes: false, Prime: false, Google: false })
-    value.length !== 0 ? value.split(',').forEach(e => this.setState({ formats: value, [e]: true })) : this.setState({ formats: value });
-	}
 
   addNewMovie(movie) {
     let title
@@ -70,9 +61,9 @@ export default class MovieCard extends Component {
       genres: this.state.movie.genre_ids,
       DVD: this.state.DVD,
       Bluray: this.state.Bluray,
+      Google: this.state.Google,
       iTunes: this.state.iTunes,
       Prime: this.state.Prime,
-      Google: this.state.Google,
       rating: 'unrated',
     };
     this.addNewMovie(newMovie);
@@ -98,13 +89,43 @@ export default class MovieCard extends Component {
                 :
                 <p className="card-release-year">Not Available</p>
               }
+
             </div>
             :
             <div className="button-box">
-              <MovieFormat
-                handleSelectChange={this.handleSelectChange.bind(this)}
-                value={this.state.formats}
-              />
+            <div className="button-box-background"></div>
+              <form>
+                <input
+                  className={this.state.DVD ? 'format-button format-true button' : 'format-button format-false button'}
+                  type="button"
+                  value="DVD"
+                  onClick={() => { this.setState({ DVD: !this.state.DVD }); }}
+                />
+                <input
+                  className={this.state.Google ? 'format-button format-true button' : 'format-button format-false button'}
+                  type="button"
+                  value="Google"
+                  onClick={() => { this.setState({ Google: !this.state.Google }); }}
+                />
+                <input
+                  className={this.state.Bluray ? 'format-button format-true button' : 'format-button format-false button'}
+                  type="button"
+                  value="Blu-ray"
+                  onClick={() => { this.setState({ Bluray: !this.state.Bluray }); }}
+                />
+                <input
+                  className={this.state.iTunes ? 'format-button format-true button' : 'format-button format-false button'}
+                  type="button"
+                  value="iTunes"
+                  onClick={() => { this.setState({ iTunes: !this.state.iTunes }); }}
+                />
+                <input
+                  className={this.state.Prime ? 'format-button format-true button' : 'format-button format-false button'}
+                  type="button"
+                  value="Prime"
+                  onClick={() => { this.setState({ Prime: !this.state.Prime }); }}
+                />
+              </form>
             </div>
           }
         <article className="p-movie-card-buttons">
