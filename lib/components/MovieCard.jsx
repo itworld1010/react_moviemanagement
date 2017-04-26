@@ -14,6 +14,7 @@ export default class MovieCard extends Component {
       Bluray: false,
       iTunes: false,
       Prime: false,
+      Google: false,
       submit: false,
       credits: null,
       trailers: null,
@@ -60,6 +61,7 @@ export default class MovieCard extends Component {
       genres: this.state.movie.genre_ids,
       DVD: this.state.DVD,
       Bluray: this.state.Bluray,
+      Google: this.state.Google,
       iTunes: this.state.iTunes,
       Prime: this.state.Prime,
       rating: 'unrated',
@@ -79,7 +81,6 @@ export default class MovieCard extends Component {
           />
           : <img src="https://firebasestorage.googleapis.com/v0/b/moviekeeper-65458.appspot.com/o/no-poster.png?alt=media&token=f47f98d5-dab5-4e98-8060-07aa63a02b11" className="poster"/>}
           </div>
-          {!this.state.addMovieClick ?
             <div className="center">
               <p className="card-title" >{this.state.movie.title}</p>
               {this.state.movie.release_date ?
@@ -89,14 +90,23 @@ export default class MovieCard extends Component {
               }
 
             </div>
+            {!this.state.addMovieClick ?
+              null
             :
             <div className="button-box">
-              <form>
+            <div className="button-box-background"></div>
+              <form className="button-box-form">
                 <input
                   className={this.state.DVD ? 'format-button format-true button' : 'format-button format-false button'}
                   type="button"
                   value="DVD"
                   onClick={() => { this.setState({ DVD: !this.state.DVD }); }}
+                />
+                <input
+                  className={this.state.Google ? 'format-button format-true button' : 'format-button format-false button'}
+                  type="button"
+                  value="Google"
+                  onClick={() => { this.setState({ Google: !this.state.Google }); }}
                 />
                 <input
                   className={this.state.Bluray ? 'format-button format-true button' : 'format-button format-false button'}
