@@ -94,7 +94,7 @@ export default class MovieCard extends Component {
             :
             <div className="button-box">
             <div className="button-box-background"></div>
-              <form>
+              <form className="button-box-form">
                 <input
                   className={this.state.DVD ? 'format-button format-true button' : 'format-button format-false button'}
                   type="button"
