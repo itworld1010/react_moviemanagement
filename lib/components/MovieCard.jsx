@@ -81,7 +81,6 @@ export default class MovieCard extends Component {
           />
           : <img src="https://firebasestorage.googleapis.com/v0/b/moviekeeper-65458.appspot.com/o/no-poster.png?alt=media&token=f47f98d5-dab5-4e98-8060-07aa63a02b11" className="poster"/>}
           </div>
-          {!this.state.addMovieClick ?
             <div className="center">
               <p className="card-title" >{this.state.movie.title}</p>
               {this.state.movie.release_date ?
@@ -91,6 +90,8 @@ export default class MovieCard extends Component {
               }
 
             </div>
+            {!this.state.addMovieClick ?
+              null
             :
             <div className="button-box">
             <div className="button-box-background"></div>
