@@ -30,14 +30,6 @@ export default class Application extends Component{
   }
 
   render() {
-    let { user } = this.state
-    let currentUser;
-    let firstName;
-    if (user !== null) {
-      currentUser = user.displayName
-      firstName = split(user.displayName, ' ')
-    }
-
     return(
       <Router>
         <div>
