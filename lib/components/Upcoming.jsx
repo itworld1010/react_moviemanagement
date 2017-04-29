@@ -31,21 +31,21 @@ export default class Upcoming extends Component {
     return (
       <div className="explore">
       <h3 className="upcoming-header">Recent & Upcoming</h3>
-      <article className="upcoming-card-container">
-        <div className="upcoming-card-container-inner">
-        {this.state.upcoming.map(m =>
-          <PopularMovieCard movie={m} key={m.id} user={this.state.user}/>
-        )}
-        </div>
-      </article>
-      <h3 className="upcoming-header">Popular Movies</h3>
-      <article className="upcoming-card-container">
-        <div className="upcoming-card-container-inner">
-        {this.state.popular.map(m =>
-          <PopularMovieCard movie={m} key={m.id} user={this.state.user}/>
-        )}
-        </div>
-      </article>
+        <article className="upcoming-card-container">
+          <div className="upcoming-card-container-inner">
+          {this.state.upcoming.map(m =>
+            <PopularMovieCard movie={m} key={m.id} user={this.state.user}/>
+          )}
+          </div>
+        </article>
+      {/* <h3 className="upcoming-header">Popular Movies</h3>
+        <article className="upcoming-card-container">
+          <div className="upcoming-card-container-inner">
+          {this.state.popular.map(m =>
+            <PopularMovieCard movie={m} key={m.id} user={this.state.user}/>
+          )}
+          </div>
+        </article> */}
       </div>
     );
   }
