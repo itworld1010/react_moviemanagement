@@ -42,17 +42,6 @@ export default class UpcomingMovieModal extends Component {
                   </div>
                 <div className="modal-body">
                   <img className="modal-backdrop" src={'https://image.tmdb.org/t/p/w500' + this.props.movie.backdrop_path} />
-                  <div className="absolute-center to-deets-abs-center">
-                    <p className="trailer-link relative-center" onClick={() => this.toggleTrailer()}>Trailer</p>
-                    { this.state.showTrailer ?
-                      <YouTubeComp
-                        youtubeID={this.props.youtubeID}
-                        toggleTrailer={this.toggleTrailer.bind(this)}
-                      />
-                      :
-                      null
-                    }
-                  </div>
                   <div className="modal-movie-deets">
                   <table>
                   <tbody>
@@ -79,6 +68,19 @@ export default class UpcomingMovieModal extends Component {
                     </tbody>
                   </table>
                   </div>
+                  <div className="upcoming-trailer-container" onClick={() => this.toggleTrailer()}>
+                    <img src={`https://img.youtube.com/vi/${this.props.youtubeID}/0.jpg`} className="trailer-link" />
+                    <p className="play-trailer">PLAY<br/>TRAILER</p>
+                  </div>
+                  { this.state.showTrailer ?
+                    <YouTubeComp
+                    youtubeID={this.props.youtubeID}
+                    showTrailer={this.state.showTrailer}
+                    toggleTrailer={this.toggleTrailer.bind(this)}
+                    />
+                    :
+                    null
+                  }
                   <div className="actor-list">
                     {this.props.cast.map(m =>
                     <ActorCard cast={m} key={m.id}/>
