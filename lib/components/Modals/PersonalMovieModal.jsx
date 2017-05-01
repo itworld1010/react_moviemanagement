@@ -154,13 +154,11 @@ export default class PersonalMovieModal extends Component {
             </div>
           </div>
           </div>
-        <div>
           <div className="actor-list">
           {this.props.cast.map((m, i) =>
           <ActorCard cast={m} key={m.id} />
           )}
           </div>
-        </div>
                 </div>
               </div>
             </div>
