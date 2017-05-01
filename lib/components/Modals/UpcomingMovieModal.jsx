@@ -37,11 +37,11 @@ export default class UpcomingMovieModal extends Component {
       <div className={modal}>
       <div className="modal-background" onClick={() => this.props.close()}></div>
       <div className="modal-container" >
+      <img className="modal-backdrop" src={'https://image.tmdb.org/t/p/w500' + this.props.movie.backdrop_path} />
       <div className="modal-header" >
-                  <div className="modal-title absolute-center"><span className="relative-center">{this.props.movie.original_title}</span></div>
+                  <div className="modal-title">{this.props.movie.original_title}</div>
                   </div>
                 <div className="modal-body">
-                  <img className="modal-backdrop" src={'https://image.tmdb.org/t/p/w500' + this.props.movie.backdrop_path} />
                   <div className="modal-movie-deets">
                   <table>
                   <tbody>
