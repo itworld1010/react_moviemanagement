@@ -14,8 +14,6 @@ The project is currently under test.
 
 Styling is under continuous update.
 
-Not pushed to production.
-
 ## Project Screen Shot(s)
 
 ![My Movies](lib/screenshots/my_movies.png?raw=true "My Movies")
